@@ -1,0 +1,145 @@
+.formContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 13vh;
+  left: 0;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.active-hov {
+  /* background-color: $color-white; */
+  background-color: white !important;
+  /* box-shadow: 0px 6px 20px rgba($color-black, .5), */
+  box-shadow: 0px 6px 20px black !important;
+}
+
+.inactive_hov {
+  background-color: transparent;
+}
+
+.form {
+  display: flex;
+  /* background-color: $color-white; */
+  background-color: white;
+  /* color: $color-black; */
+  color: black;
+  border-radius: 8rem;
+  height: 6rem;
+  width: 68rem;
+  /* box-shadow: 0px 16px 32px rgba($color-black, .15), */
+  /* 0px 3px 8px rgba($color-black, .15); */
+  box-shadow: 0px 16px 32px rgba(black, .15),
+  0px 3px 8px rgba(black, .15);
+}
+
+.control {
+  line-height: 1;
+  height: 6rem;
+  border-radius: 8rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.control:hover,
+#box-4:hover {
+  background-color: #D5D5D5;
+}
+
+#box-1 {
+  padding: 0 0 0 3rem;
+  flex-basis: 37%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#box-1 label {
+  cursor: pointer;
+}
+
+#box-1 input {
+  width: 20rem;
+  margin-top: .3rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  font-family: inherit;
+}
+
+#box-2,
+#box-3 {
+  flex-basis: 19%;
+  padding-left: 1.5rem;
+  flex-shrink: 0;
+}
+
+#box-4 {
+  flex-basis: 25%;
+  padding: 0 .8rem 0 1.5rem;
+  border-radius: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+#box-4 .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: normal;
+  width: 7rem;
+}
+
+#box-4 button {
+  text-decoration: none;
+  /* color: $color-white; */
+  color: white;
+  width: 4.7rem;
+  height: 4.7rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50rem;
+  /* background-color: $color-secondary-dark; */
+  background-color: black;
+  position: relative;
+  cursor: pointer;
+}
+
+#box-4 button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  /* color: $color-white; */
+  color: white;
+  display: none;
+}
+
+#box-4 button:hover {
+  background-color: #B06D1C;
+}
+
+.calendarContainer {
+  position: absolute;
+  top: 100%;
+  /* width: 100%; */
+  display: flex;
+  z-index: 20;
+}
+
+.button-Expand {
+  width: 11rem !important;
+  justify-content: flex-start !important;
+}

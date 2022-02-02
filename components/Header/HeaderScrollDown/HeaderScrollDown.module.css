@@ -1,0 +1,20 @@
+.header__direction {
+  position: absolute;
+  top: calc(57vh + 25rem);
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 2rem;
+  border-radius: 50rem;
+  /* color: $color-white; */
+  color: white;
+  /* background-color: rgba($color-white2, .3); */
+  background-color: rgba(white, .3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 1s ease-in 2s backwards,
+  direction 10s ease-in 6s infinite forwards;
+  cursor: pointer;
+  backface-visibility: hidden;
+}
+

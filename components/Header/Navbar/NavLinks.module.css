@@ -1,0 +1,8 @@
+.navlinks {
+  align-self: center;
+  margin: 3.2rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

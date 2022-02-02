@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height: 8.05rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  /* z-index: 23; */
+}
+
+.box {
+  align-self: flex-end;
+  flex-shrink: 0;
+  padding-left: 2rem;
+}
