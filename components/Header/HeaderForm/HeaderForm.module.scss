@@ -107,6 +107,7 @@
  background-color: $color-secondary-dark;
   position: relative;
   cursor: pointer;
+  transition: width .3s;
 }
 
 #box-4 button span:last-child {
@@ -122,6 +123,11 @@
   background-color: #B06D1C;
 }
 
+.button-Expand {
+  width: 11rem !important;
+  justify-content: flex-start !important;
+}
+
 .calendarContainer {
   position: absolute;
   top: 100%;
@@ -130,7 +136,3 @@
   z-index: 20;
 }
 
-.button-Expand {
-  width: 11rem !important;
-  justify-content: flex-start !important;
-}

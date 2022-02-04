@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Destinations from "../components/Destinations/Destinations";
 import MainHeader from "../components/Header/MainHeader";
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
         />
       </Head>
       <MainHeader />
+      <Destinations />
     </>
   );
 };

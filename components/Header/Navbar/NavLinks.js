@@ -7,37 +7,29 @@ import Modal from "../../UI/Modal";
 import classes from "./NavLinks.module.scss";
 
 const NavLinks = (props) => {
-  const [navLinkIsActive, setNavLinkIsActive] = useState({
-    cont1: false,
-    cont2: false,
-    cont3: false,
-    cont4: false 
-  });
   const [linksAreActive, setLinksAreActive] = useState(false); 
   const dispatch = useDispatch();
   const sectionRef = useRef(null);
-
+  
   const showModal = useSelector((state) => state.showModal);
+
+  const { cont1, cont2, cont3, cont4} = props.isActive;
 
   useEffect(() => {
     sectionRef.current = document.getElementById("section__header");
   }, []);
 
-  // if (navLinkIsActive.cont1 && navLinkIsActive.cont2 || navLinkIsActive.cont3 || navLinkIsActive.cont4) {
-  //   setLinksAreActive(true);
-  // }
-
   const closeNavBarHandler = () => {
     dispatch(modalSliceActions.closeModal());
-    setLinksAreActive(false);
     // sectionRef.current.classList.remove(`${classes.sticky}`);
     props.setSticky(1);
     setLinksAreActive(false);
-    setNavLinkIsActive({
+    props.setIsActive({
       cont1: false,
       cont2: false,
       cont3: false,
-      cont4: false
+      cont4: false,
+      cont5: false,
     });
   }
 
@@ -59,33 +51,37 @@ const NavLinks = (props) => {
     props.setSticky();
 
     if (eventTarget === "dropdown-1btn") {
-      setNavLinkIsActive({
+      props.setIsActive({
         cont1: true,
         cont2: false,
         cont3: false,
         cont4: false,
+        cont5: false,
       });
 
     } else if (eventTarget === "dropdown-2btn") {
-      setNavLinkIsActive({
+      props.setIsActive({
         cont1: false,
         cont2: true,
         cont3: false,
         cont4: false,
+        cont5: false,
       });
     } else if (eventTarget === "dropdown-3btn") {
-      setNavLinkIsActive({
+      props.setIsActive({
         cont1: false,
         cont2: false,
         cont3: true,
         cont4: false,
+        cont5: false,
       });
     } else if (eventTarget === "dropdown-4btn") {
-      setNavLinkIsActive({
+      props.setIsActive({
         cont1: false,
         cont2: false,
         cont3: false,
         cont4: true,
+        cont5: false,
       });
     }
   };
@@ -100,7 +96,7 @@ const NavLinks = (props) => {
           onClick={openNavBarHandler}
           id={"dropdown-1btn"}
           className={`${classes["dropbtn"]} ${
-            navLinkIsActive.cont1 && classes["active-dbtn"]
+            cont1 && classes["active-dbtn"]
           }`}
         >
           Things to do
@@ -108,7 +104,7 @@ const NavLinks = (props) => {
         <div
           id={classes["dropdown-content-2"]}
           className={`${classes["dropdown__content"]}`}
-          style={{ display: navLinkIsActive.cont1 ? "block" : "" }}
+          style={{ display: cont1 ? "block" : "" }}
         >
           <div className={classes["nav__row"]}>
             <ul className={classes["nav__row-list"]}>
@@ -254,7 +250,7 @@ const NavLinks = (props) => {
           onClick={openNavBarHandler}
           id={"dropdown-2btn"}
           className={`${classes["dropbtn"]} ${
-            navLinkIsActive.cont2 && classes["active-dbtn"]
+            cont2 && classes["active-dbtn"]
           }`}
         >
           Destinations
@@ -262,7 +258,7 @@ const NavLinks = (props) => {
         <div
           id={classes["dropdown-content-3"]}
           className={`${classes["dropdown__content"]}`}
-          style={{ display: navLinkIsActive.cont2 ? "block" : "" }}
+          style={{ display: cont2 ? "block" : "" }}
         >
           <div className={classes["nav__row"]}>
             <ul className={classes["nav__row-list"]}>
@@ -411,7 +407,7 @@ const NavLinks = (props) => {
           onClick={openNavBarHandler}
           id={"dropdown-3btn"}
           className={`${classes["dropbtn"]} ${
-            navLinkIsActive.cont3 && classes["active-dbtn"]
+            cont3 && classes["active-dbtn"]
           }`}
         >
           Places to stay
@@ -419,7 +415,7 @@ const NavLinks = (props) => {
         <div
           id={classes["dropdown-content-4"]}
           className={`${classes["dropdown__content"]}`}
-          style={{ display: navLinkIsActive.cont3 ? "block" : "" }}
+          style={{ display: cont3 ? "block" : "" }}
         >
           <div className={classes["nav__row"]}>
             <ul className={classes["nav__row-list"]}>
@@ -565,7 +561,7 @@ const NavLinks = (props) => {
           onClick={openNavBarHandler}
           id={"dropdown-4btn"}
           className={`${classes["dropbtn"]} ${
-            navLinkIsActive.cont4 && classes["active-dbtn"]
+            cont4 && classes["active-dbtn"]
           }`}
         >
           Experiences
@@ -573,7 +569,7 @@ const NavLinks = (props) => {
         <div
           id={classes["dropdown-content-5"]}
           className={`${classes["dropdown__content"]}`}
-          style={{ display: navLinkIsActive.cont4 ? "block" : "" }}
+          style={{ display: cont4 ? "block" : "" }}
         >
           <div className={classes["nav__row"]}>
             <ul className={classes["nav__row-list"]}>

@@ -34,11 +34,15 @@ const HeaderForm = () => {
       setCal1StateDay(dateData1.day);
       setCal1StateMonth(dateData1.month);
       setCal1StateYear(dateData1.year);
+      const nextDiv = document.getElementById(classes["box-3"]);
+      nextDiv.click();
     } else if (dateData2 && !dateData1) {
       setCal2StateDay(dateData2.day);
       setCal2StateMonth(dateData2.month);
       setCal2StateYear(dateData2.year);
       dispatch(modalSliceActions.closeCalendar());
+      const nextDiv = document.getElementById(classes["box-4"]);
+      nextDiv.click();
     }
   };
 

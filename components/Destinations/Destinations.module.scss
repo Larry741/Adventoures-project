@@ -1,0 +1,59 @@
+.destinations {
+  background-image: linear-gradient(
+    to bottom,
+    rgba($color-grey-light, 1),
+    rgba($color-white2, 1)
+  );
+  padding: 4rem 0 4rem 0;
+  z-index: 5;
+
+  & .heading-bg {
+    padding: 2rem 0 4rem 0;
+
+    // @include respond(tab-port) {
+    //   padding: 2rem 0;
+    // }
+  }
+
+  &__heading-2 {
+    padding: 0 4rem;
+  }
+
+  &__content {
+    width: 100vw;
+    height: fit-content;
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: 45rem 30rem 45rem 30rem 45rem 30rem;
+    grid-template-rows: repeat(2, 20.3rem);
+    grid-auto-flow: column;
+    grid-auto-columns: 45rem;
+    gap: 6px;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 2rem;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $color-grey-light;
+      border-radius: 50rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 100px;
+      border: 5px solid transparent;
+      background-clip: content-box;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-secondary-dark, 0.6),
+        rgba($color-primary2-dark, 0.6)
+      );
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-secondary-dark, 1),
+        rgba($color-primary2-dark, 1)
+      );
+    }
+  }
+}
