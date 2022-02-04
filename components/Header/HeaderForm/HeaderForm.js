@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HeaderFormCalender from "./HeaderFormCalender";
 import { modalSliceActions } from "../../store/modalSlice";
 
-import classes from "./HeaderForm.module.css";
+import classes from "./HeaderForm.module.scss";
 import Modal from "../../UI/Modal";
 
 const HeaderForm = () => {
@@ -25,14 +25,11 @@ const HeaderForm = () => {
   const showCalendar = useSelector((state) => state.showCalendar);
   const showModal = useSelector(state => state.showModal);
 
-  console.log(showModal, showCalendar);
-
   const showCalHandler = () => {
     dispatch(modalSliceActions.showCalendar());
   }
 
   const closeCalHandler = (dateData1, dateData2) => {
-    console.log(dateData1)
     if (dateData1 && !dateData2) {
       setCal1StateDay(dateData1.day);
       setCal1StateMonth(dateData1.month);
@@ -130,7 +127,7 @@ const HeaderForm = () => {
       <div onClick={formOpenModalHandler} id="formContainer">
         <form
           id="form"
-          style={{ backgroundColor: formIsActive ? "#EAEAEA" : "" }}
+          // style={{ backgroundColor: formIsActive ? "#EAEAEA" : "" }}
           className={classes["form"]}
           action=""
           method="post"
@@ -159,9 +156,9 @@ const HeaderForm = () => {
             onClick={showCalHandler}
           >
             <span>Adventure</span>
-            <div id="cal1Output">
+            <span id="cal1Output">
               {cal1StateDay + " " + cal1StateMonth + " " + cal1StateYear}
-            </div>
+            </span>
           </div>
           <div
             id={classes["box-3"]}
@@ -199,7 +196,7 @@ const HeaderForm = () => {
           </div>
         </form>
       </div>
-      {showModal ? <Modal onModalReact={formCloseModalHandler} /> : ""}
+      {showModal && formIsActive ? <Modal onModalReact={formCloseModalHandler} /> : ""}
       {showCalendar ? (
         <div className={classes["calendarContainer"]}>
           <HeaderFormCalender onChoose={closeCalHandler} id={"cal1"} />

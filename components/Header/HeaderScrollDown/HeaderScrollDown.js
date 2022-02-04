@@ -1,5 +1,5 @@
 
-import classes from "./HeaderScrollDown.module.css";
+import classes from "./HeaderScrollDown.module.scss";
 
 const HeaderScrollDown = () => {
 

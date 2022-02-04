@@ -1,0 +1,99 @@
+.profileBox {
+  align-self: flex-end;
+  width: 8rem;
+  height: 4.4rem;
+  padding: 0 .9rem 0;
+  margin: 0 3rem .5rem 0;
+  border-radius: 5rem;
+   background-color: $color-white2; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+/* .material-icons {
+  color: $color-grey-dark;
+} */
+
+.material-icons-1 {
+ color: $color-grey-dark;
+  font-size: 18px;
+  margin-right: .7rem;
+}
+
+.material-icons-2 {
+ color: $color-grey-dark;
+  font-size: 36px;
+  position: relative;
+}
+
+.material-icons-2::after {
+  content: "";
+  display: inline-block;
+   background-color: $color-secondary-dark; 
+   border: 2px solid $color-white2; 
+  border-radius: 50rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  position: absolute;
+  top: .1rem;
+  right: .1rem;
+}
+
+.dropdown-content-1 {
+  top: 4.9rem;
+  border-radius: 0 0 1rem 1rem;
+   background-color: $color-white2; 
+  min-width: 20rem;
+  right: 0rem;
+  overflow: hidden;
+  display: none;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* top: ;         Edited in the section design
+  right: 0rem;   Edited in the section design
+  background-color: ;  Edited in the section design
+  min-width: ;    Edited in the section design */
+}
+
+.dropdown-content-1 a {
+  /* color: $color-black; */
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  /* text-align: left; */
+}
+
+.dropdown:hover .dropdown-content-1 {
+  display: block;
+}
+
+.dropdown__content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* top: ;         Edited in the section design
+  right: 0rem;   Edited in the section design
+  background-color: ;  Edited in the section design
+  min-width: ;    Edited in the section design */
+}
+
+.dropdown__content a {
+  /* color: $color-black; */
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  /* text-align: left; */
+}
+
+.dropdown:hover .dropdown__content {
+  display: block;
+}
+
+/* a:hover {
+  background-color: #f1f1f1;
+} */

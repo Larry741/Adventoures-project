@@ -1,5 +1,5 @@
 
-import classes from "./HeaderVideo.module.css";
+import classes from "./HeaderVideo.module.scss";
 
 const HeaderVideo = () => {
 

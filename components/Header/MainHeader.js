@@ -7,14 +7,14 @@ import Navbar from "./Navbar/Navbar";
 
 const MainHeader = (props) => {
   return (
-    <>
+    <section id="section__header">
       <Navbar />
       <HeaderVideo />
       <HeaderForm />
       <HeaderCaption />
       <HeaderTourBtn />
       <HeaderScrollDown />
-    </>
+    </section>
   );
 };
 

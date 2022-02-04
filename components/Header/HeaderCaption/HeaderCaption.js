@@ -1,5 +1,5 @@
 
-import classes from "./HeaderCaption.module.css";
+import classes from "./HeaderCaption.module.scss";
 
 const HeaderCaption = () => {
 

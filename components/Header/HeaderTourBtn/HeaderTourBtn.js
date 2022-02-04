@@ -1,5 +1,5 @@
 
-import classes from "./HeaderTourBtn.module.css";
+import classes from "./HeaderTourBtn.module.scss";
 
 const HeaderTourBtn = () => {
 

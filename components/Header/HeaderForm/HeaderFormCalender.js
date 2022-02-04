@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState, useRef } from "react";
-import Modal from "../../UI/Modal";
 
-import classes from "./HeaderFormCalender.module.css";
+import classes from "./HeaderFormCalender.module.scss";
 
 const month_names = [
   "January",

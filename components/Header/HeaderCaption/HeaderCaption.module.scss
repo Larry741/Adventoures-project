@@ -15,9 +15,8 @@
 .header__heading {
   display: inline-block;
   padding: 0 .3rem;
-  /* color: transparent; */
-  /* background-image: linear-gradient(145deg, rgba($color-secondary-dark, .8), rgba($color-secondary-light, 1)); */
-  background-image: linear-gradient(145deg, rgba( black, .8), rgba(white, 1));
+  color: transparent;
+  background-image: linear-gradient(145deg, rgba($color-secondary-dark, .8), rgba($color-secondary-light, 1));
   -webkit-background-clip: text;
   backface-visibility: hidden;
   animation: moveInRight 1s ease-out;
@@ -26,9 +25,8 @@
 .header__heading-2 {
   display: inline-block;
   padding: 0 .3rem;
-  /* color: transparent; */
-  /* background-image: linear-gradient(145deg, rgba($color-secondary-dark, .8), rgba($color-secondary-light, 1)); */
-  background-image: linear-gradient(145deg, rgba (black, .8), rgba(white, 1));
+  color: transparent;
+  background-image: linear-gradient(145deg, rgba($color-secondary-dark, .8), rgba($color-secondary-light, 1));
   -webkit-background-clip: text;
   backface-visibility: hidden;
   animation: moveInLeft 1s ease-out;

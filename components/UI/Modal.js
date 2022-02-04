@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
-import style from "./Modal.module.css";
+import style from "./Modal.module.scss";
 
 const ModalDom = (props) => {
   return (
@@ -25,7 +25,7 @@ const Modal = (props) => {
     <Fragment>
       {ReactDOM.createPortal(
         <ModalDom closeModalHandler={closeModalHandler} />,
-        document.body
+        document.getElementById('__next')
       )}
     </Fragment>
   );
