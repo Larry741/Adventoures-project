@@ -1,16 +1,14 @@
 .destinations__content-column {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &-1 {
     grid-column: 1 / 2;
     grid-row: span 2;
-  }
-
-  &-2 {
-  }
-
-  &-3 {
   }
 
   &-4 {
@@ -18,21 +16,9 @@
     grid-row: span 2;
   }
 
-  &-5 {
-  }
-
-  &-6 {
-  }
-
   &-7 {
     grid-column: 5 / 6;
     grid-row: span 2;
-  }
-
-  &-8 {
-  }
-
-  &-9 {
   }
 
   & img {
@@ -44,20 +30,9 @@
     transition: 0.3s ease;
   }
 
-  &:hover span:last-of-type {
-    transform: translateY(-3rem);
-    opacity: 1;
-  }
-
-  &:hover .destinations__pics {
+  &:hover img {
     transform: scale(1.1);
     filter: blur(2px) brightness(80%);
-  }
-
-  &:hover a {
-    transform: translate(-50%, -50%);
-    top: 60%;
-    opacity: 1;
   }
 
   & span:last-of-type {
@@ -65,8 +40,13 @@
     font-family: "Sofia", georgia, sans-serif;
     font-weight: normal;
     transition: 0.3s ease;
-    z-index: 1;
+    z-index: 5;
     backface-visibility: hidden;
+  }
+
+  &:hover span:last-of-type {
+    transform: translateY(-3rem);
+    opacity: 1;
   }
 
   & > a {
@@ -78,5 +58,11 @@
     transform: translate(-50%, -50%);
     transition: 0.3s ease;
     backface-visibility: hidden;
+
+  }
+  &:hover a {
+    transform: translate(-50%, -50%);
+    top: 60%;
+    opacity: 1;
   }
 }

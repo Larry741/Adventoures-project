@@ -1,9 +1,14 @@
-import Link from 'next/link';
-
-import classes from './Button.module.scss';
+import style from './Button.module.scss';
 
 const Button = (props) => {
-  return <Link href={props.href} className={`btn`}>{props.children}</Link>
+
+  let classes = `${style.btn} ${style[props.des]}`
+
+  if (props.des === 'btn-1') {
+    classes = `${style["btn-1"]}`;
+  }
+
+  return <a className={classes}>{props.children}</a>;
 }
 
 export default Button;

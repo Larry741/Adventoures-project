@@ -1,5 +1,5 @@
 .btn {
-  /* font-family: Georgia, 'verdana', serif; */
+  // font-family: Georgia, 'verdana', serif;
   padding: 1.8rem 2.7rem;
   border: none;
   border-radius: 4.5rem;
@@ -7,8 +7,7 @@
   cursor: pointer;
   position: relative;
   z-index: 2;
-  /* box-shadow: 0 .5rem 1rem rgba($color-black, 0.1); */
-  box-shadow: 0 .5rem 1rem rgba(black, 0.1);
+  box-shadow: 0 .5rem 1rem rgba($color-black, 0.1);
   text-decoration: none;
 }
 /* @include respond(tab-port) {
@@ -17,14 +16,12 @@
 
 .btn:hover {
   transform: translateY(-.3rem);
-  /* box-shadow: 0 1rem 1.5rem rgba($color-black, 0.2); */
-  box-shadow: 0 1rem 1.5rem rgba(black, 0.2);
+  box-shadow: 0 1rem 1.5rem rgba($color-black, 0.2); 
 }
 
 .btn:active {
   transform: translateY(.1rem);
-  /* box-shadow: 0 .5rem .5rem rgba($color-black, 0.2); */
-  box-shadow: 0 .5rem .5rem rgba(black, 0.2);
+  box-shadow: 0 .5rem .5rem rgba($color-black, 0.2); 
 }
 
 .btn::after {
@@ -51,21 +48,17 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  /* color: $color-secondary-dark; */
-  color: black;
+   color: $color-secondary-dark;
   transition: all .2s ease;
-  /* border-bottom: 1px solid $color-secondary-dark; */
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $color-secondary-dark;
   font-size: 1.6rem;
 }
 
 .btn-1:hover {
   padding: 1.5rem;
-  /* background-color: $color-secondary-dark; */
-  background-color: black;
+  background-color: $color-secondary-dark; 
   border-radius: 5px;
-  /* color: $color-white; */
-  color: white;
+  color: $color-white;
   transform: translateY(-.3rem);
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
 }
@@ -77,25 +70,20 @@
 
 
 .btn-white {
-  /* background-color: $color-white;
-  color: $color-grey-dark-2; */
-  background-color: white;
-  color: black;
+  background-color: $color-white;
+  color: $color-grey-dark-2;
 }
 
 .btn-white::after {
-  /* background-color: $color-white; */
+  background-color: $color-white;
   background-color: white;
 }
 
 .btn-orange {
-  /* background-color: $color-secondary-dark;
-  color: $color-white; */
-  background-color: black;
-  color: white;
+  background-color: $color-secondary-dark;
+  color: $color-white;
 }
 
 .btn-orange::after {
-  /* background-color: $color-secondary-dark; */
-  background-color:  black;
+ background-color: $color-secondary-dark; 
 }

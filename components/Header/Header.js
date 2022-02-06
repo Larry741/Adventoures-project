@@ -5,9 +5,11 @@ import HeaderVideo from "./HeaderVideo/HeaderVideo";
 import HeaderForm from "./HeaderForm/HeaderForm";
 import Navbar from "./Navbar/Navbar";
 
-const MainHeader = (props) => {
+import classes from './Header.module.scss'
+
+const Header = (props) => {
   return (
-    <section id="section__header">
+    <section id="section__header" className={classes["section__header"]}>
       <Navbar />
       <HeaderVideo />
       <HeaderForm />
@@ -18,4 +20,4 @@ const MainHeader = (props) => {
   );
 };
 
-export default MainHeader;
+export default Header;

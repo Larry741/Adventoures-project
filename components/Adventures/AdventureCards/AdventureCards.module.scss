@@ -1,0 +1,258 @@
+.adventures__cards {
+  display: inline-block;
+  height: 37rem;
+  flex-basis: 25rem;
+  border-radius: 3px;
+  perspective: 150rem;
+  margin: 0 1rem;
+  flex-shrink: 0;
+
+  // @include respond(tab-landE) {
+
+  // }
+
+  &-rotate {
+    position: relative;
+    transition: 0.4s linear;
+    z-index: 2;
+  }
+
+  &-side {
+    height: 37rem;
+    width: 25rem;
+    box-shadow: 0 0.2rem 0.8rem rgba($color-black, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &-front {
+      background-color: $color-grey-light;
+      backface-visibility: hidden;
+
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+    }
+
+    &-back {
+      transform: rotateY(-180deg);
+      opacity: 0;
+      transition: 0s linear 0.2s;
+
+      & > .bg {
+        height: 100%;
+        padding: 0 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &-1 {
+          background-image: linear-gradient(
+            145deg,
+            rgba($color-tertiary-dark, 1),
+            rgba($color-secondary-dark, 1)
+          );
+        }
+
+        &-2 {
+          background-image: linear-gradient(
+            145deg,
+            rgba($color-tertiary-light, 1),
+            rgba($color-tertiary-dark, 1)
+          );
+        }
+
+        &-3 {
+          background-image: linear-gradient(
+            145deg,
+            rgba($color-tertiary-light, 1),
+            rgba($color-primary-dark, 1)
+          );
+        }
+
+        &-4 {
+          background-image: linear-gradient(
+            145deg,
+            rgba($color-primary-dark, 1),
+            rgba($color-primary2-light, 1)
+          );
+        }
+
+        &-5 {
+          background-image: linear-gradient(
+            145deg,
+            rgba($color-primary2-light, 1),
+            rgba($color-primary2-dark, 1)
+          );
+        }
+
+        &-6 {
+          background-image: linear-gradient(
+            145deg,
+            rgba($color-primary-light, 1),
+            rgba($color-primary-dark, 1)
+          );
+        }
+
+        & > .img {
+          width: 100%;
+          height: 40%;
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+      }
+    }
+
+    &-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $color-black;
+      backface-visibility: hidden;
+
+      & li {
+        padding: 0.25rem;
+        width: 100%;
+        position: relative;
+        color: $color-white2;
+        backface-visibility: hidden;
+      }
+
+      & + a {
+        padding: 0.7rem 2rem;
+      }
+    }
+  }
+
+  &:hover &-rotate {
+    transform: translateY(-0.5rem) rotateY(-180deg) scale(1.02);
+    z-index: 10;
+  }
+
+  &:hover &-side-back {
+    opacity: 1;
+  }
+}
+
+.adventures__heading-3 {
+  color: $color-white;
+  padding: 0 0 2rem 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  & > .front-text {
+    padding: 0.5rem 1rem;
+    position: absolute;
+    right: 1rem;
+
+    &-11 {
+      top: 73%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-tertiary-dark, 0.65),
+        rgba($color-secondary-dark, 0.65)
+      );
+    }
+    &-12 {
+      top: 85%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-tertiary-dark, 0.65),
+        rgba($color-secondary-dark, 0.65)
+      );
+    }
+
+    &-21 {
+      top: 73%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-tertiary-light, 0.8),
+        rgba($color-tertiary-dark, 0.8)
+      );
+    }
+    &-22 {
+      top: 85%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-tertiary-light, 0.8),
+        rgba($color-tertiary-dark, 0.8)
+      );
+    }
+
+    &-31 {
+      top: 73%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-tertiary-light, 0.65),
+        rgba($color-primary-dark, 0.65)
+      );
+    }
+    &-32 {
+      top: 85%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-tertiary-light, 0.65),
+        rgba($color-primary-dark, 0.65)
+      );
+    }
+
+    &-41 {
+      top: 73%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-primary-medium, 0.65),
+        rgba($color-primary2-light, 0.65)
+      );
+    }
+    &-42 {
+      top: 85%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-primary-medium, 0.65),
+        rgba($color-primary2-light, 0.65)
+      );
+    }
+
+    &-51 {
+      top: 73%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-primary2-light, 0.65),
+        rgba($color-primary2-dark, 0.65)
+      );
+    }
+    &-52 {
+      top: 85%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-primary2-light, 0.65),
+        rgba($color-primary2-dark, 0.65)
+      );
+    }
+
+    &-61 {
+      top: 73%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-primary-light, 0.65),
+        rgba($color-primary-dark, 0.65)
+      );
+    }
+    &-66 {
+      top: 85%;
+      background-image: linear-gradient(
+        145deg,
+        rgba($color-primary-light, 0.65),
+        rgba($color-primary-dark, 0.65)
+      );
+    }
+  }
+}
