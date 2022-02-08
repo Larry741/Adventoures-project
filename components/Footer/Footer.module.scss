@@ -1,0 +1,77 @@
+.footer {
+  max-width: 100%;
+  background-image: linear-gradient(to bottom, rgba($color-black-2, 1), rgba(#101018, 1));
+  color: $color-white;
+  padding: 2rem 4rem 3rem;
+  line-height: 1.7;
+
+  // @include respond(tab-port) {
+  //   padding: 2rem 0rem 4rem;
+  // }
+}
+
+.footer__contact-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // @include respond(tab-port) {
+  //   flex-direction: column;
+  // }
+}
+
+.footer__box {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+
+.footer__content {
+  &-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    & > p {
+      width: 90rem;
+      padding: 3rem 2rem 2rem;
+      border-bottom: 1px solid $color-grey-dark;
+    }
+  }
+
+  &-copyright {
+    padding: 2rem 0 0 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    & a {
+      text-decoration: none;
+      color: $color-white;
+      margin: 0 1rem;
+      display: inline-block;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    & .right {
+      display: grid;
+      grid-template-columns: 3rem 3rem 3rem;
+      grid-template-rows: 3rem;
+      gap: 1.7rem;
+
+      & img {
+        width: 3rem;
+        height: 3rem;
+        color: white;
+      }
+
+      & > a:first-child > img {
+        height: 2.7rem;
+      }
+    }
+  }
+}

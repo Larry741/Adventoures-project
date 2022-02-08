@@ -1,14 +1,15 @@
-import Image from 'next/image';
-import AdventureCards from './AdventureCards/AdventureCards';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import AdventureCards from "./AdventureCards/AdventureCards";
 
-import classes from './Adventure.module.scss';
+import classes from "./Adventure.module.scss";
 import image1 from "../../public/img/adventures-Usaka-desert-peru.jpg";
 import image2 from "../../public/img/adventures-Great-barrier-reef.jpg";
 import image3 from "../../public/img/adventures-troll-peninsula-iceland-large.jpg";
 import image4 from "../../public/img/adventures-colorado-rapidss.jpg";
 import image5 from "../../public/img/adventures-jungle-walk-Amazon.jpg";
 
-import image12 from '../../public/img/adventures-Usaka-desert-peru-b.jpg';
+import image12 from "../../public/img/adventures-Usaka-desert-peru-b.jpg";
 import image22 from "../../public/img/adventures-Great-barrier-reef-b.jpg";
 import image32 from "../../public/img/adventures-troll-peninsula-iceland-large-b.jpg";
 import image42 from "../../public/img/adventures-colorado-rapidss-b.jpg";
@@ -21,7 +22,7 @@ import awardsPic4 from "../../public/img/Awards (1).jpg";
 import awardsPic5 from "../../public/img/awards (5).png";
 import awardsPic6 from "../../public/img/awards (7).png";
 import awardsPic7 from "../../public/img/awards (2).png";
-import Button from '../UI/Button';
+import Button from "../UI/Button";
 
 const cardDetails = [
   {
@@ -92,6 +93,29 @@ const cardDetails = [
 ];
 
 const Adventure = () => {
+  const [slideIn, setSlideIn] = useState(false);
+
+  useEffect(() => {
+    const cardsBox = document.getElementById("adventures__box");
+
+    const showCards = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setSlideIn(true);
+        }
+      });
+    };
+
+    let options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.9,
+    };
+
+    let observer = new IntersectionObserver(showCards, options);
+
+    observer.observe(cardsBox);
+  }, []);
 
 
   return (
@@ -99,31 +123,69 @@ const Adventure = () => {
       <div className={classes.design}></div>
       <div className={`${classes["design"]} ${classes["design-2"]}`}></div>
       <div className={`${"center"} ${classes["heading-bg"]}`}>
-        <h2 className={`${classes["adventures__heading"]} ${"heading__secondary"}`}>
+        <h2
+          className={`${
+            classes["adventures__heading"]
+          } ${"heading__secondary"}`}
+        >
           LIVE UNFORGETTABLE EXPERIENCES IN <br />
           NATURE
         </h2>
       </div>
-      <div className={classes['adventures__heading-2']}>
-        <h3 className={'heading__secondary-2'}>ADVENTURES</h3>
+      <div className={classes["adventures__heading-2"]}>
+        <h3 className={"heading__secondary-2"}>ADVENTURES</h3>
       </div>
-      <div className={`${classes["adventures__box"]} ${"margin-b-medium"}`}>
+      <div
+        id="adventures__box"
+        className={`${classes["adventures__box"]} ${"margin-b-medium"}`}
+      >
         {cardDetails.map((card, idx) => {
-          return <AdventureCards key={card.title1} index={idx} details={card} />
+          return (
+            <AdventureCards
+              key={card.title1}
+              slide={slideIn}
+              index={idx}
+              details={card}
+            />
+          );
         })}
       </div>
-      <div className="center margin-b-large"><Button des={'btn-orange'} href="#">View all Adventures</Button></div>
-      <div className={classes['adventures__awards-box']}>
-        <Image layout='responsive' className={classes['adventures__awards-box-rounded']} src={awardsPic1} alt="awards" />
-        <Image layout='responsive' className={classes['adventures__awards-box-rounded']} src={awardsPic2} alt="awards" />
-        <Image layout='responsive' className={classes['adventures__awards-box-rounded']} src={awardsPic3} alt="awards" />
-        <Image layout='responsive' className={classes['adventures__awards-box-rounded']} src={awardsPic4} alt="awards" />
-        <Image layout='responsive' src={awardsPic5} alt="awards" />
-        <Image layout='responsive' src={awardsPic6} alt="awards" />
-        <Image layout='responsive' src={awardsPic7} alt="awards" />
-    </div>
+      <div className="center margin-b-large">
+        <Button des={"btn-orange"} href="#">
+          View all Adventures
+        </Button>
+      </div>
+      <div className={classes["adventures__awards-box"]}>
+        <Image
+          layout="responsive"
+          className={classes["adventures__awards-box-rounded"]}
+          src={awardsPic1}
+          alt="awards"
+        />
+        <Image
+          layout="responsive"
+          className={classes["adventures__awards-box-rounded"]}
+          src={awardsPic2}
+          alt="awards"
+        />
+        <Image
+          layout="responsive"
+          className={classes["adventures__awards-box-rounded"]}
+          src={awardsPic3}
+          alt="awards"
+        />
+        <Image
+          layout="responsive"
+          className={classes["adventures__awards-box-rounded"]}
+          src={awardsPic4}
+          alt="awards"
+        />
+        <Image layout="responsive" src={awardsPic5} alt="awards" />
+        <Image layout="responsive" src={awardsPic6} alt="awards" />
+        <Image layout="responsive" src={awardsPic7} alt="awards" />
+      </div>
     </section>
   );
-}
+};
 
 export default Adventure;

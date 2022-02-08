@@ -54,7 +54,8 @@ const HeaderFormCalender = (props) => {
     month_names.forEach((e, index) => {
       let month = document.createElement("div");
       month.innerHTML = `<div data-month="${index}">${e}</div>`;
-      month.querySelector("div").onclick = () => {
+      month.querySelector("div").onclick = (event) => {
+        event.stopPropagation();
         monthListRef.current.classList.remove(classes.show);
         curr_month.value = index;
         generateCalendar(index, +yearPickerRef.current.innerText);
@@ -169,6 +170,7 @@ const HeaderFormCalender = (props) => {
   }, [id, futureDayVal]);
 
   const chooseDateHandler = (event) => {
+    event.stopPropagation();
     const targetDate = event.target;
 
     if (targetDate.className !== "cal") {
@@ -210,11 +212,13 @@ const HeaderFormCalender = (props) => {
     }
   };
 
-  const pickMonthHandler = () => {
+  const pickMonthHandler = (event) => {
+    event.stopPropagation();
     monthListRef.current.classList.add(classes.show);
   }
 
-  const preYearChangeHandler = () => {
+  const preYearChangeHandler = (event) => {
+    event.stopPropagation();
     if (id === 'cal1') {
       --curr_year.value;
       generateCalendar(curr_month.value, curr_year.value);
@@ -224,7 +228,8 @@ const HeaderFormCalender = (props) => {
     }
   }
 
-  const nextYearChangeHandler = () => {
+  const nextYearChangeHandler = (event) => {
+    event.stopPropagation();
     if (id === "cal1") {
       ++curr_year.value;
       generateCalendar(curr_month.value, curr_year.value);
@@ -234,9 +239,13 @@ const HeaderFormCalender = (props) => {
     }
   }
 
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  }
+
 
   return (
-    <div className={classes["calendar"]} id={id}>
+    <div onClick={stopPropagation} className={`${classes["calendar"]} ${classes[id]}`} id={id}>
       <div className={classes["calendar-header"]}>
         <span
           onClick={pickMonthHandler}

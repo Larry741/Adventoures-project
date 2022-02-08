@@ -114,3 +114,8 @@ div[class=clearfix]::after {
 .margin-b-large {
   margin-bottom: 10rem;
 }
+
+.sticky {
+  position: fixed !important;
+  top: 0 !important;
+}

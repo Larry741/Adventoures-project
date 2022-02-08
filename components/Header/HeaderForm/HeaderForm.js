@@ -22,8 +22,8 @@ const HeaderForm = () => {
     el4: false
   })
   const dispatch = useDispatch();
-  const showCalendar = useSelector((state) => state.showCalendar);
-  const showModal = useSelector(state => state.showModal);
+  const showCalendar = useSelector((state) => state.modal.showCalendar);
+  const showModal = useSelector(state => state.modal.showModal);
 
   const showCalHandler = () => {
     dispatch(modalSliceActions.showCalendar());
@@ -37,6 +37,15 @@ const HeaderForm = () => {
       const nextDiv = document.getElementById(classes["box-3"]);
       nextDiv.click();
     } else if (dateData2 && !dateData1) {
+
+      if (!cal1StateYear) {
+        const curDate = new Date();
+        console.log(curDate);
+        setCal1StateDay(curDate.getDate());
+        setCal1StateMonth(curDate.toLocaleString('default', {month: 'long'}));
+        setCal1StateYear(curDate.getFullYear());
+      }
+
       setCal2StateDay(dateData2.day);
       setCal2StateMonth(dateData2.month);
       setCal2StateYear(dateData2.year);
@@ -46,7 +55,9 @@ const HeaderForm = () => {
     }
   };
 
-  const formCloseModalHandler = () => {
+  const formCloseModalHandler = (event) => {
+    // event.stopPropagation();
+
     setFormIsActive(false);
     setElIsActive((prevState) => {
       return {
@@ -159,7 +170,7 @@ const HeaderForm = () => {
             }`}
             onClick={showCalHandler}
           >
-            <span>Adventure</span>
+            <span>Duration</span>
             <span id="cal1Output">
               {cal1StateDay + " " + cal1StateMonth + " " + cal1StateYear}
             </span>
@@ -181,8 +192,7 @@ const HeaderForm = () => {
             className={`${styles} ${elIsActive.el4 && classes["active-hov"]}`}
           >
             <span className={classes["text"]}>
-              <span>Tour</span>
-              <span>Month</span>
+              <span>Adventure</span>
             </span>
             <button
               id="button"
@@ -200,9 +210,17 @@ const HeaderForm = () => {
           </div>
         </form>
       </div>
-      {showModal && formIsActive ? <Modal onModalReact={formCloseModalHandler} /> : ""}
+      {showModal && formIsActive ? (
+        <Modal onModalReact={formCloseModalHandler} />
+      ) : (
+        ""
+      )}
       {showCalendar ? (
-        <div className={classes["calendarContainer"]}>
+        <div
+          onClick={formCloseModalHandler}
+          className={classes["calendarContainer"]}
+          id="calendarContainer"
+        >
           <HeaderFormCalender onChoose={closeCalHandler} id={"cal1"} />
           <HeaderFormCalender onChoose={closeCalHandler} id={"cal2"} />
         </div>

@@ -4,9 +4,10 @@ import Button from "../../UI/Button";
 
 import classes from "./AdventureCards.module.scss";
 
-const AdventureCards = (props) => {
+const AdventureCards = (props) => {  
+
   return (
-    <div className={classes["adventures__cards"]}>
+    <div className={`${classes["adventures__cards"]} ${props.slide ? classes[`slide-${props.index}`] : ''}`}>
       <div className={classes["adventures__cards-rotate"]}>
         <div className={`${classes['adventures__cards-side']} ${classes['adventures__cards-side-front']}`}>
           <Image

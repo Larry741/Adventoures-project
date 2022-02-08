@@ -7,23 +7,19 @@ import Modal from "../../UI/Modal";
 import classes from "./NavLinks.module.scss";
 
 const NavLinks = (props) => {
-  const [linksAreActive, setLinksAreActive] = useState(false); 
   const dispatch = useDispatch();
-  const sectionRef = useRef(null);
+  const NavbarRef = useRef(null);
   
-  const showModal = useSelector((state) => state.showModal);
-
   const { cont1, cont2, cont3, cont4} = props.isActive;
 
   useEffect(() => {
-    sectionRef.current = document.getElementById("section__header");
+    NavbarRef.current = document.getElementById("navBar");
   }, []);
 
   const closeNavBarHandler = () => {
     dispatch(modalSliceActions.closeModal());
-    // sectionRef.current.classList.remove(`${classes.sticky}`);
-    props.setSticky(1);
-    setLinksAreActive(false);
+    NavbarRef.current.classList.remove(`${"sticky"}`);
+    props.setSticky(false);
     props.setIsActive({
       cont1: false,
       cont2: false,
@@ -45,10 +41,9 @@ const NavLinks = (props) => {
       return;
     }
 
-    setLinksAreActive(true);
     dispatch(modalSliceActions.showModal());
-    // sectionRef.current.classList.add(`${classes.sticky}`);
-    props.setSticky();
+    NavbarRef.current.classList.add(`${"sticky"}`);
+    props.setSticky(true);
 
     if (eventTarget === "dropdown-1btn") {
       props.setIsActive({
@@ -88,7 +83,7 @@ const NavLinks = (props) => {
 
   return (
     <div className={classes["navlinks"]}>
-      {showModal && linksAreActive ? <Modal onModalReact={closeNavBarHandler} /> : ""}
+      {props.showModal && props.modalShouldBeActive ? <Modal onModalReact={closeNavBarHandler} /> : ""}
       <div
         className={`${classes["navBar__container-nav-box"]} ${"text__primary"}`}
       >

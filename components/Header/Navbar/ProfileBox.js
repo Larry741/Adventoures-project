@@ -8,23 +8,22 @@ import Modal from "../../UI/Modal";
 import classes from './ProfileBox.module.scss';
 
 const ProfileBox = (props) => {
-  const [profileLinkIsActive, setProfileLinkIsActive] = useState(false);
   const dispatch = useDispatch();
-  const sectionRef = useRef(null);
+  const NavbarRef = useRef(null);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
-  const showModal = useSelector((state) => state.showModal);
+  console.isLoggedIn
 
   const { cont5 } = props.isActive;
 
   useEffect(() => {
-    sectionRef.current = document.getElementById("section__header");
+    NavbarRef.current = document.getElementById("navBar");
   }, []);
 
   const closeProfile = () => {
     dispatch(modalSliceActions.closeModal());
-    // sectionRef.current.classList.remove(`${classes.sticky}`);
-    props.setSticky(1);
-    setProfileLinkIsActive(false);
+    NavbarRef.current.classList.remove(`sticky`);
+    props.setSticky(false);
     props.setIsActive({
       cont1: false,
       cont2: false,
@@ -43,9 +42,8 @@ const ProfileBox = (props) => {
     }
 
     dispatch(modalSliceActions.showModal());
-    // sectionRef.current.classList.add(`${classes.sticky}`);
-    props.setSticky();
-    setProfileLinkIsActive(true);
+    NavbarRef.current.classList.add(`sticky`);
+    props.setSticky(true);
     
     if (eventTarget === "dropdown-1btn") {
       props.setIsActive({
@@ -60,28 +58,35 @@ const ProfileBox = (props) => {
 
   return (
     <div className={classes.profileBox}>
-      {profileLinkIsActive && showModal ? <Modal onModalReact={closeProfile} /> : ""}
-        <span
-          onClick={openProfile}
-          id="dropdown-1btn"
-          className={`material-icons ${classes["material-icons-1"]} 'dropbtn`}
-        >
-          menu
-        </span>
-        <span
-          onClick={openProfile}
-          id="dropdown-1btn"
-          className={`material-icons ${classes["material-icons-2"]} 'dropbtn`}
-        >
-          account_circle
-        </span>
+      {props.showModal && props.modalShouldBeActive ? (
+        <Modal onModalReact={closeProfile} />
+      ) : (
+        ""
+      )}
+      <span
+        onClick={openProfile}
+        id="dropdown-1btn"
+        className={`material-icons ${classes["material-icons-1"]} 'dropbtn`}
+      >
+        menu
+      </span>
+      <span
+        onClick={openProfile}
+        id="dropdown-1btn"
+        className={`material-icons ${classes["material-icons-2"]} 'dropbtn`}
+      >
+        account_circle
+      </span>
       <div
-        style={{ display: cont5 ? 'block' : ''}}
+        style={{ display: cont5 ? "block" : "" }}
         id={classes["dropdown-content-1"]}
         className={`${classes["dropdown-content-1"]}`}
       >
-        <Link href="#">Sign up</Link>
-        <Link href="#">Log in</Link>
+        {!isLoggedIn && <>
+          <Link href="/:signup">Sign up</Link>
+          <Link href="/:login">Log in</Link>
+        </>}
+        {isLoggedIn && <p>welcome</p>}
         <hr />
         <Link href="#">Help</Link>
       </div>

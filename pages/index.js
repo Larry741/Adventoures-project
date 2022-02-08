@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Adventure from "../components/Adventures/Adventure";
 import Destinations from "../components/Destinations/Destinations";
+import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Stories from "../components/Stories/Stories";
 
@@ -18,6 +19,7 @@ const HomePage = () => {
       <Destinations />
       <Adventure />
       <Stories />
+      <Footer />
     </>
   );
 };

@@ -25,8 +25,8 @@
   border-radius: 8rem;
   height: 6rem;
   width: 70rem;
-   box-shadow: 0px 16px 32px rgba($color-black, .15), 
-   0px 3px 8px rgba($color-black, .15); 
+   box-shadow: 20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff; 
 }
 
 .control {
@@ -66,19 +66,36 @@
   border: none;
   outline: none;
   font-size: 1.4rem;
+}
+
+#box-1 input::placeholder {
   font-family: inherit;
 }
 
 #box-2,
 #box-3 {
+  padding: 1rem .5rem 1rem 1.5rem;
   flex-basis: 21%;
-  padding-left: 1.5rem;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#box-2 span:first-of-type,
+#box-3 span:first-of-type {
+  margin: 0 1rem 0 0 ;
+}
+
+#box-2 span:last-of-type,
+#box-3 span:last-of-type {
+  color: $color-grey-dark;
 }
 
 #box-4 {
   flex-basis: 23%;
-  padding: 0 .8rem 0 1.5rem;
+  padding: 0 .8rem 0 1rem;
   border-radius: 8rem;
   display: flex;
   justify-content: space-between;
@@ -124,15 +141,19 @@
 }
 
 .button-Expand {
-  width: 11rem !important;
+  width: 10.5rem !important;
+  margin-left: 1rem;
   justify-content: flex-start !important;
 }
 
 .calendarContainer {
   position: absolute;
-  top: 100%;
-  /* width: 100%; */
-  display: flex;
-  z-index: 20;
+  top: 110%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: 50rem 50rem;
+  justify-content: center;
+  // z-index: 20;
 }
 

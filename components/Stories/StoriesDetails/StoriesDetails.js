@@ -9,9 +9,10 @@ const StoriesDetails = (props) => {
       <div className={classes["stories__container"]}>
         <Image
           src={props.data.image}
-          className="stories__container-pic"
+          className={classes["stories__container-pic"]}
           alt="clients picture"
-          layout="responsive"
+          width={150}
+          height={150}
         />
         <span
           className={`${

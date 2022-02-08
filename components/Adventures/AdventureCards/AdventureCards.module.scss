@@ -6,6 +6,9 @@
   perspective: 150rem;
   margin: 0 1rem;
   flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(20rem);
+  
 
   // @include respond(tab-landE) {
 
@@ -254,5 +257,43 @@
         rgba($color-primary-dark, 0.65)
       );
     }
+  }
+}
+
+.slide {
+  &-0 {
+    animation: moveInBottom .5s ease-in-out forwards; 
+  }
+
+  &-1 {
+    animation: moveInBottom .8s ease-in-out forwards;
+  }
+
+  &-2 {
+    animation: moveInBottom 1.1s ease-in-out forwards;
+  }
+
+  &-3 {
+    animation: moveInBottom 1.4s ease-in-out forwards;
+  }
+
+  &-4 {
+    animation: moveInBottom 1.7s ease-in-out forwards;
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+        opacity: 0;
+        transform: translateY(20rem);
+    }
+
+  80% {
+      transform: translateY(-2rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
   }
 }

@@ -1,10 +1,19 @@
 .calendar {
+  position: relative;
   height: max-content;
   /* width: 100%; */
-  background-color: var(--bg-main);
-  border-radius: 30px;
-  padding: 20px;
+  background-color: $color-white2;
+  padding: 10px;
   overflow: hidden;
+  z-index: 20
+}
+
+.cal1 {
+  border-radius: 30px 0 0 30px;
+}
+
+.cal2 {
+  border-radius: 0 30px 30px 0 ;
 }
 
 .light .calendar {
@@ -16,20 +25,18 @@
   justify-content: space-between;
   align-items: center;
   font-size: 25px;
-  font-weight: 600;
-  color: var(--color-txt);
-  padding: 10px;
+  // font-weight: 600;
+  color: $color-black-2;
+  padding: 2px 10px 10px 10px;
 }
 
 .calendar-body {
-  padding: 10px;
+  padding: 2px;
 }
 
 .calendar-week-day {
-  height: 50px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  font-weight: 600;
 }
 
 .calendar-week-day div {
@@ -149,6 +156,7 @@
 }
 
 .year-change {
+  color: $color-black-2;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -209,12 +217,12 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: var(--bg-main);
+  background-color: $color-white2;
   padding: 20px;
   grid-template-columns: repeat(3, auto);
   gap: 5px;
   display: grid;
-  transform: scale(1.5);
+  // transform: scale(1.1);
   visibility: hidden;
   pointer-events: none;
 }

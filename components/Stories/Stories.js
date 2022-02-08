@@ -26,7 +26,7 @@ const Stories = () => {
       <div className={classes["stories"]}>
         <div className={`${classes["tours__heading"]} ${"center"}`}>
           <h2 className="heading__secondary margin-b-large">
-            WHAT OUR USERS SAY ABOUT
+            WHAT OUR USERS SAY ABOUT US
           </h2>
         </div>
         {comments.map((comment) => {

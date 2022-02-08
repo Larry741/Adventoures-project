@@ -1,7 +1,7 @@
 .stories__box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline;
+  // justify-content: center;
+  // align-items: center;
   padding: 4rem;
   width: 90rem;
   background-color: rgba($color-grey-light, 0.7);
@@ -37,7 +37,8 @@
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  // shape-outside: circle(50% at 50% 50%);
+  float: left;
+  shape-outside: circle(50%);
 
   // @include respond(tab-port) {
   //   margin-right: 1.2rem;
@@ -68,10 +69,9 @@
 
 .stories__textBox {
   height: 16rem;
-  flex-basis: 70rem;
+  // width: 70rem;
   transform: skewX(10deg);
   backface-visibility: hidden;
-  overflow: hidden;
 
   // @include respond(tab-port) {
   //   flex-basis: 48rem;
