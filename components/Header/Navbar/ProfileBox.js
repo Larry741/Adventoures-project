@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { authSliceActions } from "../../store/authSlice";
 import { modalSliceActions } from "../../store/modalSlice";
 import Modal from "../../UI/Modal";
 
@@ -56,6 +57,11 @@ const ProfileBox = (props) => {
     } 
   }
 
+  const logOutHandler = () => {
+    dispatch(authSliceActions.logOut());
+    closeProfile();
+  }
+
   return (
     <div className={classes.profileBox}>
       {props.showModal && props.modalShouldBeActive ? (
@@ -86,7 +92,7 @@ const ProfileBox = (props) => {
           <Link href="/:signup">Sign up</Link>
           <Link href="/:login">Log in</Link>
         </>}
-        {isLoggedIn && <p>welcome</p>}
+        {isLoggedIn && <button onClick={logOutHandler}>Log out</button>}
         <hr />
         <Link href="#">Help</Link>
       </div>

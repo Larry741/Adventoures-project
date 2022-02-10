@@ -8,7 +8,7 @@ const Button = (props) => {
     classes = `${style["btn-1"]}`;
   }
 
-  return <a className={classes}>{props.children}</a>;
+  return <button onClick={props.onClick} className={classes}>{props.children}</button>;
 }
 
 export default Button;

@@ -5,6 +5,7 @@ import store from '../components/store';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <Provider store={store}>
       <Component {...pageProps} />
