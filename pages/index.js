@@ -7,23 +7,9 @@ import Destinations from "../components/Destinations/Destinations";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Stories from "../components/Stories/Stories";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const token = localStorage.getItem("idToken");
-    if (token) {
-      dispatch(authSliceActions.logIn(token));
-    }
-  })
-
-  const router = useRouter();
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
-  console.log(router.route, isAuthenticated);
-
 
   return (
     <>

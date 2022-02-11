@@ -109,7 +109,7 @@ const Adventure = () => {
     let options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.9,
+      threshold: 0.7,
     };
 
     let observer = new IntersectionObserver(showCards, options);

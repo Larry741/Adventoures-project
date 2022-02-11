@@ -3,14 +3,8 @@ import DestinationsComponent from '../../components/Destinations/DestinationsCom
 import classes from "./index.module.scss";
 import { renderData } from "../../pages/_app";
 import Navbar from '../../components/Header/Navbar/Navbar';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
 
 const DestinationsPage = () => {
-  const router = useRouter();
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
-  console.log(router.route, isAuthenticated);
-
 
   return (
     <>

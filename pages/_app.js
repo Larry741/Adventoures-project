@@ -14,6 +14,7 @@ import image6 from "../public/img/destination__fiji.jpg";
 import image7 from "../public/img/destination__grand-canyon.jpg";
 import image8 from "../public/img/destination__morroco.jpg";
 import image9 from "../public/img/destination__chile.jpg";
+import AuthMain from '../components/Auth/AuthMain';
 
 export const renderData = [
   {
@@ -67,14 +68,16 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      {Component.requireAuth ? (
-        <AuthGuard>
+      <AuthMain>
+        {Component.requireAuth ? (
+          <AuthGuard>
             <Component {...pageProps} />
-        </AuthGuard>
-      ) : (
-        // public page
+          </AuthGuard>
+        ) : (
+          // public page
           <Component {...pageProps} />
-      )}
+        )}
+      </AuthMain>
     </Provider>
   );
 }

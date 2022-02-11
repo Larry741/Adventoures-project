@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux"; 
 
@@ -6,7 +7,6 @@ import { authSliceActions } from "../store/authSlice";
 
 const AuthGuard = ({ children }) => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
-  console.log(router.route, isAuthenticated);
   const dispatch = useDispatch();
   const router = useRouter();
 
