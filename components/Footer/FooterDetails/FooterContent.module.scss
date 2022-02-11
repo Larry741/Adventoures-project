@@ -15,9 +15,9 @@
 
       &-support,
       &-contacts {
-        // @include respond(tab-port) {
-        //   width: 21rem;
-        // }
+        @include respond(tab-port) {
+          width: 21rem;
+        }
       }
     }
 
@@ -27,9 +27,9 @@
       transition: .2s ease;
       backface-visibility: hidden;
 
-      // @include respond(tab-port) {
-      //   margin: .8rem .2rem;
-      // }
+      @include respond(tab-port) {
+        margin: .8rem .2rem;
+      }
         
       & a {
         padding: .5rem;

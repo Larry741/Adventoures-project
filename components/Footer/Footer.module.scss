@@ -5,9 +5,9 @@
   padding: 2rem 4rem 3rem;
   line-height: 1.7;
 
-  // @include respond(tab-port) {
-  //   padding: 2rem 0rem 4rem;
-  // }
+  @include respond(tab-port) {
+    padding: 2rem 0rem 4rem;
+  }
 }
 
 .footer__contact-box {
@@ -15,9 +15,9 @@
   justify-content: center;
   align-items: center;
 
-  // @include respond(tab-port) {
-  //   flex-direction: column;
-  // }
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
 }
 
 .footer__box {
@@ -46,7 +46,7 @@
     display: flex;
     justify-content: space-between;
 
-    & a {
+    & .left a {
       text-decoration: none;
       color: $color-white;
       margin: 0 1rem;

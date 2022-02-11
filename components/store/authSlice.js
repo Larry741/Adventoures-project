@@ -1,21 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {isLoggedIn: false}
+const initialState = {isAuthenticated: false, redirectKey: '', user: {name: '', idToken: ''}}
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     logIn(state, action) {
-      state.isLoggedIn = true;
+      state.isAuthenticated = true;
+      state.user.idToken = action.payload;
       localStorage.setItem("idToken", action.payload);
     },
     logOut(state, action) {
-      state.isLoggedIn = false;
+      state.isAuthenticated = false;
+      state.user.idToken = "";
       localStorage.removeItem("idToken");
-    }
-  }
-})
+    },
+    // setRedirect(redirect) {
+    //   sessionStorage.setItem(redirectKey, redirect);
+    // },
+    // getRedirect() {
+    // return sessionStorage.getItem(redirectKey)
+    // },
+    // clearRedirect() {
+    // return sessionStorage.removeItem(redirectKey)
+    // }
+  },
+});
 ;
 export const authSliceActions = authSlice.actions;
 

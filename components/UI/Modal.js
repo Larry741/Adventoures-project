@@ -7,6 +7,7 @@ const ModalDom = (props) => {
   return (
     <div
       id="modal"
+      style={{zIndex: props.zIndex}}
       onClick={props.closeModalHandler}
       className={style.modal}
     ></div>
@@ -24,7 +25,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
-        <ModalDom closeModalHandler={closeModalHandler} />,
+        <ModalDom zIndex={props.zIndex} closeModalHandler={closeModalHandler} />,
         document.getElementById('__next')
       )}
     </Fragment>

@@ -126,7 +126,7 @@ const Footer = () => {
       </div>
       <div className={`${classes["footer__content-text"]} ${"center"}`}>
         <p>
-          We are an independent tour company championing outdoor lifestyle,
+          Adventours is an independent tour company championing outdoor lifestyle,
           environmental stewardship and regenerative living. We encourage people
           to connect with the natural world in meaningful ways so they may
           become active stewards of our planet.
@@ -140,9 +140,9 @@ const Footer = () => {
           <Link href="#">Sitemap</Link>
         </span>
         <span className={classes["right"]} onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler}>
-          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#" passHref={true}><Image id="right1" width={30} height={30} src={!imageWasHovered.image1 ? image1 : image1b} alt="facebook-icon" /></Link></span>
-          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#" passHref={true}><Image id="right2" width={30} height={30} src={!imageWasHovered.image2 ? image2 : image2b} alt="twitter-icon" /></Link></span>
-          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#" passHref={true}><Image id="right3" width={30} height={30} src={!imageWasHovered.image3 ? image3 : image3b} alt="instagram-icon" /></Link></span>
+          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#"><a><Image id="right1" width={30} height={30} src={!imageWasHovered.image1 ? image1 : image1b} alt="facebook-icon" /></a></Link></span>
+          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#"><a><Image id="right2" width={30} height={30} src={!imageWasHovered.image2 ? image2 : image2b} alt="twitter-icon" /></a></Link></span>
+          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#"><a><Image id="right3" width={30} height={30} src={!imageWasHovered.image3 ? image3 : image3b} alt="instagram-icon" /></a></Link></span>
         </span>
       </div>
     </footer>

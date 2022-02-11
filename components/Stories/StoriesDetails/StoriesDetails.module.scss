@@ -7,19 +7,19 @@
   background-color: rgba($color-grey-light, 0.7);
   transform: skewX(-10deg);
 
-  // @include respond(tab-port) {
-  //   // transform: skewX();
-  //   padding: 2rem 0.15rem;
-  //   width: 65rem;
-  // }
+  @include respond(tab-port) {
+    // transform: skewX();
+    padding: 2rem 0.15rem;
+    width: 65rem;
+  }
 
   &:hover .stories__container-caption {
     transform: translateY(-10rem);
     opacity: 1;
 
-    // @include respond(tab-port) {
-    //   transform: translateY(-9rem);
-    // }
+    @include respond(tab-port) {
+      transform: translateY(-9rem);
+    }
   }
 
   &:hover .stories__container-pic {
@@ -40,11 +40,11 @@
   float: left;
   shape-outside: circle(50%);
 
-  // @include respond(tab-port) {
-  //   margin-right: 1.2rem;
-  //   flex-basis: 13rem;
-  //   height: 13rem;
-  // }
+  @include respond(tab-port) {
+    margin-right: 1.2rem;
+    flex-basis: 13rem;
+    height: 13rem;
+  }
 
   &-pic {
     width: 100%;
@@ -73,9 +73,9 @@
   transform: skewX(10deg);
   backface-visibility: hidden;
 
-  // @include respond(tab-port) {
-  //   flex-basis: 48rem;
-  // }
+  @include respond(tab-port) {
+    flex-basis: 48rem;
+  }
 
   & h2,
   & p {

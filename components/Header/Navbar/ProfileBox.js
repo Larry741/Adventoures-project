@@ -11,7 +11,7 @@ import classes from './ProfileBox.module.scss';
 const ProfileBox = (props) => {
   const dispatch = useDispatch();
   const NavbarRef = useRef(null);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   console.isLoggedIn
 
@@ -88,11 +88,11 @@ const ProfileBox = (props) => {
         id={classes["dropdown-content-1"]}
         className={`${classes["dropdown-content-1"]}`}
       >
-        {!isLoggedIn && <>
-          <Link href="/:signup">Sign up</Link>
-          <Link href="/:login">Log in</Link>
+        {!isAuthenticated && <>
+          <Link href="/login?signup">Sign up</Link>
+          <Link href="/login">Log in</Link>
         </>}
-        {isLoggedIn && <button onClick={logOutHandler}>Log out</button>}
+        {isAuthenticated && <button onClick={logOutHandler}>Log out</button>}
         <hr />
         <Link href="#">Help</Link>
       </div>

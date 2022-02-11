@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authSliceActions } from "../store/authSlice";
+import Image from "next/image";
 import useInput from "../hooks/use-input";
 
+import image from "../../public/img/Destination__california.jpg";
 import classes from "./AuthForm.module.scss";
-import Button from "../UI/Button";
 
 const AuthForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const router = useRouter();
+  const isLogIn = router.query.signup === "" ? false : true;
+  
+  const [isLogin, setIsLogin] = useState(isLogIn);
   const dispatch = useDispatch();
   const {
     enteredValue: enteredName,
@@ -34,34 +38,21 @@ const AuthForm = () => {
     valueChangeHandler: passwordValueChangeHandler,
     reset: resetPassword,
   } = useInput((value) => value.trim() !== "" && value.length > 6);
-  const router = useRouter();
 
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
-
-  useEffect(() => {
-    // if (isLogin) {
-    //   router.query.authPage = ":login";
-    // } else {
-    //   router.query.authPage = ":signup";
-    // }
-
-    router.query.authPage === ":signup" ? setIsLogin(false) : null;
-  }, [router]);
-
-  const signupFormIsValid = emailIsValid && passwordIsValid && nameIsInvalid;
+  const signupFormIsValid = emailIsValid && passwordIsValid && nameIsValid;
   const loginFormIsValid = emailIsValid && passwordIsValid;
 
   const submitFormHandler = async (event) => {
     event.preventDefault();
 
     if (isLogin && !loginFormIsValid) {
-      console.log('isLogin');
-      return
+      console.log("isLogin");
+      return;
     }
 
     if (!isLogin && !signupFormIsValid) {
       console.log("isSignup");
-      return
+      return;
     }
 
     const inputData = {
@@ -76,34 +67,34 @@ const AuthForm = () => {
       : (requestUrl =
           "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZMFjt27Lg-n98yGQwWk_VMZrFtp-F1xM");
 
-    // const res = await fetch(requestUrl, {
-    //   method: "POST",
-    //   body: JSON.stringify(inputData),
-    //   headers: {
-    //     "Content-Type": "application/Json",
-    //   },
-    // });
+    const res = await fetch(requestUrl, {
+      method: "POST",
+      body: JSON.stringify(inputData),
+      headers: {
+        "Content-Type": "application/Json",
+      },
+    });
 
-    // if (!res.ok) {
-    //   res
-    //     .json()
-    //     .then((data) => {
-    //       throw new Error(data.error.message);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error.message);
-    //     });
-    // } else {
-    //   res.json().then((data) => {
-    //     if (isLogin) {
-    //       c
-    //     } else {
-    //       setIsLogin(true);
-    //     }
-    //   });
-    // }
-    dispatch(authSliceActions.logIn('ndhrkkukjkahafncjrken'));
-    router.push("/");
+    if (!res.ok) {
+      res
+        .json()
+        .then((data) => {
+          throw new Error(data.error.message);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    } else {
+      res.json().then((data) => {
+        if (isLogin) {
+          dispatch(authSliceActions.logIn(data.idToken));
+          router.push("/");
+        } else {
+          setIsLogin(true);
+        }
+      });
+    }
+
     resetEmail();
     resetPassword();
   };;
@@ -120,9 +111,12 @@ const AuthForm = () => {
   return (
     <section className={classes.auth}>
       <div className={classes.row}>
+        <div className={classes.image}>
+          <Image src={image} layout='responsive' alt="mountains" />
+        </div>
         <form onSubmit={submitFormHandler} className={classes.form}>
-          <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-          {!isLogin && (
+          <h1>{isLogIn ? "Login" : "Sign Up"}</h1>
+          {!isLogIn && (
             <div
               className={`${classes.control} ${
                 nameIsInvalid && classes.invalid
@@ -176,14 +170,14 @@ const AuthForm = () => {
           </div>
           <div className={classes.actions}>
             <button className={classes.login}>
-              {isLogin ? "Login" : "Create Account"}
+              {isLogIn ? "Login" : "Create Account"}
             </button>
             <button
               type="button"
               className={classes.toggle}
               onClick={switchAuthModeHandler}
             >
-              {isLogin ? "Create new account" : "Login with existing account"}
+              {isLogIn ? "Create new account" : "Login with existing account"}
             </button>
           </div>
         </form>

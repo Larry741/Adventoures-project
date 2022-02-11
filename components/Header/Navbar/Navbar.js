@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactDom from "react-dom";
 import Image from "next/image";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 import NavLinks from "./NavLinks";
 import ProfileBox from "./ProfileBox";
@@ -22,7 +23,11 @@ const NavBar = (props) => {
       className={`${classes.navbar} ${props.isSticky ? "sticky" : ""}`}
     >
       <div className={classes["box"]}>
-        <Image src={image} alt="Logo" width={70} height={70} />
+        <Link href="/">
+          <a>
+            <Image src={image} alt="Logo" width={70} height={70} />
+          </a>
+        </Link>
       </div>
       <NavLinks
         setSticky={props.setSticky}

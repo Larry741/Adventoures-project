@@ -39,12 +39,12 @@
     align-items: center;
     width: 100%;
 
-    // @include respond(tab-port) {
-    //   // position: absolute;
-    //   // top: 6rem;
-    //   // left: 50%;
-    //   // transform: translate(-50%, 0%);
-    // }
+    @include respond(tab-port) {
+      position: absolute;
+      top: 6rem;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
 
     &-box {
       //dropdown
@@ -53,13 +53,13 @@
       backface-visibility: hidden;
       cursor: pointer;
 
-      // @include respond(tab-port) {
-      //   margin: 0 1rem 0;
-      // }
+      @include respond(tab-port) {
+        margin: 0 1rem 0;
+      }
 
-      // @include respond(tab-portS) {
-      //   margin: 0 .8rem 0;
-      // }
+      @include respond(tab-portS) {
+        margin: 0 .8rem 0;
+      }
 
       &>.dropbtn {
         position: relative;
@@ -118,10 +118,10 @@
     position: relative;
     // z-index: 18;
 
-    // @include respond(tab-port) {
-    //   height: 5rem;
-    //   width: 9rem;
-    // }
+    @include respond(tab-port) {
+      height: 5rem;
+      width: 9rem;
+    }
 
     & .material-icons {
       //dropbtn
@@ -131,18 +131,18 @@
         font-size: 18px;
         margin-right: .7rem;
 
-        // @include respond(tab-land) {
-        //   font-size: 18px;
-        // }
+        @include respond(tab-land) {
+          font-size: 18px;
+        }
       }
 
       &-2 {
         font-size: 36px;
         position: relative;
 
-        // @include respond(tab-land) {
-        //   font-size: 18px;
-        // }
+        @include respond(tab-land) {
+          font-size: 18px;
+        }
 
         &::after {
           content: "";
@@ -201,9 +201,9 @@
       transition: .2s ease;
       backface-visibility: hidden;
 
-      // @include respond(tab-port) {
-      //   margin: .8rem .2rem;
-      // }
+      @include respond(tab-port) {
+        margin: .8rem .2rem;
+      }
 
       & h4  {
         padding: 1rem 0;

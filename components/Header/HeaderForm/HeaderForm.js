@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import HeaderFormCalender from "./HeaderFormCalender";
@@ -24,6 +24,11 @@ const HeaderForm = () => {
   const dispatch = useDispatch();
   const showCalendar = useSelector((state) => state.modal.showCalendar);
   const showModal = useSelector(state => state.modal.showModal);
+  const formContainerRef = useRef(null);
+
+  useEffect(() => {
+    formContainerRef.current = document.getElementById('formParent');
+  })
 
   const showCalHandler = () => {
     dispatch(modalSliceActions.showCalendar());
@@ -58,6 +63,8 @@ const HeaderForm = () => {
   const formCloseModalHandler = (event) => {
     // event.stopPropagation();
 
+    formContainerRef.current.style.zIndex = 15;
+
     setFormIsActive(false);
     setElIsActive((prevState) => {
       return {
@@ -82,6 +89,7 @@ const HeaderForm = () => {
       return;
     }
       
+    formContainerRef.current.style.zIndex = 19;
 
     dispatch(modalSliceActions.showModal());
 
@@ -135,6 +143,7 @@ const HeaderForm = () => {
 
   return (
     <div
+      id="formParent"
       className={
         classes.formContainer + " " + "text" + " " + "text__primary-small"
       }
@@ -142,7 +151,7 @@ const HeaderForm = () => {
       <div onClick={formOpenModalHandler} id="formContainer">
         <form
           id="form"
-          // style={{ backgroundColor: formIsActive ? "#EAEAEA" : "" }}
+          style={{ backgroundColor: formIsActive ? "#EAEAEA" : "" }}
           className={classes["form"]}
           action=""
           method="post"
@@ -211,7 +220,7 @@ const HeaderForm = () => {
         </form>
       </div>
       {showModal && formIsActive ? (
-        <Modal onModalReact={formCloseModalHandler} />
+        <Modal zIndex={18} onModalReact={formCloseModalHandler} />
       ) : (
         ""
       )}

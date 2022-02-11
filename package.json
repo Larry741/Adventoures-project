@@ -1,5 +1,5 @@
 {
-  "name": "tour-app",
+  "name": "Adventours",
   "private": true,
   "scripts": {
     "dev": "next dev",

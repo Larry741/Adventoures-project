@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import AdventureCards from "./AdventureCards/AdventureCards";
 
 import classes from "./Adventure.module.scss";
@@ -22,7 +23,6 @@ import awardsPic4 from "../../public/img/Awards (1).jpg";
 import awardsPic5 from "../../public/img/awards (5).png";
 import awardsPic6 from "../../public/img/awards (7).png";
 import awardsPic7 from "../../public/img/awards (2).png";
-import Button from "../UI/Button";
 
 const cardDetails = [
   {
@@ -151,9 +151,9 @@ const Adventure = () => {
         })}
       </div>
       <div className="center margin-b-large">
-        <Button des={"btn-orange"} href="#">
-          View all Adventures
-        </Button>
+        <Link href='#'>
+          <a className="btn btn-orange">View all Adventures</a>
+        </Link>
       </div>
       <div className={classes["adventures__awards-box"]}>
         <Image

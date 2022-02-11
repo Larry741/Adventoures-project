@@ -1,5 +1,5 @@
+import Link from "next/link";
 import StoriesDetails from "./StoriesDetails/StoriesDetails";
-import Button from "../UI/Button";
 
 import classes from './Stories.module.scss';
 import image1 from "../../public/img/nat-8.jpg";
@@ -22,7 +22,7 @@ const comments = [
 
 const Stories = () => {
   return (
-  <section className={classes["section__stories"]}>
+    <section className={classes["section__stories"]}>
       <div className={classes["stories"]}>
         <div className={`${classes["tours__heading"]} ${"center"}`}>
           <h2 className="heading__secondary margin-b-large">
@@ -30,11 +30,13 @@ const Stories = () => {
           </h2>
         </div>
         {comments.map((comment) => {
-          return <StoriesDetails key={comment.name} data={comment} />
+          return <StoriesDetails key={comment.name} data={comment} />;
         })}
-        <Button des={"btn-1"} className="margin-b-big text__primary">
-          READ ALL STORIES &rarr;
-        </Button>
+        <Link href='#'>
+          <a className="btn-1 margin-b-big text__primary">
+            READ ALL STORIES &rarr;
+          </a>
+        </Link>
       </div>
     </section>
   );

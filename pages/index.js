@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authSliceActions } from "../components/store/authSlice";
 
 import Adventure from "../components/Adventures/Adventure";
@@ -8,6 +8,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Stories from "../components/Stories/Stories";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,15 @@ const HomePage = () => {
     }
   })
 
+  const router = useRouter();
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  console.log(router.route, isAuthenticated);
+
+
   return (
     <>
       <Head>
-        <title>Tour App</title>
+        <title>Adventours</title>
         <meta
           name="description"
           content="Visit anywhere in the world, your only limitation is your imagination"

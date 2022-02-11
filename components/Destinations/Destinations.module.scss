@@ -10,9 +10,9 @@
   & .heading-bg {
     padding: 2rem 0 4rem 0;
 
-    // @include respond(tab-port) {
-    //   padding: 2rem 0;
-    // }
+    @include respond(tab-port) {
+      padding: 2rem 0;
+    }
   }
 
   &__heading-2 {

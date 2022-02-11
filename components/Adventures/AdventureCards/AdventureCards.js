@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../../UI/Button";
 
 import classes from "./AdventureCards.module.scss";
 
@@ -40,7 +39,7 @@ const AdventureCards = (props) => {
               })}
             </ul>
             <Link href="#" passHref={true}>
-              <Button des={"btn-white"}>Learn more</Button>
+              <a className="btn btn-white">Learn more</a>
             </Link>
           </div>
         </div>

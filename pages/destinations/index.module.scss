@@ -1,0 +1,11 @@
+.dest {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 42rem;
+  gap: 2rem;
+}
+
+.clear {
+  margin-top: 10rem;
+}

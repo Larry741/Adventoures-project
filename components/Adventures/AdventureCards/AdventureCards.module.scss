@@ -10,9 +10,9 @@
   transform: translateY(20rem);
   
 
-  // @include respond(tab-landE) {
+  @include respond(tab-landE) {
 
-  // }
+  }
 
   &-rotate {
     position: relative;

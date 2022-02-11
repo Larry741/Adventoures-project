@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 
 import { modalSliceActions } from "../../store/modalSlice";
 import Modal from "../../UI/Modal";
@@ -81,9 +81,10 @@ const NavLinks = (props) => {
     }
   };
 
+
   return (
     <div className={classes["navlinks"]}>
-      {props.showModal && props.modalShouldBeActive ? <Modal onModalReact={closeNavBarHandler} /> : ""}
+      {props.showModal && props.modalShouldBeActive ? <Modal zIndex={16} onModalReact={closeNavBarHandler} /> : ""}
       <div
         className={`${classes["navBar__container-nav-box"]} ${"text__primary"}`}
       >
