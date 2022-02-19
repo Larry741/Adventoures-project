@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { RiCopyrightLine } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 import FooterContent from "./FooterDetails/FooterContent";
@@ -134,7 +135,7 @@ const Footer = () => {
       </div>
       <div className={classes["footer__content-copyright"]}>
         <span className={classes["left"]}>
-          &#169 2021
+          <span><RiCopyrightLine /></span>
           <Link href="#">Privacy</Link>
           <Link href="#">Terms</Link>
           <Link href="#">Sitemap</Link>

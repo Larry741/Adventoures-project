@@ -1,17 +1,14 @@
 .adventures__cards {
   display: inline-block;
   height: 37rem;
-  flex-basis: 25rem;
+  width: 100%;
   border-radius: 3px;
   perspective: 150rem;
-  margin: 0 1rem;
   flex-shrink: 0;
   opacity: 0;
   transform: translateY(20rem);
-  
 
   @include respond(tab-landE) {
-
   }
 
   &-rotate {
@@ -262,11 +259,11 @@
 
 .slide {
   &-0 {
-    animation: moveInBottom .5s ease-in-out forwards; 
+    animation: moveInBottom 0.5s ease-in-out forwards;
   }
 
   &-1 {
-    animation: moveInBottom .8s ease-in-out forwards;
+    animation: moveInBottom 0.8s ease-in-out forwards;
   }
 
   &-2 {
@@ -284,16 +281,17 @@
 
 @keyframes moveInBottom {
   0% {
-        opacity: 0;
-        transform: translateY(20rem);
-    }
+    opacity: .5;
+    transform: translateY(20rem);
+  }
 
   80% {
-      transform: translateY(-2rem);
+    opacity: 1;
+    transform: translateY(-2rem);
   }
 
   100% {
-      opacity: 1;
-      transform: translate(0);
+    opacity: 1;
+    transform: translate(0);
   }
 }

@@ -39,40 +39,24 @@
   &__box {
     width: 100vw;
     // height: 47rem;
-    padding: 3rem 3rem;
-    display: flex;
-    justify-content: center;
+    padding: 3rem 0;;
+    display: grid;
+    grid-template-columns: repeat(5, 25rem);
+    grid-template-rows: 1fr;
     align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
+    justify-content: center;
+    gap: 2rem;
     z-index: 1000;
 
     @include respond(tab-landB) {
-      justify-content: space-between;
-    }
-
-    &::-webkit-scrollbar {
-      height: 2rem;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: $color-grey-light;
-      border-radius: 50rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 100px;
-      border: 5px solid transparent;
-      background-clip: content-box;
-      background-image: linear-gradient(145deg, rgba($color-secondary-dark, .6), rgba($color-primary2-dark, .6))
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background-image: linear-gradient(145deg, rgba($color-secondary-dark, 1), rgba($color-primary2-dark, 1))
+      gap: .5rem;
     }
 
     @include respond(tab-landE) {
-      overflow: auto;
+      gap: 1rem;
+      grid-template-columns: repeat(4, 25rem);
+      grid-auto-flow: column;
+      grid-auto-columns: 0rem;
     }
   }
 

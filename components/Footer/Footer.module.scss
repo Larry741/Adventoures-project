@@ -46,11 +46,24 @@
     display: flex;
     justify-content: space-between;
 
-    & .left a {
-      text-decoration: none;
-      color: $color-white;
-      margin: 0 1rem;
-      display: inline-block;
+    & .left {
+      display: grid;
+      grid-template-columns: .3fr repeat(3, 1fr);
+      align-items: center;
+      gap: 1rem;
+      // justify-items: center;
+
+      & span {
+        padding-top: .5rem;
+        font-size: 2rem;
+        align-self: center;
+        justify-self: center;
+      }
+
+      & a {
+        text-decoration: none;
+        color: $color-white;
+      }
 
       &:hover {
         text-decoration: underline;

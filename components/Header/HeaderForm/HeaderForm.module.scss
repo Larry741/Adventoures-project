@@ -118,6 +118,7 @@
   width: 4.7rem;
   height: 4.7rem;
   padding: 0 1rem;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,6 +136,7 @@
   transform: translate(-50%, -50%);
    color: $color-white; 
   display: none;
+  transition: .3s;
 }
 
 #box-4 button:hover {
@@ -150,11 +152,15 @@
 .calendarContainer {
   position: absolute;
   top: 110%;
-  width: 100%;
+  // width: 100%;
+  margin: 0 auto;
+  border-radius: 30px 30px 30px 30px;
+  overflow: hidden;
   display: grid;
   grid-template-rows: max-content;
   grid-template-columns: 50rem 50rem;
   justify-content: center;
+  background-color: $color-white2;
   // z-index: 20;
 }
 

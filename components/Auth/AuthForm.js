@@ -11,6 +11,7 @@ import classes from "./AuthForm.module.scss";
 const AuthForm = () => {
   const router = useRouter();
   const isLogIn = router.query.signup === "" ? false : true;
+  console.log(isLogIn);
   
   const [isLogin, setIsLogin] = useState(isLogIn);
   const dispatch = useDispatch();
@@ -94,7 +95,7 @@ const AuthForm = () => {
         }
       });
     }
-
+    resetName()
     resetEmail();
     resetPassword();
   };;
@@ -115,8 +116,8 @@ const AuthForm = () => {
           <Image src={image} layout='responsive' alt="mountains" />
         </div>
         <form onSubmit={submitFormHandler} className={classes.form}>
-          <h1>{isLogIn ? "Login" : "Sign Up"}</h1>
-          {!isLogIn && (
+          <h1>{isLogin ? "Login" : "Sign Up"}</h1>
+          {!isLogin && (
             <div
               className={`${classes.control} ${
                 nameIsInvalid && classes.invalid
@@ -170,14 +171,14 @@ const AuthForm = () => {
           </div>
           <div className={classes.actions}>
             <button className={classes.login}>
-              {isLogIn ? "Login" : "Create Account"}
+              {isLogin ? "Login" : "Create Account"}
             </button>
             <button
               type="button"
               className={classes.toggle}
               onClick={switchAuthModeHandler}
             >
-              {isLogIn ? "Create new account" : "Login with existing account"}
+              {isLogin ? "Create new account" : "Login with existing account"}
             </button>
           </div>
         </form>

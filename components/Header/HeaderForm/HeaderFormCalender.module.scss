@@ -2,18 +2,10 @@
   position: relative;
   height: max-content;
   /* width: 100%; */
-  background-color: $color-white2;
+  // background-color: $color-white2;
   padding: 10px;
   overflow: hidden;
   z-index: 20
-}
-
-.cal1 {
-  border-radius: 30px 0 0 30px;
-}
-
-.cal2 {
-  border-radius: 0 30px 30px 0 ;
 }
 
 .light .calendar {
@@ -77,7 +69,7 @@
 .calendar-days div span:nth-child(3) {
   width: 2px;
   height: 0;
-  background-color: var(--color-txt);
+  background-color: $color-primary2-light;
 }
 
 .calendar-days div:hover span:nth-child(1),
@@ -99,7 +91,7 @@
 .calendar-days div span:nth-child(4) {
   width: 0;
   height: 2px;
-  background-color: var(--color-txt);
+  background-color: $color-primary2-light;
 }
 
 .calendar-days div:hover span:nth-child(2),
@@ -131,7 +123,7 @@
 
 .calendar-days div.curr-date,
 .calendar-days div.curr-date:hover {
-  background-color: #0000ff;
+  background-color: $color-secondary-dark;
   color:#fff;
   border-radius: 50%;
 }

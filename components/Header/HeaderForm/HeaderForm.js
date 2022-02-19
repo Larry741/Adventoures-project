@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FcSearch } from "react-icons/fc";
 
 import HeaderFormCalender from "./HeaderFormCalender";
 import { modalSliceActions } from "../../store/modalSlice";
@@ -21,6 +22,7 @@ const HeaderForm = () => {
     el3: false,
     el4: false
   })
+  const input1Ref = useRef()
   const dispatch = useDispatch();
   const showCalendar = useSelector((state) => state.modal.showCalendar);
   const showModal = useSelector(state => state.modal.showModal);
@@ -95,6 +97,7 @@ const HeaderForm = () => {
 
     if (targetDiv.id === classes["box-1"]) {
       setFormIsActive(true);
+      input1Ref.current.focus();
       dispatch(modalSliceActions.closeCalendar());
       setElIsActive(prevState => {
         return{
@@ -167,6 +170,7 @@ const HeaderForm = () => {
               className=""
               type="text"
               autoComplete="off"
+              ref={input1Ref}
               id="Location"
               name="location"
               placeholder="Where are you going?"
@@ -208,9 +212,9 @@ const HeaderForm = () => {
               className={formIsActive ? classes["button-Expand"] : ""}
               type="submit"
             >
-              <span className="material-icons">search</span>
+              <span className="material-icons"><FcSearch /></span>
               <span
-                style={{ display: formIsActive && " block" }}
+                style={{ display: formIsActive && "block" }}
                 className="text__primary"
               >
                 Search
@@ -230,8 +234,8 @@ const HeaderForm = () => {
           className={classes["calendarContainer"]}
           id="calendarContainer"
         >
-          <HeaderFormCalender onChoose={closeCalHandler} id={"cal1"} />
-          <HeaderFormCalender onChoose={closeCalHandler} id={"cal2"} />
+            <HeaderFormCalender onChoose={closeCalHandler} id={"cal1"} />
+            <HeaderFormCalender onChoose={closeCalHandler} id={"cal2"} />
         </div>
       ) : (
         ""

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { FaTwitter } from "react-icons/fa";
+import { AiOutlineMenu } from "react-icons/ai";
+import { FiLogIn } from "react-icons/fi";
 
 import { authSliceActions } from "../../store/authSlice";
 import { modalSliceActions } from "../../store/modalSlice";
@@ -35,7 +38,7 @@ const ProfileBox = (props) => {
   }
 
   const openProfile = (event) => {
-    const eventTarget = event.target.id;
+    const eventTarget = event.target.closest('div').id;
 
     if (
       eventTarget !== "dropdown-1btn") {
@@ -63,35 +66,25 @@ const ProfileBox = (props) => {
   }
 
   return (
-    <div className={classes.profileBox}>
+    <div className={classes.profileBox} id={'dropdown-1btn'} onClick={openProfile}>
       {props.showModal && props.modalShouldBeActive ? (
         <Modal onModalReact={closeProfile} />
       ) : (
         ""
       )}
-      <span
-        onClick={openProfile}
-        id="dropdown-1btn"
-        className={`material-icons ${classes["material-icons-1"]} 'dropbtn`}
-      >
-        menu
-      </span>
-      <span
-        onClick={openProfile}
-        id="dropdown-1btn"
-        className={`material-icons ${classes["material-icons-2"]} 'dropbtn`}
-      >
-        account_circle
-      </span>
+      {isAuthenticated ? <span className={classes['material-icons-2']} ><FaTwitter/></span> :
+      <span className={classes['material-icons-3']} > <FiLogIn/></span>}
       <div
         style={{ display: cont5 ? "block" : "" }}
         id={classes["dropdown-content-1"]}
         className={`${classes["dropdown-content-1"]}`}
       >
-        {!isAuthenticated && <>
-          <Link href="/login?signup">Sign up</Link>
-          <Link href="/login">Log in</Link>
-        </>}
+        {!isAuthenticated && (
+          <>
+            <Link href="/login?signup">Sign up</Link>
+            <Link href="/login">Log in</Link>
+          </>
+        )}
         {isAuthenticated && <button onClick={logOutHandler}>Log out</button>}
         <hr />
         <Link href="#">Help</Link>
