@@ -30,14 +30,14 @@ body {
 
 
 [class~=heading__primary] {
-  font-size: 4rem;
+  font-size: 4.3rem;
 
-  @include respond(tab-port) {
-    font-size: 4.5rem;
+  @include respond(tab-landS) {
+    font-size: 3.9rem
   }
 
-  @include respond(tab-portS) {
-    font-size: 4rem;
+  @include respond(tab-port) {
+    font-size: 3.7rem;
   }
 
   @include respond(phone) {
@@ -46,31 +46,43 @@ body {
 }
 
 [class~=heading__secondary] {
-  font-size: 3.2rem;
+  font-size: 3.3rem;
 
- @include respond(tab-port) {
-    font-size: 3.2rem;
+  @include respond(tab-landS) {
+    font-size: 2.9rem
   }
 
-  @include respond(tab-portS) {
+  @include respond(tab-port) {
     font-size: 2.7rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
   } 
 }
 
 [class~=heading__secondary-2] {
   font-size: 2.5rem;
 
-  @include respond(tab-port) {
-    font-size: 2.2rem;
+  @include respond(tab-landS) {
+    font-size: 2.3rem
   }
 
-  @include respond(tab-portS) {
-    font-size: 1.9rem;
-  } 
+  @include respond(tab-port) {
+    font-size: 2.1rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
 }
 
 [class~=heading__tertiary] {
   font-size: 2.2rem;
+
+  @include respond(tab-landS) {
+    font-size: 1.9rem;
+  } 
 }
 
 [class~=text__primary] {

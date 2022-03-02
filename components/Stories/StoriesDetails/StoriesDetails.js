@@ -11,8 +11,9 @@ const StoriesDetails = (props) => {
           src={props.data.image}
           className={classes["stories__container-pic"]}
           alt="clients picture"
-          width={150}
-          height={150}
+          layout="responsive"
+          // width={150}
+          // height={150}
         />
         <span
           className={`${

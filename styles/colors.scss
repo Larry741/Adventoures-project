@@ -52,8 +52,17 @@ ORDER: Base + typography > general layout + grid > page layout > components
   @if $breakpoint==tab-portS {
     @media (max-width: 40em) {@content};  //640px
   }
+  @if $breakpoint==tab-portSB {
+    @media (max-width: 49.38em) {@content};  //790px
+  }
   @if $breakpoint==tab-port {
     @media (max-width: 56.25em) {@content};    //900px
+  }
+  @if $breakpoint==tab-portE {
+    @media (max-width: 60em) {@content};    //960px
+  }
+  @if $breakpoint==tab-landS {
+    @media (max-width: 65.62em) {@content};     //1050px
   }
   @if $breakpoint==tab-land {
     @media (max-width: 75em) {@content};     //1200px

@@ -7,6 +7,14 @@
   left: 0;
   cursor: pointer;
   z-index: 15;
+
+  @include respond(tab-port) {
+    top: 15vh;
+  }
+
+  @include respond(tab-portSB) {
+    top: 17vh;
+  }
 }
 
 .active-hov {
@@ -20,13 +28,20 @@
 
 .form {
   display: flex;
-   background-color: $color-white; 
-   color: $color-black; 
+  background-color: $color-white; 
+  color: $color-black; 
   border-radius: 8rem;
   height: 6rem;
   width: 70rem;
-   box-shadow: 20px 20px 60px #bebebe,
-             -20px -20px 60px #ffffff; 
+  box-shadow: 20px 20px 60px #bebebe,
+            -20px -20px 60px #ffffff; 
+
+  @include respond(tab-landS) {
+    width: 65rem;
+  }
+  @include respond(tab-portSB) {
+    width: 60rem;
+  }
 }
 
 .control {
@@ -53,6 +68,11 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+
+  @include respond(tab-portSB) {
+    padding: 0 0 0 1.5rem;
+    flex-basis: 34%;
+  }
 }
 
 #box-1 label {
@@ -82,6 +102,11 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @include respond(tab-portSB) {
+    padding: 1rem .5rem 1rem .7rem;
+    flex-basis: 20%;
+  }
 }
 
 #box-2 span:first-of-type,
@@ -102,6 +127,11 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+
+  @include respond(tab-portSB) {
+    flex-basis: 26%;
+    // padding: 1rem .5rem 1rem .7rem;
+  }
 }
 
 #box-4 .text {
@@ -127,6 +157,11 @@
   position: relative;
   cursor: pointer;
   transition: width .3s;
+
+  & .material-icons {
+    font-size: 1.9rem;
+    margin-top: .3rem;
+  }
 }
 
 #box-4 button span:last-child {

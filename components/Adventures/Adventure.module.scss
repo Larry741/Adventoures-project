@@ -30,7 +30,7 @@
   &__heading {
 
     &-2 {
-      padding: 0 0 0 13rem;
+      padding: 0 0 0 4rem;
 
       // @include respond()
     }
@@ -42,7 +42,7 @@
     padding: 3rem 0;;
     display: grid;
     grid-template-columns: repeat(5, 25rem);
-    grid-template-rows: 1fr;
+    grid-template-rows: 37rem;
     align-items: center;
     justify-content: center;
     gap: 2rem;
@@ -55,8 +55,17 @@
     @include respond(tab-landE) {
       gap: 1rem;
       grid-template-columns: repeat(4, 25rem);
-      grid-auto-flow: column;
-      grid-auto-columns: 0rem;
+    }
+
+    @include respond(tab-landS) {
+      grid-template-columns: repeat(4, 22.5rem);
+      grid-template-rows: 33.3rem;
+    }
+    
+    @include respond(tab-portE) {
+      grid-template-columns: repeat(3, 22.5rem);
+      grid-template-rows: repeat(2, 33.3rem);
+      gap: 3rem;
     }
   }
 
@@ -73,21 +82,24 @@
     justify-content: center;
     user-select: none;
 
-    &-rounded {
-      border-radius: 50rem;
+    @include respond(tab-portE) {
+      grid-template-rows: 10rem;
+      grid-template-columns: repeat(7, 10rem);
+      gap: 1.5rem;
     }
 
-    & img {
-      display: inline-block;
-      flex-basis: 11rem;
-      height: 11rem;
-      margin: 0 1rem;
+    @include respond(tab-port) {
+      gap: 1rem;
+    }
 
-      @include respond(tab-port) {
-        margin: .4rem;
-        flex-basis: 9rem;
-        height: 9rem;
-      }
+    @include respond(tab-portSB) {
+      grid-template-rows: 8rem;
+      grid-template-columns: repeat(7, 8rem);
+      gap: .5rem;
+    }
+
+    &-rounded {
+      border-radius: 50rem;
     }
   }
 }

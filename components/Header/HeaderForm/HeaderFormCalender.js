@@ -64,7 +64,6 @@ const HeaderFormCalender = (props) => {
     });
 
     generateCalendar(curr_month.value, curr_year.value);
-
   }, [id, generateCalendar]);
 
   const generateCalendar = useCallback((month, year, calDay) => {

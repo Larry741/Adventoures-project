@@ -40,10 +40,10 @@
     width: 100%;
 
     @include respond(tab-port) {
-      position: absolute;
-      top: 6rem;
-      left: 50%;
-      transform: translate(-50%, 0%);
+      // position: absolute;
+      // top: 6rem;
+      // left: 50%;
+      // transform: translate(-50%, 0%);
     }
 
     &-box {
@@ -54,11 +54,11 @@
       cursor: pointer;
 
       @include respond(tab-port) {
-        margin: 0 1rem 0;
+        // margin: 0 1rem 0;
       }
 
       @include respond(tab-portS) {
-        margin: 0 .8rem 0;
+        // margin: 0 .8rem 0;
       }
 
       &>.dropbtn {

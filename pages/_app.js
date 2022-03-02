@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
 import AuthGuard from "../components/Auth/AuthGuard";
+import AuthProvider from '../components/Auth/AuthProvider';
 
 import store from '../components/store';
 
@@ -14,7 +15,6 @@ import image6 from "../public/img/destination__fiji.jpg";
 import image7 from "../public/img/destination__grand-canyon.jpg";
 import image8 from "../public/img/destination__morroco.jpg";
 import image9 from "../public/img/destination__chile.jpg";
-import AuthMain from '../components/Auth/AuthMain';
 
 export const renderData = [
   {
@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <AuthMain>
+      <AuthProvider>
         {Component.requireAuth ? (
           <AuthGuard>
             <Component {...pageProps} />
@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }) {
           // public page
           <Component {...pageProps} />
         )}
-      </AuthMain>
+      </AuthProvider>
     </Provider>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FcSearch } from "react-icons/fc";
 
@@ -36,7 +36,7 @@ const HeaderForm = () => {
     dispatch(modalSliceActions.showCalendar());
   }
 
-  const closeCalHandler = (dateData1, dateData2) => {
+  const closeCalHandler = useCallback((dateData1, dateData2) => {
     if (dateData1 && !dateData2) {
       setCal1StateDay(dateData1.day);
       setCal1StateMonth(dateData1.month);
@@ -60,9 +60,9 @@ const HeaderForm = () => {
       const nextDiv = document.getElementById(classes["box-4"]);
       nextDiv.click();
     }
-  };
+  }, [cal1StateYear, dispatch]);
 
-  const formCloseModalHandler = (event) => {
+  const formCloseModalHandler = useCallback((event) => {
     // event.stopPropagation();
 
     formContainerRef.current.style.zIndex = 15;
@@ -78,7 +78,7 @@ const HeaderForm = () => {
     });
     dispatch(modalSliceActions.closeModal());
     dispatch(modalSliceActions.closeCalendar());
-  }
+  }, [dispatch]);
 
   const formOpenModalHandler = (event) => {
     const targetDiv = event.target.closest('div');
@@ -212,7 +212,7 @@ const HeaderForm = () => {
               className={formIsActive ? classes["button-Expand"] : ""}
               type="submit"
             >
-              <span className="material-icons"><FcSearch /></span>
+              <span className={classes["material-icons"]}><FcSearch /></span>
               <span
                 style={{ display: formIsActive && "block" }}
                 className="text__primary"

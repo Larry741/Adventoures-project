@@ -106,6 +106,9 @@ const AuthForm = () => {
 
   const switchAuthModeHandler = (event) => {
     event.preventDefault();
+    resetEmail();
+    resetName();
+    resetPassword();
     setIsLogin((prevState) => !prevState);
   };
 
@@ -148,6 +151,7 @@ const AuthForm = () => {
               type="text"
               id="email"
               value={enteredEmail}
+              required
               placeholder="E-Mail Address"
             />
           </div>

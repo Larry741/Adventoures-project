@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { authSliceActions } from "../store/authSlice";
 
-const AuthMain = ({children}) => {
+const AuthProvider = ({children}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("idToken");
@@ -15,4 +15,4 @@ const AuthMain = ({children}) => {
   return <>{children}</>;
 }
 
-export default AuthMain;
+export default AuthProvider;

@@ -1,6 +1,6 @@
 .adventures__cards {
   display: inline-block;
-  height: 37rem;
+  height: 100%;
   width: 100%;
   border-radius: 3px;
   perspective: 150rem;
@@ -8,18 +8,20 @@
   opacity: 0;
   transform: translateY(20rem);
 
-  @include respond(tab-landE) {
+  @include respond(tab-landS) {
   }
 
   &-rotate {
     position: relative;
     transition: 0.4s linear;
     z-index: 2;
+    height: 100%;
+    width: 100%;
   }
 
   &-side {
-    height: 37rem;
-    width: 25rem;
+    height: 100%;
+    width: 100%;
     box-shadow: 0 0.2rem 0.8rem rgba($color-black, 0.25);
     position: absolute;
     top: 0;
@@ -28,6 +30,8 @@
     &-front {
       background-color: $color-grey-light;
       backface-visibility: hidden;
+      // height: 100%;
+      // width: 100%;
 
       & img {
         position: absolute;
@@ -44,6 +48,8 @@
       transform: rotateY(-180deg);
       opacity: 0;
       transition: 0s linear 0.2s;
+      // height: 100%;
+      // width: 100%;
 
       & > .bg {
         height: 100%;
@@ -276,6 +282,14 @@
 
   &-4 {
     animation: moveInBottom 1.7s ease-in-out forwards;
+
+    @include respond(tab-landE) {
+      display: none;
+    }
+
+    @include respond(tab-portE) {
+      display: block;
+    }
   }
 }
 

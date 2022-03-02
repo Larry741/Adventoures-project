@@ -1,93 +1,86 @@
 .header__direction {
   position: absolute;
-  top: calc(57vh + 25rem);
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 66vh);
+  opacity: 0;
   padding: 2rem;
   border-radius: 50rem;
- color: $color-white;
- background-color: rgba($color-white2, .3);
+  color: $color-white;
+  background-color: rgba($color-white2, .3);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: slideIn 1s ease-in 2s backwards,
-  direction 10s ease-in 6s infinite forwards;
+  animation: slideIn 1s ease-in 2s forwards;
+  // direction 10s ease-in 6s infinite forwards;
   cursor: pointer;
   backface-visibility: hidden;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
 }
 
 @keyframes slideIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, -25rem);
+    transform: translate(-50%, 66vh);
   }
-
   50% {
     opacity: .5;
-    transform: translate(-50%, 1rem);
+    transform: translate(-50%, 90.5vh);
   }
-
   62% {
-    transform: translate(-50%, -3rem);
+    // transform: translate(-50%, -3);
   }
-
   75% {
     opacity: 1;
-    transform: translate(-50%,-5rem);
+    transform: translate(-50%,87vh);
   }
-
-  88% {
-    transform: translate(-50%,-3rem);
-  }
-
   100% {
-    transform: translate(-50%,-1rem);
+    opacity: 1;
+    transform: translate(-50%, 91vh);
   }
 }
 
-@keyframes direction {
-  0% {
-    transform: translate(-50%,-1rem)
-  }
+// @keyframes direction {
+//   0% {
+//     transform: translate(-50%,-1rem)
+//   }
 
-  2% {
-    transform: translate(-50%, 1rem)
-  }
+//   2% {
+//     transform: translate(-50%, 1rem)
+//   }
 
-  3% {
-    transform: translate(-50%,1rem);
-    padding: 2rem 2rem 1.3rem;
-    box-shadow: 0px 6px 20px rgba($color-black, .5);
-  }
+//   3% {
+//     transform: translate(-50%,1rem);
+//     padding: 2rem 2rem 1.3rem;
+//     box-shadow: 0px 6px 20px rgba($color-black, .5);
+//   }
 
-  5% {
-    transform: translate(-50%,-8rem);
-  }
+//   5% {
+//     transform: translate(-50%,-8rem);
+//   }
 
-  6% {
-    transform: translate(-50%,-10rem);
-    padding: 2rem;
-    box-shadow: 0px 6px 20px rgba(transparent, 0);
-  }
+//   6% {
+//     transform: translate(-50%,-10rem);
+//     padding: 2rem;
+//     box-shadow: 0px 6px 20px rgba(transparent, 0);
+//   }
 
-  11% {
-    transform: translate(-50%,0rem);
-  }
+//   11% {
+//     transform: translate(-50%,0rem);
+//   }
 
-  12% {
-    transform: translate(-50%,-2rem);
-  }
+//   12% {
+//     transform: translate(-50%,-2rem);
+//   }
 
-  13% {
-    transform: translate(-50%,-4rem);
-  }
+//   13% {
+//     transform: translate(-50%,-4rem);
+//   }
   
-  14% {
-    transform: translate(-50%,-2rem);
-  }
+//   14% {
+//     transform: translate(-50%,-2rem);
+//   }
 
-  15% {
-    transform: translate(-50%,-1rem);
-  }
-}
+//   15% {
+//     transform: translate(-50%,-1rem);
+//   }
+// }

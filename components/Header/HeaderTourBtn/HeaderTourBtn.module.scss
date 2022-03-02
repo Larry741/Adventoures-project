@@ -1,9 +1,13 @@
 .header__button-box {
   position: absolute;
-  top: 67%;
+  top: 69%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+
+  @include respond(tab-portSB) {
+    top: 70%;
+  }
 }
 
 .header__button-box span {
