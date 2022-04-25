@@ -1,6 +1,8 @@
+import { useSession } from "next-auth/react";
 import AuthForm from "../../components/Auth/AuthForm";
 
 const AuthPage = () => {
+  const { data: session, status } = useSession();
 
   return (
     <>
@@ -8,7 +10,5 @@ const AuthPage = () => {
     </>
   );
 };
-
-AuthPage.requireAuth = true;
 
 export default AuthPage;

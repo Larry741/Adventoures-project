@@ -80,7 +80,7 @@ const HeaderForm = () => {
     dispatch(modalSliceActions.closeCalendar());
   }, [dispatch]);
 
-  const formOpenModalHandler = (event) => {
+  const formOpenModalHandler = useCallback((event) => {
     const targetDiv = event.target.closest('div');
     if (
       targetDiv.id !== classes["box-1"] &&
@@ -139,7 +139,7 @@ const HeaderForm = () => {
         };
       });
     } 
-  }
+  })
 
   const styles = ` ${formIsActive
       && classes["inactive_hov"]}`;

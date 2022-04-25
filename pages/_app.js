@@ -1,6 +1,5 @@
 import { Provider } from 'react-redux';
-import AuthGuard from "../components/Auth/AuthGuard";
-import AuthProvider from '../components/Auth/AuthProvider';
+import { SessionProvider } from 'next-auth/react'
 
 import store from '../components/store';
 
@@ -64,21 +63,14 @@ export const renderData = [
   },
 ];
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
-    <Provider store={store}>
-      <AuthProvider>
-        {Component.requireAuth ? (
-          <AuthGuard>
-            <Component {...pageProps} />
-          </AuthGuard>
-        ) : (
-          // public page
-          <Component {...pageProps} />
-        )}
-      </AuthProvider>
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </SessionProvider>
   );
 }
 

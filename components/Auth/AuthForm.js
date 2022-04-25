@@ -1,20 +1,22 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { authSliceActions } from "../store/authSlice";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
+
 import useInput from "../hooks/use-input";
 
 import image from "../../public/img/Destination__california.jpg";
 import classes from "./AuthForm.module.scss";
 
 const AuthForm = () => {
+  const nameLabelRef = useRef(null);
+  const emailLabelRef = useRef(null);
+  const passwordLabelRef = useRef(null);
+
   const router = useRouter();
   const isLogIn = router.query.signup === "" ? false : true;
-  console.log(isLogIn);
   
   const [isLogin, setIsLogin] = useState(isLogIn);
-  const dispatch = useDispatch();
   const {
     enteredValue: enteredName,
     inputIsValid: nameIsValid,
@@ -43,34 +45,20 @@ const AuthForm = () => {
   const signupFormIsValid = emailIsValid && passwordIsValid && nameIsValid;
   const loginFormIsValid = emailIsValid && passwordIsValid;
 
-  const submitFormHandler = async (event) => {
+  const signupHandler = async (event) => {
     event.preventDefault();
 
-    if (isLogin && !loginFormIsValid) {
-      console.log("isLogin");
+    if (!signupFormIsValid) {
       return;
     }
 
-    if (!isLogin && !signupFormIsValid) {
-      console.log("isSignup");
-      return;
-    }
-
-    const inputData = {
-      email: enteredEmail,
-      password: enteredPassword,
-    };
-
-    let requestUrl;
-    isLogin
-      ? (requestUrl =
-          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBZMFjt27Lg-n98yGQwWk_VMZrFtp-F1xM")
-      : (requestUrl =
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZMFjt27Lg-n98yGQwWk_VMZrFtp-F1xM");
-
-    const res = await fetch(requestUrl, {
+    const res = await fetch("/api/auth/signup", {
       method: "POST",
-      body: JSON.stringify(inputData),
+      body: JSON.stringify({
+        name: enteredName,
+        email: enteredEmail,
+        password: enteredPassword,
+      }),
       headers: {
         "Content-Type": "application/Json",
       },
@@ -80,35 +68,65 @@ const AuthForm = () => {
       res
         .json()
         .then((data) => {
-          throw new Error(data.error.message);
+          throw new Error(data.message);
         })
         .catch((error) => {
           console.log(error.message);
         });
     } else {
       res.json().then((data) => {
-        if (isLogin) {
-          dispatch(authSliceActions.logIn(data.idToken));
-          router.push("/");
-        } else {
-          setIsLogin(true);
-        }
+        console.log(res);
+        setIsLogin(true);
+        resetName();
+        resetEmail();
+        resetPassword();
       });
     }
-    resetName()
-    resetEmail();
-    resetPassword();
-  };;
+  };
+
+  const googleloginHandler = async (event) => {
+    await signIn('google', {
+      callbackUrl: '/',
+    });
+  };
+
+  const credentialsLoginHandler = async (event) => {
+    event.preventDefault();
+
+    if (!loginFormIsValid) {
+      return;
+    }
+
+    const result = await signIn('credentials', {
+      callbackUrl: '/',
+      redirect: false,
+      email: enteredEmail,
+      password: enteredPassword,
+    });
+
+    if (result.error) {
+      return console.log(result.error);
+    }
+    
+    router.replace('/');
+  }
 
   const inputfocusHandler = (event) => {
     event.target.previousElementSibling.id = `${classes["label-focus"]}`;
   }
 
+
   const switchAuthModeHandler = (event) => {
     event.preventDefault();
+    
     resetEmail();
+    emailLabelRef.current.removeAttribute('id');
     resetName();
+    if (nameLabelRef.current) {
+      nameLabelRef.current.removeAttribute("id");
+    }
     resetPassword();
+    passwordLabelRef.current.removeAttribute("id");
     setIsLogin((prevState) => !prevState);
   };
 
@@ -116,9 +134,9 @@ const AuthForm = () => {
     <section className={classes.auth}>
       <div className={classes.row}>
         <div className={classes.image}>
-          <Image src={image} layout='responsive' alt="mountains" />
+          <Image src={image} layout="responsive" alt="mountains" />
         </div>
-        <form onSubmit={submitFormHandler} className={classes.form}>
+        <form className={classes.form}>
           <h1>{isLogin ? "Login" : "Sign Up"}</h1>
           {!isLogin && (
             <div
@@ -126,7 +144,7 @@ const AuthForm = () => {
                 nameIsInvalid && classes.invalid
               }`}
             >
-              <label htmlFor="name">Full name</label>
+              <label htmlFor="name" ref={nameLabelRef}>Full name</label>
               <input
                 onFocus={inputfocusHandler}
                 onChange={nameValueChangeHandler}
@@ -143,7 +161,7 @@ const AuthForm = () => {
               emailIsInvalid && classes.invalid
             }`}
           >
-            <label htmlFor="email">E-Mail Address</label>
+            <label htmlFor="email" ref={emailLabelRef}>E-Mail Address</label>
             <input
               onFocus={inputfocusHandler}
               onChange={emailValueChangeHandler}
@@ -160,7 +178,7 @@ const AuthForm = () => {
               passwordIsInvalid && classes.invalid
             }`}
           >
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" ref={passwordLabelRef}>Password</label>
             <input
               onFocus={inputfocusHandler}
               onChange={passwordValueChangeHandler}
@@ -174,7 +192,10 @@ const AuthForm = () => {
             />
           </div>
           <div className={classes.actions}>
-            <button className={classes.login}>
+            <button
+              className={classes.login}
+              onClick={isLogin ? credentialsLoginHandler : signupHandler}
+            >
               {isLogin ? "Login" : "Create Account"}
             </button>
             <button
@@ -186,6 +207,9 @@ const AuthForm = () => {
             </button>
           </div>
         </form>
+        <div>
+          <button onClick={googleloginHandler}>log in with google</button>
+        </div>
       </div>
     </section>
   );
