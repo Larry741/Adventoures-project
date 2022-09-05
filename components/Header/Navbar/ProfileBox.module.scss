@@ -1,11 +1,13 @@
 .profileBox {
+  justify-self: flex-end;
   align-self: flex-end;
   width: 6.5rem;
   height: 4.4rem;
-  // padding: 0 .9rem 0;
-  margin: 0 3rem .5rem 0;
+  padding: 0 .9rem 0;
+  margin: 0 2rem .5rem 0;
+  justify-content: flex-start;
   border-radius: 5rem;
-  background-color: $color-white2; 
+  background-color: $color-white2;
   color: $color-grey-dark;
   display: grid;
   grid-template-columns: 1fr;
@@ -14,6 +16,10 @@
   justify-items: center;
   cursor: pointer;
   position: relative;
+
+  @include respond(notebook-768) {
+    // margin: 0 1rem 0rem 0;
+  }
 }
 
 .material-icons-2 {
@@ -27,14 +33,14 @@
 .material-icons-2::after {
   content: "";
   display: inline-block;
-  background-color: $color-secondary-dark; 
-  border: 2px solid $color-white2; 
+  background-color: $color-secondary-dark;
+  border: 2px solid $color-white2;
   border-radius: 50rem;
   height: 1.2rem;
   width: 1.2rem;
   position: absolute;
-  top: .1rem;
-  right: .1rem;
+  top: 0.1rem;
+  right: 0.1rem;
 }
 
 .material-icons-3 {
@@ -48,7 +54,7 @@
 .dropdown-content-1 {
   top: 4.9rem;
   border-radius: 0 0 1rem 1rem;
-    background-color: $color-white; 
+  background-color: $color-white;
   min-width: 20rem;
   right: 0rem;
   overflow: hidden;
@@ -62,7 +68,7 @@
 }
 
 .dropdown-content-1 a,
-.dropdown-content-1  button {
+.dropdown-content-1 button {
   /* color: $color-black; */
   color: black;
   padding: 12px 16px;
@@ -85,4 +91,20 @@
 .dropdown-content-1 a:hover,
 .dropdown-content-1 button:hover {
   background-color: #f1f1f1;
-} 
+}
+
+.menu {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: none;
+
+  @include respond(tablet-666) {
+    display: block;
+  }
+
+  & svg {
+    font-size: 2.5rem;
+    // color: white;
+  }
+}

@@ -1,5 +1,4 @@
 import HeaderCaption from "./HeaderCaption/HeaderCaption";
-import HeaderScrollDown from "./HeaderScrollDown/HeaderScrollDown";
 import HeaderTourBtn from "./HeaderTourBtn/HeaderTourBtn";
 import HeaderVideo from "./HeaderVideo/HeaderVideo";
 import HeaderForm from "./HeaderForm/HeaderForm";
@@ -15,7 +14,6 @@ const Header = (props) => {
       <HeaderForm />
       <HeaderCaption />
       <HeaderTourBtn />
-      <HeaderScrollDown />
     </section>
   );
 };

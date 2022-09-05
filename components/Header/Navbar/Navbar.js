@@ -1,5 +1,4 @@
 import { useState } from "react";
-import reactDom from "react-dom";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import Link from "next/link";
@@ -11,42 +10,6 @@ import classes from "./Navbar.module.scss";
 import image from "../../../public/img/favicon.png";
 
 const data = ["Things to do", "Destinations", "Places to stay", "Experiences"];
-
-const NavBar = (props) => {
-
-  return (
-    <div
-      id="navBar"
-      style={{
-        backgroundColor: props.isSticky ? "rgba(227, 157, 69, .9)" : "",
-      }}
-      className={`${classes.navbar} ${props.isSticky ? "sticky" : ""}`}
-    >
-      <div className={classes["box"]}>
-        <Link href="/">
-          <a>
-            <Image src={image} alt="Logo" width={70} height={70} />
-          </a>
-        </Link>
-      </div>
-      <NavLinks
-        setSticky={props.setSticky}
-        isActive={props.isActive}
-        setIsActive={props.setIsActive}
-        linkData={data}
-        showModal={props.showModal}
-        modalShouldBeActive={props.modalShouldBeActive}
-      />
-      <ProfileBox
-        setSticky={props.setSticky}
-        isActive={props.isActive}
-        setIsActive={props.setIsActive}
-        showModal={props.showModal}
-        modalShouldBeActive={props.modalShouldBeActive}
-      />
-    </div>
-  );
-};
 
 const Navbar = (props) => {
   const [isSticky, setIsSticky] = useState(false);
@@ -73,28 +36,36 @@ const Navbar = (props) => {
 
   return (
     <>
-      {isSticky ? (
-        reactDom.createPortal(
-          <NavBar
-            isSticky={isSticky}
-            isActive={navLinkIsActive}
-            setSticky={stickySectionHandler}
-            setIsActive={setNavLinkIsActive}
-            showModal={showModal}
-            modalShouldBeActive={modalShouldBeActive}
-          />,
-          document.body
-        )
-      ) : (
-        <NavBar
-          isSticky={isSticky}
-          isActive={navLinkIsActive}
+      <div
+        id="navBar"
+        style={{
+          backgroundColor: isSticky ? "rgba(227, 157, 69, .9)" : "",
+        }}
+        className={`${classes.navbar}`}
+      >
+        <div className={classes["box"]}>
+          <Link href="/">
+            <a>
+              <Image src={image} alt="Logo" width={70} height={70} />
+            </a>
+          </Link>
+        </div>
+        <NavLinks
           setSticky={stickySectionHandler}
+          isActive={navLinkIsActive}
+          setIsActive={setNavLinkIsActive}
+          linkData={data}
+          showModal={showModal}
+          modalShouldBeActive={modalShouldBeActive}
+        />
+        <ProfileBox
+          setSticky={stickySectionHandler}
+          isActive={navLinkIsActive}
           setIsActive={setNavLinkIsActive}
           showModal={showModal}
           modalShouldBeActive={modalShouldBeActive}
         />
-      )}
+      </div>
     </>
   );
 };

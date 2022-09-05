@@ -53,7 +53,7 @@ const AuthForm = () => {
     }
 
     const res = await fetch("/api/auth/signup", {
-      method: "POST",
+      method: "post",
       body: JSON.stringify({
         name: enteredName,
         email: enteredEmail,

@@ -3,18 +3,10 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 13vh;
+  top: 17vh;
   left: 0;
   cursor: pointer;
   z-index: 15;
-
-  @include respond(tab-port) {
-    top: 15vh;
-  }
-
-  @include respond(tab-portSB) {
-    top: 17vh;
-  }
 }
 
 .active-hov {
@@ -36,11 +28,17 @@
   box-shadow: 20px 20px 60px #bebebe,
             -20px -20px 60px #ffffff; 
 
-  @include respond(tab-landS) {
+  @include respond(notebook-974) {
     width: 65rem;
   }
-  @include respond(tab-portSB) {
+  @include respond(notebook-768) {
     width: 60rem;
+  }
+  @include respond(tablet-666) {
+    width: 55rem;
+  }
+  @include respond(tablet-589) {
+    width: 51rem;
   }
 }
 
@@ -69,9 +67,12 @@
   justify-content: center;
   cursor: pointer;
 
-  @include respond(tab-portSB) {
+  @include respond(notebook-974) {
     padding: 0 0 0 1.5rem;
     flex-basis: 34%;
+  }
+  @include respond(tablet-666) {
+    flex-basis: 49%;
   }
 }
 
@@ -103,15 +104,18 @@
   justify-content: space-evenly;
   align-items: center;
 
-  @include respond(tab-portSB) {
+  @include respond(notebook-974) {
     padding: 1rem .5rem 1rem .7rem;
     flex-basis: 20%;
+  }
+  @include respond(tablet-666) {
+    flex-basis: 18%;
   }
 }
 
 #box-2 span:first-of-type,
 #box-3 span:first-of-type {
-  margin: 0 1rem 0 0 ;
+  // margin: 0 1rem 0 0 ;
 }
 
 #box-2 span:last-of-type,
@@ -128,9 +132,11 @@
   align-items: center;
   cursor: pointer;
 
-  @include respond(tab-portSB) {
+  @include respond(notebook-974) {
     flex-basis: 26%;
-    // padding: 1rem .5rem 1rem .7rem;
+  }
+  @include respond(tablet-666) {
+    flex-basis: 25%;
   }
 }
 
@@ -158,6 +164,10 @@
   cursor: pointer;
   transition: width .3s;
 
+  @include respond(notebook-974) {
+    padding: 0 0 0 .5rem ;
+  }
+
   & .material-icons {
     font-size: 1.9rem;
     margin-top: .3rem;
@@ -172,6 +182,10 @@
    color: $color-white; 
   display: none;
   transition: .3s;
+
+  @include respond(notebook-974) {
+    left: 65%;
+  }
 }
 
 #box-4 button:hover {
@@ -182,6 +196,13 @@
   width: 10.5rem !important;
   margin-left: 1rem;
   justify-content: flex-start !important;
+
+  @include respond(notebook-974) {
+    width: 7.5rem !important
+  }
+  @include respond(tablet-666) {
+    width: 7rem !important
+  }
 }
 
 .calendarContainer {
@@ -197,5 +218,18 @@
   justify-content: center;
   background-color: $color-white2;
   // z-index: 20;
+
+  @include respond(laptop-1024) {
+    grid-template-columns: 40rem 40rem;
+  }
+  @include respond(notebook-867) {
+    grid-template-columns: 35rem 35rem;
+  }
+  @include respond(notebook-768) {
+    grid-template-columns: 30rem 30rem;
+  }
+  @include respond(notebook-768) {
+    grid-template-columns: 28rem 28rem;
+  }
 }
 

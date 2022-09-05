@@ -3,18 +3,18 @@ import { useCallback, useEffect, useState, useRef } from "react";
 import classes from "./HeaderFormCalender.module.scss";
 
 const month_names = [
-  "January",
-  "February",
-  "March",
-  "April",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
   "May",
   "June",
   "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 let currDate = new Date();
@@ -244,22 +244,25 @@ const HeaderFormCalender = (props) => {
 
 
   return (
-    <div onClick={stopPropagation} className={`${classes["calendar"]} ${classes[id]}`} id={id}>
+    <div
+      onClick={stopPropagation}
+      className={`${classes["calendar"]} ${classes[id]}`}
+      id={id}
+    >
       <div className={classes["calendar-header"]}>
         <span
           onClick={pickMonthHandler}
           className={classes["month-picker"]}
           id={id === "cal1" ? "month-picker-1" : "month-picker-2"}
         >
-          February
         </span>
-        <div className={classes["year-picker"]}>
+        <div className={`${classes["year-picker"]} heading__tertiary`}>
           <span
             onClick={preYearChangeHandler}
             className={classes["year-change"]}
             id={id === "cal1" ? "prev-year-1" : "prev-year-2"}
           >
-            <pre></pre>
+            <pre>le</pre>
           </span>
           <span id={id === "cal1" ? "year-1" : "year-2"}>2021</span>
           <span
@@ -267,19 +270,19 @@ const HeaderFormCalender = (props) => {
             className={classes["year-change"]}
             id={id === "cal1" ? "next-year-1" : "next-year-2"}
           >
-            <pre></pre>
+            <pre>ri</pre>
           </span>
         </div>
       </div>
-      <div className={classes["calendar-body"]}>
+      <div className={`${classes["calendar-body"]} small-text`}>
         <div className={classes["calendar-week-day"]}>
-          <div>Sunday</div>
-          <div>Monday</div>
-          <div>Tuesday</div>
-          <div>Wednesday</div>
-          <div>Thursday</div>
-          <div>Friday</div>
-          <div>Saturday</div>
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
         </div>
         <div
           onClick={chooseDateHandler}
@@ -288,7 +291,7 @@ const HeaderFormCalender = (props) => {
         ></div>
       </div>
       <div
-        className={classes["month-list"]}
+        className={`${classes["month-list"]} small-text`}
         id={id === "cal1" ? "month-list-1" : "month-list-2"}
       ></div>
     </div>

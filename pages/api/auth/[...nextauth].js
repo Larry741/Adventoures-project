@@ -7,7 +7,11 @@ import { verifyPasword } from "../../../lib/passwordEncrypt";
 
 export default NextAuth({
   session: {
-    jwt: true,
+    strategy: "jwt",
+    maxAge: 60 * 60 * 24,
+  },
+  jwt: {
+    maxAge: 60 * 60 * 5,
   },
   providers: [
     CredentialsProvider({
@@ -43,21 +47,4 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRETS,
     }),
   ],
-  jwt: {
-    encryption: true,
-  },
-  // callbacks: {
-  //   async jwt(token, account) {
-  //     if (account?.accessToken) {
-  //       token.accessToken = account.accessToken;
-  //     }
-  //     return token;
-  //   },
-  //   redirect: async (url, baseUrl) => {
-  //     if (url ===  '/profile') {
-  //       return Promise.resolve('/');
-  //     }
-  //     return Promise.resolve("/");
-  //   }
-  // }
 });

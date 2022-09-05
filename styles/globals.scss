@@ -10,13 +10,12 @@
 html {
   /* This defines what 1rem is */
   /* 1 rem = 10px; 10px/16px = 62.5% */
-  font-size: 62.5%; 
+  font-size: 62.5%;
 }
 
 body {
-  font-family: 'montserrat',
-  verdana,
-  sans-serif;
+  font-family: Poppins, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
   font-size: 1.6rem;
   color: black;
   box-sizing: border-box;
@@ -24,32 +23,32 @@ body {
 }
 
 ::selection {
-  color: $color-white; 
-  background-color: rgba($color-secondary-dark, .5); 
+  color: $color-white;
+  background-color: rgba($color-secondary-dark, 0.5);
 }
 
+[class~="heading__primary"] {
+  font-size: 3.8rem;
 
-[class~=heading__primary] {
-  font-size: 4.3rem;
-
-  @include respond(tab-landS) {
-    font-size: 3.9rem
+  @include respond(notebook-974) {
+    font-size: 3.2rem;
   }
-
-  @include respond(tab-port) {
-    font-size: 3.7rem;
+  @include respond(notebook-768) {
+    font-size: 2.5rem;
   }
-
-  @include respond(phone) {
-    font-size: 3.5rem;
-  } 
+  @include respond(tablet-560) {
+    font-size: 2.2rem;
+  }
+  @include respond(tablet-480) {
+    font-size: 1.8rem;
+  }
 }
 
-[class~=heading__secondary] {
+[class~="heading__secondary"] {
   font-size: 3.3rem;
 
   @include respond(tab-landS) {
-    font-size: 2.9rem
+    font-size: 2.9rem;
   }
 
   @include respond(tab-port) {
@@ -58,14 +57,14 @@ body {
 
   @include respond(phone) {
     font-size: 2.5rem;
-  } 
+  }
 }
 
-[class~=heading__secondary-2] {
+[class~="heading__secondary-2"] {
   font-size: 2.5rem;
 
   @include respond(tab-landS) {
-    font-size: 2.3rem
+    font-size: 2.3rem;
   }
 
   @include respond(tab-port) {
@@ -77,86 +76,251 @@ body {
   }
 }
 
-[class~=heading__tertiary] {
+[class~="heading__tertiary"] {
   font-size: 2.2rem;
 
-  @include respond(tab-landS) {
+  @include respond(laptop-1093) {
     font-size: 1.9rem;
-  } 
+  }
+  @include respond(notebook-914) {
+    font-size: 1.7rem;
+  }
+  @include respond(notebook-768) {
+    font-size: 1.5rem;
+  }
 }
 
-[class~=text__primary] {
-  font-size: 1.6rem;
+.secondaryText {
+  font-size: 2rem !important;
 }
 
-[class~=text__primary-big] {
-  font-size: 2rem;
+.secondaryText-bold {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
 }
 
-[class~=text__primary-small] {
-  font-size: 1.4rem;
+.tertiaryText {
+  font-size: 1.8rem !important;
+
+  @include respond(laptop-1200) {
+    font-size: 1.7rem !important;
+  }
+  // @include respond(notebook-974) {
+  //   font-size: 1.6rem !important;
+  // }
+  @include respond(notebook-666) {
+    font-size: 1.5rem !important;
+  }
 }
+
+.tertiaryText-bold {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+
+  @include respond(laptop-1200) {
+    font-size: 1.7rem !important;
+  }
+  // @include respond(notebook-974) {
+  //   font-size: 1.6rem !important;
+  // }
+  @include respond(notebook-666) {
+    font-size: 1.5rem !important;
+  }
+}
+
+.mediumTertiaryText {
+  font-size: 1.7rem !important;
+
+  @include respond(desktop-1300) {
+    font-size: 1.5rem !important;
+  }
+  @include respond(laptop-1093) {
+    font-size: 1.3rem !important;
+  }
+  @include respond(tablet-666) {
+    font-size: 1.2rem !important;
+  }
+}
+
+.mediumTertiaryText-bold {
+  font-size: 1.7rem !important;
+  font-weight: 600 !important;
+
+  @include respond(desktop-1300) {
+    font-size: 1.5rem !important;
+  }
+  @include respond(laptop-1093) {
+    font-size: 1.3rem !important;
+  }
+  @include respond(tablet-666) {
+    font-size: 1.2rem !important;
+  }
+}
+
+.small-text {
+  font-size: 1.6rem !important;
+
+  @include respond(laptop-1024) {
+    font-size: 1.5rem !important;
+  }
+  @include respond(notebook-867) {
+    font-size: 1.4rem !important;
+  }
+  @include respond(notebook-768) {
+    font-size: 1.3rem !important;
+  }
+}
+
+.small-text-bold {
+  font-size: 1.6rem !important;
+  font-weight: 600 !important;
+
+  @include respond(laptop-1024) {
+    font-size: 1.5rem !important;
+  }
+}
+
+.mediumSmallText {
+  font-size: 1.5rem !important;
+
+  @include respond(laptop-1024) {
+    font-size: 1.4rem !important;
+  }
+  @include respond(notebook-867) {
+    font-size: 1.3rem !important;
+  }
+  @include respond(tablet-666) {
+    font-size: 1.2rem !important;
+  }
+}
+
+.mediumSmallText-bold {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+
+  @include respond(laptop-1024) {
+    font-size: 1.4rem !important;
+  }
+  @include respond(notebook-867) {
+    font-size: 1.3rem !important;
+  }
+  @include respond(phones-420) {
+    font-size: 1.1rem !important;
+  }
+}
+
+.smaller-text {
+  font-size: 1.4rem !important;
+
+  @include respond(notebook-867) {
+    font-size: 1.3rem !important;
+  }
+  @include respond(tablet-480) {
+    font-size: 1.1rem !important;
+  }
+  @include respond(phones-420) {
+    font-size: 1rem !important;
+  }
+}
+
+.smaller-text-bold {
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+
+  @include respond(notebook-867) {
+    font-size: 1.3rem !important;
+  }
+  @include respond(tablet-480) {
+    font-size: 1.2rem !important;
+  }
+  @include respond(phones-420) {
+    font-size: 1.1rem !important;
+  }
+}
+
+.verySmallText {
+  font-size: 1.3rem !important;
+
+  @include respond(laptop-1024) {
+    font-size: 1.2rem !important;
+  }
+  @include respond(phones-420) {
+    font-size: 1rem !important;
+  }
+}
+
+.verySmallText-bold {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+
+  @include respond(laptop-1024) {
+    font-size: 1.2rem !important;
+  }
+}
+
+.smallest-text {
+  font-size: 1.2re;
+}
+
 
 .center {
   text-align: center;
 }
 
-div[class=clearfix]::after {
+div[class="clearfix"]::after {
   content: "";
   clear: both;
   display: table;
 }
 
 .margin-b-small {
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 
 .margin-b-medium {
-  margin-bottom: 3rem
+  margin-bottom: 3rem;
 }
 
 .margin-b-medium-2 {
-  margin-bottom: 4.5rem
+  margin-bottom: 4.5rem;
 }
 
 .margin-b-big {
-  margin-bottom: 6rem
+  margin-bottom: 6rem;
 }
 
 .margin-b-large {
   margin-bottom: 10rem;
 }
 
-.sticky {
-  position: fixed !important;
-  top: 0 !important;
-}
-
 .btn {
   // font-family: Georgia, 'verdana', serif;
-  padding: 1.8rem 2.7rem;
+  padding: 1.6rem 2.3rem;
   border: none;
   border-radius: 4.5rem;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
   position: relative;
   z-index: 2;
-  box-shadow: 0 .5rem 1rem rgba($color-black, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
   text-decoration: none;
-  
-  @include respond(tab-port) {
-   padding: 2rem;
- } 
+
+  @include respond(notebook-974) {
+    padding: 1.6rem 2rem;
+  }
+  @include respond(notebook-768) {
+    padding: 1.4rem 1.4rem;
+  }
 }
 
 .btn:hover {
-  transform: translateY(-.3rem);
-  box-shadow: 0 1rem 1.5rem rgba($color-black, 0.2); 
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 1.5rem rgba($color-black, 0.2);
 }
 
 .btn:active {
-  transform: translateY(.1rem);
-  box-shadow: 0 .5rem .5rem rgba($color-black, 0.2); 
+  transform: translateY(0.1rem);
+  box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
 }
 
 .btn::after {
@@ -169,7 +333,7 @@ div[class=clearfix]::after {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .btn:hover::after {
@@ -178,32 +342,31 @@ div[class=clearfix]::after {
 }
 
 .btn-1 {
-  font-family: Georgia, 'verdana', serif;
+  font-family: Georgia, "verdana", serif;
   padding: 1.5rem;
   background-color: transparent;
   text-decoration: none;
   border: none;
   cursor: pointer;
-   color: $color-secondary-dark;
-  transition: all .2s ease;
+  color: $color-secondary-dark;
+  transition: all 0.2s ease;
   border-bottom: 1px solid $color-secondary-dark;
   font-size: 1.6rem;
 }
 
 .btn-1:hover {
   padding: 1.5rem;
-  background-color: $color-secondary-dark; 
+  background-color: $color-secondary-dark;
   border-radius: 5px;
   color: $color-white;
-  transform: translateY(-.3rem);
+  transform: translateY(-0.3rem);
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-1:active {
-  transform: translateY(.1rem);
-  box-shadow: 0 .5rem .5rem rgba(0, 0, 0, 0.2);
+  transform: translateY(0.1rem);
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
 }
-
 
 .btn-white {
   background-color: $color-white;
@@ -221,5 +384,5 @@ div[class=clearfix]::after {
 }
 
 .btn-orange::after {
- background-color: $color-secondary-dark; 
+  background-color: $color-secondary-dark;
 }

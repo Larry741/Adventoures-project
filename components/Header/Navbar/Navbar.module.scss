@@ -1,7 +1,9 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
+  display: grid;
+  position: fixed !important;
+  top: 0 !important;
+  // justify-content: space-between;
+  grid-template-columns: 1fr max-content 1fr;
   align-items: center;
   height: 8.05rem;
   width: 100%;
@@ -10,10 +12,26 @@
   left: 0;
   user-select: none;
   z-index: 17;
+
+  @include respond(tablet-666) {
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+  }
 }
 
 .box {
   align-self: flex-end;
   flex-shrink: 0;
   padding-left: 2rem;
+
+  @include respond(notebook-768) {
+    // padding-left: 1rem;
+  }
+
+  & > a {
+    display: flex;
+    align-items: flex-end;
+    transform: translateY(1rem);
+  }
 }
+

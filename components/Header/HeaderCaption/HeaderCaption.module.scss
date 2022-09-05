@@ -1,6 +1,6 @@
 .header__something {
   position: absolute;
-  top: 42%;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -8,8 +8,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Sofia",georgia,sans-serif;
+  font-family: "Merienda";
   font-weight: normal;
+
+  @include respond(notebook-768) {
+    top: 58%;
+  }
+  @include respond(tablet-560) {
+    top: 60%;
+  }
 }
 
 .header__heading {

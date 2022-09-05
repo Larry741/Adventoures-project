@@ -5,6 +5,10 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  @include respond(tablet-666) {
+    display: none;
+  }
 }
 
 .navBar__container {

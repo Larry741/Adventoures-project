@@ -5,6 +5,7 @@ import { signOut, useSession } from "next-auth/react";
 import { FaTwitter } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
+import { HiMenu } from "react-icons/hi";
 
 import { modalSliceActions } from "../../store/modalSlice";
 import Modal from "../../UI/Modal";
@@ -68,29 +69,51 @@ const ProfileBox = (props) => {
   }
 
   return (
-    <div className={classes.profileBox} id={'dropdown-1btn'} onClick={openProfile}>
+    <div
+      className={classes.profileBox}
+      id={"dropdown-1btn"}
+      onClick={openProfile}
+    >
       {props.showModal && props.modalShouldBeActive ? (
         <Modal onModalReact={closeProfile} />
       ) : (
         ""
       )}
-      {status == 'authenticated' ? <span className={classes['material-icons-2']} ><FaTwitter/></span> :
-      <span className={classes['material-icons-3']} > <FiLogIn/></span>}
+      {status == "authenticated" ? (
+        <span className={classes["material-icons-2"]}>
+          <FaTwitter />
+        </span>
+      ) : (
+        <span className={classes["material-icons-3"]}>
+          {" "}
+          <FiLogIn />
+        </span>
+      )}
       <div
         style={{ display: cont5 ? "block" : "" }}
         id={classes["dropdown-content-1"]}
         className={`${classes["dropdown-content-1"]}`}
       >
-        {status !== 'authenticated' && (
+        {status !== "authenticated" && (
           <>
             <Link href="/login?signup">Sign up</Link>
             <Link href="/login">Log in</Link>
           </>
         )}
-        {status == 'authenticated' && <button onClick={logOutHandler}>Log out</button>}
+        {status == "authenticated" && (
+          <button onClick={logOutHandler}>Log out</button>
+        )}
         <hr />
         <Link href="#">Help</Link>
       </div>
+      {/* <button
+        onClick={() => {
+          setShowMenu((prevState) => !prevState);
+        }}
+        className={classes.menu}
+      >
+        <HiMenu />
+      </button> */}
     </div>
   );
 }

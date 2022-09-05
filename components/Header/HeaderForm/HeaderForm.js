@@ -9,10 +9,10 @@ import classes from "./HeaderForm.module.scss";
 import Modal from "../../UI/Modal";
 
 const HeaderForm = () => {
-  const [cal1StateDay, setCal1StateDay ] = useState('Add Dates');
-  const [cal1StateMonth, setCal1StateMonth] = useState('');
+  const [cal1StateDay, setCal1StateDay] = useState("Start Date");
+  const [cal1StateMonth, setCal1StateMonth] = useState("");
   const [cal1StateYear, setCal1StateYear] = useState("");
-  const [cal2StateDay, setCal2StateDay] = useState("Add Dates");
+  const [cal2StateDay, setCal2StateDay] = useState("End Date");
   const [cal2StateMonth, setCal2StateMonth] = useState("");
   const [cal2StateYear, setCal2StateYear] = useState("");
   const [formIsActive, setFormIsActive] = useState(false);
@@ -20,68 +20,78 @@ const HeaderForm = () => {
     el1: false,
     el2: false,
     el3: false,
-    el4: false
-  })
-  const input1Ref = useRef()
+    el4: false,
+  });
+  const input1Ref = useRef();
   const dispatch = useDispatch();
   const showCalendar = useSelector((state) => state.modal.showCalendar);
-  const showModal = useSelector(state => state.modal.showModal);
+  const showModal = useSelector((state) => state.modal.showModal);
   const formContainerRef = useRef(null);
 
   useEffect(() => {
-    formContainerRef.current = document.getElementById('formParent');
-  })
+    formContainerRef.current = document.getElementById("formParent");
+  });
 
   const showCalHandler = () => {
     dispatch(modalSliceActions.showCalendar());
-  }
+  };
 
-  const closeCalHandler = useCallback((dateData1, dateData2) => {
-    if (dateData1 && !dateData2) {
-      setCal1StateDay(dateData1.day);
-      setCal1StateMonth(dateData1.month);
-      setCal1StateYear(dateData1.year);
-      const nextDiv = document.getElementById(classes["box-3"]);
-      nextDiv.click();
-    } else if (dateData2 && !dateData1) {
+  const closeCalHandler = useCallback(
+    (dateData1, dateData2) => {
+      if (dateData1 && !dateData2) {
+        setCal1StateDay(dateData1.day);
+        setCal1StateMonth(dateData1.month);
+        setCal1StateYear(dateData1.year);
+        const nextDiv = document.getElementById(classes["box-3"]);
+        nextDiv.click();
+      } else if (dateData2 && !dateData1) {
+        if (!cal1StateYear) {
+          const curDate = new Date();
+          console.log(curDate);
+          setCal1StateDay(curDate.getDate());
+          setCal1StateMonth(
+            curDate.toLocaleString("default", { month: "short" })
+          );
+          setCal1StateYear(curDate.getFullYear());
+        }
 
-      if (!cal1StateYear) {
-        const curDate = new Date();
-        console.log(curDate);
-        setCal1StateDay(curDate.getDate());
-        setCal1StateMonth(curDate.toLocaleString('default', {month: 'long'}));
-        setCal1StateYear(curDate.getFullYear());
+        // console.log(dateData2.toLocaleString());
+        // console.log(dateData2);
+
+        setCal2StateDay(dateData2.day);
+        setCal2StateMonth(dateData2.month);
+        setCal2StateYear(dateData2.year);
+        dispatch(modalSliceActions.closeCalendar());
+        const nextDiv = document.getElementById(classes["box-4"]);
+        nextDiv.click();
       }
+    },
+    [cal1StateYear, dispatch]
+  );
 
-      setCal2StateDay(dateData2.day);
-      setCal2StateMonth(dateData2.month);
-      setCal2StateYear(dateData2.year);
+  const formCloseModalHandler = useCallback(
+    (event) => {
+      // event.stopPropagation();
+
+      formContainerRef.current.style.zIndex = 15;
+
+      setFormIsActive(false);
+      setElIsActive((prevState) => {
+        return {
+          el2: false,
+          el3: false,
+          el4: false,
+          el1: false,
+        };
+      });
+      dispatch(modalSliceActions.closeModal());
       dispatch(modalSliceActions.closeCalendar());
-      const nextDiv = document.getElementById(classes["box-4"]);
-      nextDiv.click();
-    }
-  }, [cal1StateYear, dispatch]);
-
-  const formCloseModalHandler = useCallback((event) => {
-    // event.stopPropagation();
-
-    formContainerRef.current.style.zIndex = 15;
-
-    setFormIsActive(false);
-    setElIsActive((prevState) => {
-      return {
-        el2: false,
-        el3: false,
-        el4: false,
-        el1: false,
-      };
-    });
-    dispatch(modalSliceActions.closeModal());
-    dispatch(modalSliceActions.closeCalendar());
-  }, [dispatch]);
+    },
+    [dispatch]
+  );
 
   const formOpenModalHandler = useCallback((event) => {
-    const targetDiv = event.target.closest('div');
+    const targetDiv = event.target.closest("div");
     if (
       targetDiv.id !== classes["box-1"] &&
       targetDiv.id !== classes["box-2"] &&
@@ -90,7 +100,7 @@ const HeaderForm = () => {
     ) {
       return;
     }
-      
+
     formContainerRef.current.style.zIndex = 19;
 
     dispatch(modalSliceActions.showModal());
@@ -99,14 +109,14 @@ const HeaderForm = () => {
       setFormIsActive(true);
       input1Ref.current.focus();
       dispatch(modalSliceActions.closeCalendar());
-      setElIsActive(prevState => {
-        return{
+      setElIsActive((prevState) => {
+        return {
           el2: false,
           el3: false,
           el4: false,
-          el1: true
-        }
-      })
+          el1: true,
+        };
+      });
     } else if (targetDiv.id === classes["box-2"]) {
       setFormIsActive(true);
       setElIsActive((prevState) => {
@@ -138,11 +148,10 @@ const HeaderForm = () => {
           el4: true,
         };
       });
-    } 
-  })
+    }
+  });
 
-  const styles = ` ${formIsActive
-      && classes["inactive_hov"]}`;
+  const styles = ` ${formIsActive && classes["inactive_hov"]}`;
 
   return (
     <div
@@ -155,7 +164,7 @@ const HeaderForm = () => {
         <form
           id="form"
           style={{ backgroundColor: formIsActive ? "#EAEAEA" : "" }}
-          className={classes["form"]}
+          className={`${classes["form"]} mediumSmallText`}
           action=""
           method="post"
         >
@@ -212,7 +221,9 @@ const HeaderForm = () => {
               className={formIsActive ? classes["button-Expand"] : ""}
               type="submit"
             >
-              <span className={classes["material-icons"]}><FcSearch /></span>
+              <span className={classes["material-icons"]}>
+                <FcSearch />
+              </span>
               <span
                 style={{ display: formIsActive && "block" }}
                 className="text__primary"
@@ -234,8 +245,8 @@ const HeaderForm = () => {
           className={classes["calendarContainer"]}
           id="calendarContainer"
         >
-            <HeaderFormCalender onChoose={closeCalHandler} id={"cal1"} />
-            <HeaderFormCalender onChoose={closeCalHandler} id={"cal2"} />
+          <HeaderFormCalender onChoose={closeCalHandler} id={"cal1"} />
+          <HeaderFormCalender onChoose={closeCalHandler} id={"cal2"} />
         </div>
       ) : (
         ""

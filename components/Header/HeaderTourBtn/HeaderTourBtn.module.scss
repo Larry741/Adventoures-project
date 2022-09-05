@@ -1,12 +1,19 @@
 .header__button-box {
   position: absolute;
-  top: 69%;
+  top: 73%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 
-  @include respond(tab-portSB) {
-    top: 70%;
+  @include respond(notebook-768) {
+    top: 75%;
+  }
+
+  & a {
+    display: inline-block;
+
   }
 }
 

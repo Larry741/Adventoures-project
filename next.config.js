@@ -1,9 +1,16 @@
+/** @type {import('next').NextConfig} */
+
 const path = require("path");
 
-module.exports = {
-  reactStrictMode: true,
+const nextConfig = {
+  // reactStrictMode: false,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
-    prependData: `@import "colors.scss";`,
+    additionalData: `@import "variables.scss"; @import "mixins.scss";`,
+  },
+  images: {
+    domains: ["res.cloudinary.com"],
   },
 };
+
+module.exports = nextConfig
