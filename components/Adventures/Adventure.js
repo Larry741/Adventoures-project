@@ -21,7 +21,7 @@ import image52 from "../../public/img/adventures-jungle-walk-Amazon-b.jpg";
 import awardsPic1 from "../../public/img/awards (6).jpg";
 import awardsPic2 from "../../public/img/awards (4).jpg";
 import awardsPic3 from "../../public/img/awards (3).jpg";
-import awardsPic4 from "../../public/img/Awards (1).jpg";
+import awardsPic4 from "../../public/img/awards (1).jpg";
 import awardsPic5 from "../../public/img/awards (5).png";
 import awardsPic6 from "../../public/img/awards (7).png";
 import awardsPic7 from "../../public/img/awards (2).png";
