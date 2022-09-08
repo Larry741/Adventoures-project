@@ -134,7 +134,6 @@ const AuthForm = () => {
     <section className={classes.auth}>
       <div className={classes.row}>
         <div className={classes.image}>
-          <Image src={image} layout="responsive" alt="mountains" />
         </div>
         <form className={classes.form}>
           <h1>{isLogin ? "Login" : "Sign Up"}</h1>
@@ -207,9 +206,6 @@ const AuthForm = () => {
             </button>
           </div>
         </form>
-        <div>
-          <button onClick={googleloginHandler}>log in with google</button>
-        </div>
       </div>
     </section>
   );
