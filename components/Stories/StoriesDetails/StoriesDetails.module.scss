@@ -29,6 +29,10 @@
     padding: 2rem 1rem;
     grid-template-columns: 10rem 1fr;
   }
+  @include respond(phones-420) {
+    padding: 2rem 1rem;
+    grid-template-columns: 8rem 1fr;
+  }
 
   &:hover .stories__container-caption {
     top: 50%;
@@ -56,6 +60,9 @@
   }
   @include respond(tablet-530) {
     height: 10rem;
+  }
+  @include respond(phones-420) {
+    height: 8rem;
   }
 
   &-pic {

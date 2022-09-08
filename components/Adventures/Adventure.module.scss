@@ -121,29 +121,56 @@
     width: 100%;
     display: grid;
     grid-template-rows: 11rem;
-    grid-template-columns: repeat(7, 11rem);
+    grid-template-columns: repeat(6, 11rem);
     gap: 2rem;
     justify-content: center;
     user-select: none;
 
-    @include respond(tab-portE) {
+    @include respond(notebook-867) {
       grid-template-rows: 10rem;
-      grid-template-columns: repeat(7, 10rem);
+      grid-template-columns: repeat(6, 10rem);
       gap: 1.5rem;
     }
-
-    @include respond(tab-port) {
+    @include respond(notebook-768) {
+      grid-template-rows: 9rem;
+      grid-template-columns: repeat(6, 9rem);
       gap: 1rem;
     }
-
-    @include respond(tab-portSB) {
+    @include respond(tablet-666) {
+      grid-template-rows: 9rem;
+      grid-template-columns: repeat(5, 9rem);
+      gap: 1rem;
+    }
+    @include respond(tablet-530) {
       grid-template-rows: 8rem;
-      grid-template-columns: repeat(7, 8rem);
-      gap: 0.5rem;
+      grid-template-columns: repeat(5, 8rem);
+      gap: 1rem;
+    }
+    @include respond(tablet-480) {
+      grid-template-rows: 7rem;
+      grid-template-columns: repeat(5, 7rem);
+      gap: 1rem;
+    }
+    @include respond(phones-420) {
+      grid-template-rows: 7rem;
+      grid-template-columns: repeat(4, 7rem);
+      gap: 1rem;
     }
 
     &-rounded {
       border-radius: 50rem;
     }
+  }
+}
+
+.box5 {
+  @include respond(phones-420) {
+    display: none;
+  }
+}
+
+.box6 {
+  @include respond(tablet-666) {
+    display: none;
   }
 }

@@ -173,6 +173,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  gap: 1rem;
 
   @include respond(notebook-974) {
     flex-basis: 26%;
@@ -182,7 +183,6 @@
   }
   @include respond(tablet-553) {
     flex-basis: 28%;
-    gap: 1rem;
   }
 }
 

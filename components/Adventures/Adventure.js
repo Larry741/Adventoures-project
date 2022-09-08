@@ -127,7 +127,6 @@ const Adventure = () => {
     observer.observe(cardsBox);
   }, []);
 
-
   return (
     <section className={classes.adventures}>
       <div className={`${"center"} ${classes["heading-bg"]}`}>
@@ -172,33 +171,47 @@ const Adventure = () => {
         </Link>
       </div>
       <div className={classes["adventures__awards-box"]}>
-        <Image
-          layout="responsive"
-          className={classes["adventures__awards-box-rounded"]}
-          src={awardsPic1}
-          alt="awards"
-        />
-        <Image
-          layout="responsive"
-          className={classes["adventures__awards-box-rounded"]}
-          src={awardsPic2}
-          alt="awards"
-        />
-        <Image
-          layout="responsive"
-          className={classes["adventures__awards-box-rounded"]}
-          src={awardsPic3}
-          alt="awards"
-        />
-        <Image
-          layout="responsive"
-          className={classes["adventures__awards-box-rounded"]}
-          src={awardsPic4}
-          alt="awards"
-        />
-        <Image layout="responsive" src={awardsPic5} alt="awards" />
-        <Image layout="responsive" src={awardsPic6} alt="awards" />
-        <Image layout="responsive" src={awardsPic7} alt="awards" />
+        <div className={classes.box1}>
+          <Image
+            layout="responsive"
+            className={classes["adventures__awards-box-rounded"]}
+            src={awardsPic1}
+            alt="awards"
+          />
+        </div>
+        <div className={classes.box2}>
+          <Image
+            layout="responsive"
+            className={classes["adventures__awards-box-rounded"]}
+            src={awardsPic2}
+            alt="awards"
+          />
+        </div>
+        <div className={classes.box3}>
+          <Image
+            layout="responsive"
+            className={classes["adventures__awards-box-rounded"]}
+            src={awardsPic3}
+            alt="awards"
+          />
+        </div>
+        <div className={classes.box4}>
+          <Image
+            layout="responsive"
+            className={classes["adventures__awards-box-rounded"]}
+            src={awardsPic4}
+            alt="awards"
+          />
+        </div>
+        {/* <div className={classes.box5}>
+          <Image layout="responsive" src={awardsPic5} alt="awards" />
+        </div> */}
+        <div className={classes.box5}>
+          <Image layout="responsive" src={awardsPic6} alt="awards" />
+        </div>
+        <div className={classes.box6}>
+          <Image layout="responsive" src={awardsPic7} alt="awards" />
+        </div>
       </div>
     </section>
   );
