@@ -7,11 +7,27 @@
   left: 0;
   cursor: pointer;
   z-index: 15;
+
+  @include respond(tablet-553) {
+    height: 6rem;
+  }
+  @include respond(tablet-480) {
+    display: none;
+  }
+
+  & > div {
+    @include respond(tablet-553) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+    }
+  }
 }
 
 .active-hov {
-  background-color: $color-white !important; 
-  box-shadow: 0px 6px 20px rgba($color-black, .5), 
+  background-color: $color-white !important;
+  box-shadow: 0px 6px 20px rgba($color-black, 0.5);
 }
 
 .inactive_hov {
@@ -20,13 +36,12 @@
 
 .form {
   display: flex;
-  background-color: $color-white; 
-  color: $color-black; 
+  background-color: $color-white;
+  color: $color-black;
   border-radius: 8rem;
   height: 6rem;
   width: 70rem;
-  box-shadow: 20px 20px 60px #bebebe,
-            -20px -20px 60px #ffffff; 
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 
   @include respond(notebook-974) {
     width: 65rem;
@@ -39,6 +54,9 @@
   }
   @include respond(tablet-589) {
     width: 51rem;
+  }
+  @include respond(tablet-553) {
+    width: 95%;
   }
 }
 
@@ -56,7 +74,7 @@
 
 .control:hover:not(.active-hov),
 #box-4:hover:not(.active-hov) {
-  background-color: #D5D5D5;
+  background-color: #d5d5d5;
 }
 
 #box-1 {
@@ -66,6 +84,7 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+  flex-grow: 1;
 
   @include respond(notebook-974) {
     padding: 0 0 0 1.5rem;
@@ -73,6 +92,9 @@
   }
   @include respond(tablet-666) {
     flex-basis: 49%;
+  }
+  @include respond(tablet-553) {
+    flex-basis: 34%;
   }
 }
 
@@ -82,21 +104,25 @@
 
 #box-1 input {
   width: 20rem;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
   background-color: transparent;
   border: none;
   outline: none;
   font-size: 1.4rem;
+
+  @include respond(tablet-666) {
+    font-size: 1.3rem;
+  }
 }
 
 #box-1 input::placeholder {
-  font-family: "montserrat", verdana, sans-serif;;
+  font-family: "montserrat", verdana, sans-serif;
   color: $color-grey-dark;
 }
 
 #box-2,
 #box-3 {
-  padding: 1rem .5rem 1rem 1.5rem;
+  padding: 1rem 1rem 1rem 1rem;
   flex-basis: 21%;
   flex-shrink: 0;
   display: flex;
@@ -105,11 +131,15 @@
   align-items: center;
 
   @include respond(notebook-974) {
-    padding: 1rem .5rem 1rem .7rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
     flex-basis: 20%;
   }
   @include respond(tablet-666) {
     flex-basis: 18%;
+  }
+  @include respond(tablet-553) {
+    padding: 1rem 0.2rem 1rem 0.2rem;
+    flex-basis: 34%;
   }
 }
 
@@ -123,9 +153,21 @@
   color: $color-grey-dark;
 }
 
+#box-2 {
+  @include respond(tablet-553) {
+    display: none;
+  }
+}
+
+#box-3 {
+  @include respond(tablet-553) {
+    flex-shrink: 0;
+  }
+}
+
 #box-4 {
   flex-basis: 23%;
-  padding: 0 .8rem 0 1rem;
+  padding: 0 0.8rem 0 1rem;
   border-radius: 8rem;
   display: flex;
   justify-content: space-between;
@@ -138,6 +180,10 @@
   @include respond(tablet-666) {
     flex-basis: 25%;
   }
+  @include respond(tablet-553) {
+    flex-basis: 28%;
+    gap: 1rem;
+  }
 }
 
 #box-4 .text {
@@ -145,12 +191,11 @@
   flex-direction: column;
   justify-content: center;
   line-height: normal;
-  width: 7rem;
 }
 
 #box-4 button {
   text-decoration: none;
- color: $color-white;
+  color: $color-white;
   width: 4.7rem;
   height: 4.7rem;
   padding: 0 1rem;
@@ -159,18 +204,22 @@
   justify-content: center;
   align-items: center;
   border-radius: 50rem;
- background-color: $color-secondary-dark;
+  background-color: $color-secondary-dark;
   position: relative;
   cursor: pointer;
-  transition: width .3s;
+  transition: width 0.3s;
 
   @include respond(notebook-974) {
-    padding: 0 0 0 .5rem ;
+    padding: 0 0 0 0.5rem;
+  }
+  @include respond(tablet-553) {
+    padding: 0;
+    gap: 1rem;
   }
 
   & .material-icons {
     font-size: 1.9rem;
-    margin-top: .3rem;
+    margin-top: 0.3rem;
   }
 }
 
@@ -179,29 +228,35 @@
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
-   color: $color-white; 
+  color: $color-white;
   display: none;
-  transition: .3s;
+  transition: 0.3s;
 
   @include respond(notebook-974) {
     left: 65%;
   }
+  @include respond(tablet-553) {
+    display: none !important;
+  }
 }
 
 #box-4 button:hover {
-  background-color: #B06D1C;
+  background-color: #b06d1c;
 }
 
 .button-Expand {
   width: 10.5rem !important;
-  margin-left: 1rem;
   justify-content: flex-start !important;
 
   @include respond(notebook-974) {
-    width: 7.5rem !important
+    width: 7.5rem !important;
   }
   @include respond(tablet-666) {
-    width: 7rem !important
+    width: 7rem !important;
+  }
+  @include respond(tablet-553) {
+    width: 6rem !important;
+    justify-content: center !important;
   }
 }
 
@@ -232,4 +287,3 @@
     grid-template-columns: 28rem 28rem;
   }
 }
-

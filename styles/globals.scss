@@ -46,33 +46,45 @@ body {
 
 [class~="heading__secondary"] {
   font-size: 3.3rem;
+  font-weight: 600;
 
-  @include respond(tab-landS) {
+  @include respond(laptop-1024) {
     font-size: 2.9rem;
   }
-
-  @include respond(tab-port) {
+  @include respond(notebook-768) {
     font-size: 2.7rem;
   }
-
-  @include respond(phone) {
+  @include respond(tablet-560) {
     font-size: 2.5rem;
   }
+  // @include respond(tablet-480) {
+  //   font-size: 2rem;
+  // }
+  // @include respond(phones-420) {
+  //   font-size: 1.8rem;
+  // }
 }
 
 [class~="heading__secondary-2"] {
   font-size: 2.5rem;
 
-  @include respond(tab-landS) {
+  @include respond(desktop-1400) {
     font-size: 2.3rem;
   }
-
-  @include respond(tab-port) {
+  @include respond(laptop-1024) {
     font-size: 2.1rem;
   }
-
-  @include respond(phone) {
+  @include respond(notebook-768) {
     font-size: 2rem;
+  }
+  @include respond(tablet-560) {
+    font-size: 1.7rem;
+  }
+  @include respond(tablet-480) {
+    font-size: 1.6rem;
+  }
+  @include respond(phones-420) {
+    font-size: 1.5rem;
   }
 }
 
@@ -105,11 +117,11 @@ body {
   @include respond(laptop-1200) {
     font-size: 1.7rem !important;
   }
-  // @include respond(notebook-974) {
-  //   font-size: 1.6rem !important;
-  // }
   @include respond(notebook-666) {
     font-size: 1.5rem !important;
+  }
+  @include respond(phones-420) {
+    font-size: 1.2rem !important;
   }
 }
 
@@ -191,6 +203,9 @@ body {
   }
   @include respond(tablet-666) {
     font-size: 1.2rem !important;
+  }
+  @include respond(tablet-530) {
+    font-size: 1.1rem !important;
   }
 }
 
@@ -274,23 +289,58 @@ div[class="clearfix"]::after {
 }
 
 .margin-b-small {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  @include respond(laptop-1024) {
+    margin-bottom: 1.5rem;
+  }
+  @include respond(phones-420) {
+    margin-bottom: 1rem;
+  }
 }
 
 .margin-b-medium {
   margin-bottom: 3rem;
+
+  @include respond(laptop-1024) {
+    margin-bottom: 2rem;
+  }
+  @include respond(phones-420) {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .margin-b-medium-2 {
   margin-bottom: 4.5rem;
+
+  @include respond(laptop-1024) {
+    margin-bottom: 3.5rem;
+  }
+  @include respond(phones-420) {
+    margin-bottom: 3rem;
+  }
 }
 
 .margin-b-big {
   margin-bottom: 6rem;
+
+  @include respond(notebook-974) {
+    margin-bottom: 4.5rem;
+  }
+  @include respond(tablet-560) {
+    margin-bottom: 3.5rem;
+  }
 }
 
 .margin-b-large {
   margin-bottom: 10rem;
+
+  //  @include respond(laptop-1024) {
+  //   margin-bottom: 3.5rem;
+  // }
+  // @include respond(phones-420) {
+  //   margin-bottom: 3rem;
+  // }
 }
 
 .btn {
@@ -310,6 +360,9 @@ div[class="clearfix"]::after {
   }
   @include respond(notebook-768) {
     padding: 1.4rem 1.4rem;
+  }
+  @include respond(tablet-530) {
+    padding: 1rem 1.2rem;
   }
 }
 

@@ -15,38 +15,12 @@ import image3b from "../../public/img/instagram-icon1.png";
 
 const footerContent = [
   {
-    title: "ACTIVITIES",
-    contents: [
-      "Diving",
-      "Surfing",
-      "Skiing",
-      "Hiking",
-      "Sandboarding",
-      "Jungle Walking",
-      "Kayaking",
-      "Fishing",
-    ],
-  },
-  {
     title: "SUPPORT",
     contents: [
-      "Our COVID-19 Response",
       "Help Center",
       "Cancellation options",
       "Neighborhood Support",
       "Trust & Safety",
-    ],
-  },
-  {
-    title: "CONTACT US",
-    contents: [
-      "Contact us",
-      "Talk to us on Live Chat",
-      "Request a free brochure !",
-      "Digital Brochure",
-      "Custom Travel",
-      "Terms & Conditions",
-      "Privacy Policy",
     ],
   },
   {
@@ -57,6 +31,30 @@ const footerContent = [
       "Investors",
       "Careers",
       "Founders Letter",
+    ],
+  },
+  {
+    title: "ACTIVITIES",
+    contents: [
+      "Diving",
+      "Surfing",
+      "Skiing",
+      "Hiking",
+      "Sandboarding",
+      "Jungle Walking",
+      "Kayaking",
+    ],
+  },
+  {
+    title: "CONTACT US",
+    contents: [
+      "Contact us",
+      "Talk to us on Live Chat",
+      "Request a free brochure!",
+      "Digital Brochure",
+      "Custom Travel",
+      "Terms & Conditions",
+      "Privacy Policy",
     ],
   },
 ];
@@ -113,11 +111,9 @@ const Footer = () => {
   return (
     <footer className={`${classes["footer"]} ${"text__primary-small"}`}>
       <div
-        className={`${
-          classes["footer__contact-box"]
-        } ${"heading__secondary-2 margin-b-big"}`}
+        className={`${classes["footer__contact-box"]} tertiaryText margin-b-medium-2`}
       >
-        <span>USA OR CANADA: 1-600-437-8349.</span>
+        <span>USA OR CANADA: 1-600-437-8349</span>
         <span>INTERNATIONAL: 1-782-649-5329</span>
       </div>
       <div className={classes["footer__box"]}>
@@ -125,25 +121,76 @@ const Footer = () => {
           return <FooterContent key={content.title} data={content} />;
         })}
       </div>
-      <div className={`${classes["footer__content-text"]} ${"center"}`}>
+      <div className={`${classes["footer__content-text"]} small-text center`}>
         <p>
-          Adventours is an independent tour company championing outdoor lifestyle,
-          environmental stewardship and regenerative living. We encourage people
-          to connect with the natural world in meaningful ways so they may
-          become active stewards of our planet.
+          Adventours is an independent tour company championing outdoor
+          lifestyle, environmental stewardship and regenerative living. We
+          encourage people to connect with the natural world in meaningful ways
+          so they may become active stewards of our planet.
         </p>
       </div>
       <div className={classes["footer__content-copyright"]}>
-        <span className={classes["left"]}>
-          <span><RiCopyrightLine /></span>
+        <span className={`${classes["left"]} small-text`}>
+          <span>
+            <RiCopyrightLine />
+          </span>
           <Link href="#">Privacy</Link>
           <Link href="#">Terms</Link>
           <Link href="#">Sitemap</Link>
         </span>
-        <span className={classes["right"]} onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler}>
-          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#"><a><Image id="right1" width={30} height={30} src={!imageWasHovered.image1 ? image1 : image1b} alt="facebook-icon" /></a></Link></span>
-          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#"><a><Image id="right2" width={30} height={30} src={!imageWasHovered.image2 ? image2 : image2b} alt="twitter-icon" /></a></Link></span>
-          <span onMouseEnter={changeImageUrlHandler} onMouseLeave={revertImageUrlHandler} ><Link href="#"><a><Image id="right3" width={30} height={30} src={!imageWasHovered.image3 ? image3 : image3b} alt="instagram-icon" /></a></Link></span>
+        <span
+          className={classes["right"]}
+          onMouseEnter={changeImageUrlHandler}
+          onMouseLeave={revertImageUrlHandler}
+        >
+          <span
+            onMouseEnter={changeImageUrlHandler}
+            onMouseLeave={revertImageUrlHandler}
+          >
+            <Link href="#">
+              <a>
+                <Image
+                  id="right1"
+                  width={30}
+                  height={30}
+                  src={!imageWasHovered.image1 ? image1 : image1b}
+                  alt="facebook-icon"
+                />
+              </a>
+            </Link>
+          </span>
+          <span
+            onMouseEnter={changeImageUrlHandler}
+            onMouseLeave={revertImageUrlHandler}
+          >
+            <Link href="#">
+              <a>
+                <Image
+                  id="right2"
+                  width={30}
+                  height={30}
+                  src={!imageWasHovered.image2 ? image2 : image2b}
+                  alt="twitter-icon"
+                />
+              </a>
+            </Link>
+          </span>
+          <span
+            onMouseEnter={changeImageUrlHandler}
+            onMouseLeave={revertImageUrlHandler}
+          >
+            <Link href="#">
+              <a>
+                <Image
+                  id="right3"
+                  width={30}
+                  height={30}
+                  src={!imageWasHovered.image3 ? image3 : image3b}
+                  alt="instagram-icon"
+                />
+              </a>
+            </Link>
+          </span>
         </span>
       </div>
     </footer>

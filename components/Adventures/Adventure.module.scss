@@ -4,6 +4,7 @@
   position: relative;
   z-index: 3;
   line-height: 1.7;
+  padding: 0 1rem;
 
   & .design {
     height: 35rem;
@@ -11,15 +12,15 @@
     border-radius: 2rem 0 0 2rem;
     position: absolute;
     top: -2rem;
-    right: 0;      
-    background-color: rgba($color-secondary-dark, .2);
+    right: 0;
+    background-color: rgba($color-secondary-dark, 0.2);
     z-index: -1;
 
     &-2 {
       border-radius: 0 2rem 2rem 0;
       top: 51rem;
       left: 0;
-      background-color: rgba($color-primary2-light, .2);
+      background-color: rgba($color-primary2-light, 0.2);
     }
   }
 
@@ -28,49 +29,92 @@
   }
 
   &__heading {
-
     &-2 {
-      padding: 0 0 0 4rem;
+      text-align: center;
+    }
+  }
 
-      // @include respond()
+  & .sliderContainer {
+    @include respond(tablet-589) {
+      margin: 0 auto;
+      overflow: hidden;
+      width: 89vw;
+    }
+    @include respond(tablet-530) {
+      width: 95vw;
+    }
+
+    & > div > div:nth-of-type(n + 4) {
+      @include respond(laptop-1024) {
+        display: none;
+      }
+      @include respond(notebook-768) {
+        display: inline-block;
+      }
+    }
+    & > div > div:nth-of-type(n + 5) {
+      @include respond(desktop-1300) {
+        display: none;
+      }
+      @include respond(tablet-589) {
+        display: inline-block;
+      }
     }
   }
 
   &__box {
     width: 100vw;
     // height: 47rem;
-    padding: 3rem 0;;
     display: grid;
     grid-template-columns: repeat(5, 25rem);
     grid-template-rows: 37rem;
+    grid-auto-rows: 0%;
     align-items: center;
     justify-content: center;
+    padding: 3rem 0;
     gap: 2rem;
     z-index: 1000;
 
-    @include respond(tab-landB) {
-      gap: .5rem;
+    @include respond(desktop-1400) {
+      gap: 0.9rem;
     }
-
-    @include respond(tab-landE) {
-      gap: 1rem;
+    @include respond(desktop-1300) {
+      gap: 1.3rem;
       grid-template-columns: repeat(4, 25rem);
     }
-
-    @include respond(tab-landS) {
-      grid-template-columns: repeat(4, 22.5rem);
-      grid-template-rows: 33.3rem;
+    @include respond(laptop-1200) {
+      grid-template-columns: repeat(4, 25rem);
     }
-    
-    @include respond(tab-portE) {
-      grid-template-columns: repeat(3, 22.5rem);
-      grid-template-rows: repeat(2, 33.3rem);
+    @include respond(laptop-1093) {
+      gap: 0.7rem;
+    }
+    @include respond(laptop-1024) {
+      grid-template-columns: repeat(3, 25rem);
       gap: 3rem;
+    }
+    @include respond(notebook-867) {
+      gap: 1rem;
+    }
+    @include respond(notebook-768) {
+      gap: 2rem;
+      grid-template-columns: repeat(2, 25rem);
+      grid-template-rows: repeat(2, 37rem);
+      padding: 3rem 0 1rem;
+    }
+    @include respond(tablet-589) {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: flex-start;
+    }
+    @include respond(tablet-480) {
+      gap: 1rem;
     }
   }
 
-  &>a {
-    margin-top: 5rem;
+  & a {
+    display: block;
+    width: max-content;
+    margin: 2rem auto 0;
   }
 
   &__awards-box {
@@ -95,7 +139,7 @@
     @include respond(tab-portSB) {
       grid-template-rows: 8rem;
       grid-template-columns: repeat(7, 8rem);
-      gap: .5rem;
+      gap: 0.5rem;
     }
 
     &-rounded {
@@ -103,5 +147,3 @@
     }
   }
 }
-
-  

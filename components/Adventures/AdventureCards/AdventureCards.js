@@ -30,16 +30,17 @@ const AdventureCards = (props) => {
               <Image
                 src={props.details.image2}
                 alt={props.details.title2}
-                layout="intrinsic"
+                layout="fill"
+                // objectFit="cover"
               />
             </div>
-            <ul className={`${classes['adventures__cards-side-list']} ${'center'}`}>
+            <ul className={`${classes['adventures__cards-side-list']} ${'center'} smaller-text`}>
               {props.details.tourDetails.map((det, idx) => {
                 return <li key={idx}>{det}</li>;
               })}
             </ul>
             <Link href="#" passHref={true}>
-              <a className="btn btn-white">Learn more</a>
+              <a className="btn btn-white smaller-text">Learn more</a>
             </Link>
           </div>
         </div>

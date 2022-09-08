@@ -1,0 +1,206 @@
+.containerControl1 {
+  display: none;
+  justify-content: center;
+  gap: 1rem;
+  margin-left: 1.6rem;
+  transform: translateX(-0.7rem);
+  // cursor: pointer;
+
+  @include respond(tablet-589) {
+    gap: 0rem;
+    display: flex;
+  }
+
+  & > *:not(:last-child) {
+    @include respond(tablet-589) {
+      margin-right: 1rem;
+    }
+  }
+
+  & .pointer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+
+    @include respond(tablet-589) {
+      gap: 0rem;
+    }
+
+    & > *:not(:last-child) {
+      @include respond(tablet-589) {
+        margin-right: 0.3rem;
+      }
+    }
+
+    &:hover .line1:not(:disabled),
+    &:hover .line2:not(:disabled),
+    &:hover .button:not(:disabled) {
+      border-color: $color-secondary-dark;
+      background-color: $color-secondary-dark;
+      color: white;
+    }
+
+    &:hover .line1:disabled,
+    &:hover .line2:disabled,
+    &:hover .button:disabled {
+      border-color: rgba($color-secondary-dark, 0.3);
+      background-color: rgba($color-secondary-dark, 0.6);
+      color: white;
+    }
+
+    & .control {
+      transform: rotateZ(45deg);
+      height: max-content;
+      width: 2.8rem;
+      height: 2.8rem;
+
+      @include respond(laptop-1200) {
+        width: 2.6rem;
+        height: 2.6rem;
+      }
+      @include respond(notebook-867) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      & svg {
+        transform: rotateZ(-45deg);
+        // font-size: 2rem;
+      }
+    }
+  }
+}
+
+.containerControl1 {
+  & button {
+    border-radius: 5px;
+  }
+
+  & .button {
+    width: 2.8rem;
+    height: 2.8rem;
+    background-color: #fcf9f9;
+    border: 2px solid #dddddd;
+    display: flex;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: white;
+      border-color: #f0efef;
+    }
+
+    @include respond(laptop-1200) {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+    @include respond(notebook-867) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  & .line1 {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    width: 9rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    transition: all 0.5s;
+
+    &:disabled {
+      background-color: white;
+      border-color: #f0efef;
+    }
+
+    @include respond(laptop-1200) {
+      width: 8rem;
+    }
+    @include respond(notebook-867) {
+      width: 6rem;
+    }
+  }
+
+  & .line2 {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    width: 9rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    transition: all 0.5s;
+
+    &:disabled {
+      background-color: white;
+      border-color: #f0efef;
+    }
+
+    @include respond(laptop-1200) {
+      width: 8rem;
+    }
+    @include respond(notebook-867) {
+      width: 6rem;
+    }
+  }
+}
+
+.containerControl2 {
+  & .button {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #fcf9f9;
+    border: 2px solid #dddddd;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: white;
+      border-color: #f0efef;
+    }
+  }
+
+  .line1 {
+    width: 6rem;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    height: 1px;
+    border: 1px solid #e5e5e5;
+    transition: all 0.5s;
+
+    &:disabled {
+      background-color: white;
+      border-color: #f0efef;
+    }
+  }
+
+  .line2 {
+    width: 6rem;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    height: 1px;
+    border: 1px solid #e5e5e5;
+    transition: all 0.5s;
+
+    &:disabled {
+      background-color: white;
+      border-color: #f0efef;
+    }
+  }
+}

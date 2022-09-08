@@ -9,13 +9,13 @@ import classes from "./Destinations.module.scss";
 const Destinations = () => {
   return (
     <section className={classes.destinations}>
-      <div className="center heading-bg">
+      <div className="center heading-bg margin-b-medium">
         <h2 className="advenutres__heading heading__secondary">
           VISIT EXCITING PLACES
         </h2>
       </div>
       <div className={classes["destinations__heading-2"]}>
-        <h3 className="heading__secondary-2 margin-b-medium">DESTINATIONS</h3>
+        <h3 className="heading__secondary-2 margin-b-small">DESTINATIONS</h3>
       </div>
       <div className={`margin-b-medium-2 ${classes["destinations__content"]}`}>
         {renderData.map((item, index) => {

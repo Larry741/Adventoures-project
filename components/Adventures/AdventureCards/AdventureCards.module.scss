@@ -7,8 +7,15 @@
   flex-shrink: 0;
   opacity: 0;
   transform: translateY(20rem);
+  // overflow: hidden;
 
-  @include respond(tab-landS) {
+  @include respond(tablet-589) {
+    flex-basis: calc((100% - 1.5rem) / 2);
+    height: 37rem;
+  }
+  @include respond(tablet-480) {
+    flex-basis: calc((100% - 1rem) / 2);
+    height: 30rem;
   }
 
   &-rotate {
@@ -108,9 +115,19 @@
         }
 
         & > .img {
+          position: relative;
           width: 100%;
           height: 40%;
           clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+
+        & > a {
+          margin: 0;
+          padding: 0.7rem 2rem;
+
+          @include respond(tablet-560) {
+            padding: 0.5rem 1.3rem;
+          }
         }
       }
     }
@@ -129,16 +146,13 @@
         position: relative;
         color: $color-white2;
         backface-visibility: hidden;
-      }
-
-      & + a {
-        padding: 0.7rem 2rem;
+        // transform: scale(0.98);
       }
     }
   }
 
   &:hover &-rotate {
-    transform: translateY(-0.5rem) rotateY(-180deg) scale(1.02);
+    transform: rotateY(-180deg) scale(1.02);
     z-index: 10;
   }
 
@@ -159,6 +173,11 @@
     position: absolute;
     right: 1rem;
 
+    @include respond(phones-420) {
+      right: .5;
+      padding: 0.5rem;
+    }
+
     &-11 {
       top: 73%;
       background-image: linear-gradient(
@@ -166,6 +185,13 @@
         rgba($color-tertiary-dark, 0.65),
         rgba($color-secondary-dark, 0.65)
       );
+
+      @include respond(laptop-1093) {
+        top: 74%;
+      }
+      @include respond(notebook-867) {
+        top: 75%;
+      }
     }
     &-12 {
       top: 85%;
@@ -183,6 +209,12 @@
         rgba($color-tertiary-light, 0.8),
         rgba($color-tertiary-dark, 0.8)
       );
+      @include respond(laptop-1093) {
+        top: 74%;
+      }
+      @include respond(notebook-867) {
+        top: 75%;
+      }
     }
     &-22 {
       top: 85%;
@@ -200,6 +232,12 @@
         rgba($color-tertiary-light, 0.65),
         rgba($color-primary-dark, 0.65)
       );
+      @include respond(laptop-1093) {
+        top: 74%;
+      }
+      @include respond(notebook-867) {
+        top: 75%;
+      }
     }
     &-32 {
       top: 85%;
@@ -217,6 +255,12 @@
         rgba($color-primary-medium, 0.65),
         rgba($color-primary2-light, 0.65)
       );
+      @include respond(laptop-1093) {
+        top: 74%;
+      }
+      @include respond(notebook-867) {
+        top: 75%;
+      }
     }
     &-42 {
       top: 85%;
@@ -234,6 +278,12 @@
         rgba($color-primary2-light, 0.65),
         rgba($color-primary2-dark, 0.65)
       );
+      @include respond(laptop-1093) {
+        top: 74%;
+      }
+      @include respond(notebook-867) {
+        top: 75%;
+      }
     }
     &-52 {
       top: 85%;
@@ -251,6 +301,12 @@
         rgba($color-primary-light, 0.65),
         rgba($color-primary-dark, 0.65)
       );
+      @include respond(laptop-1093) {
+        top: 74%;
+      }
+      @include respond(notebook-867) {
+        top: 75%;
+      }
     }
     &-66 {
       top: 85%;
@@ -295,7 +351,7 @@
 
 @keyframes moveInBottom {
   0% {
-    opacity: .5;
+    opacity: 0.5;
     transform: translateY(20rem);
   }
 

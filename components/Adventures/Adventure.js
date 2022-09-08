@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AdventureCards from "./AdventureCards/AdventureCards";
+import UseSlider from "../hooks/useSlider";
+import Direction from "../UI/directions";
 
 import classes from "./Adventure.module.scss";
 import image1 from "../../public/img/adventures-Usaka-desert-peru.jpg";
@@ -94,6 +96,14 @@ const cardDetails = [
 
 const Adventure = () => {
   const [slideIn, setSlideIn] = useState(false);
+  const {
+    leftCountEnd,
+    rightCountEnd,
+    sliderRef,
+    sliderContainerRef,
+    leftDirectionHandler,
+    rightDirectionHandler,
+  } = UseSlider();
 
   useEffect(() => {
     const cardsBox = document.getElementById("adventures__box");
@@ -120,38 +130,44 @@ const Adventure = () => {
 
   return (
     <section className={classes.adventures}>
-      <div className={classes.design}></div>
-      <div className={`${classes["design"]} ${classes["design-2"]}`}></div>
       <div className={`${"center"} ${classes["heading-bg"]}`}>
         <h2
           className={`${
             classes["adventures__heading"]
           } ${"heading__secondary"}`}
         >
-          LIVE UNFORGETTABLE EXPERIENCES IN <br />
-          NATURE
+          LIVE UNFORGETTABLE EXPERIENCES IN NATURE
         </h2>
       </div>
       <div className={classes["adventures__heading-2"]}>
         <h3 className={"heading__secondary-2"}>ADVENTURES</h3>
       </div>
-      <div
-        id="adventures__box"
-        className={`${classes["adventures__box"]} ${"margin-b-medium"}`}
-      >
-        {cardDetails.map((card, idx) => {
-          return (
-            <AdventureCards
-              key={card.title1}
-              slide={slideIn}
-              index={idx}
-              details={card}
-            />
-          );
-        })}
+      <div ref={sliderContainerRef} className={classes.sliderContainer}>
+        <div
+          ref={sliderRef}
+          id="adventures__box"
+          className={`${classes["adventures__box"]} ${"margin-b-medium"}`}
+        >
+          {cardDetails.map((card, idx) => {
+            return (
+              <AdventureCards
+                key={card.title1}
+                slide={slideIn}
+                index={idx}
+                details={card}
+              />
+            );
+          })}
+        </div>
       </div>
-      <div className="center margin-b-large">
-        <Link href='#'>
+      <Direction
+        leftDirectionHandler={leftDirectionHandler}
+        rightDirectionHandler={rightDirectionHandler}
+        rightBtnDisabled={rightCountEnd}
+        leftBtnDisabled={leftCountEnd}
+      />
+      <div className="center margin-b-medium-2">
+        <Link href="#">
           <a className="btn btn-orange">View all Adventures</a>
         </Link>
       </div>

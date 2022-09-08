@@ -18,10 +18,10 @@ const HomePage = () => {
         />
       </Head>
       <Header />
-      {/* <Destinations /> */}
-      {/* <Adventure />
+      <Destinations />
+      <Adventure />
       <Stories />
-      <Footer /> */}
+      <Footer />
     </>
   );
 };

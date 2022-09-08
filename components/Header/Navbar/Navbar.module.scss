@@ -12,10 +12,12 @@
   left: 0;
   user-select: none;
   z-index: 17;
+  background-color: rgba($color: $color-secondary-dark, $alpha: .95);
 
   @include respond(tablet-666) {
     grid-template-columns: max-content max-content;
     justify-content: space-between;
+    height: 7rem;
   }
 }
 

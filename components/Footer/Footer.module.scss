@@ -1,11 +1,15 @@
 .footer {
   max-width: 100%;
-  background-image: linear-gradient(to bottom, rgba($color-black-2, 1), rgba(#101018, 1));
+  background-image: linear-gradient(
+    to bottom,
+    rgba($color-black-2, 1),
+    rgba(#101018, 1)
+  );
   color: $color-white;
   padding: 2rem 4rem 3rem;
   line-height: 1.7;
 
-  @include respond(tab-port) {
+  @include respond(notebook-867) {
     padding: 2rem 0rem 4rem;
   }
 }
@@ -14,18 +18,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 
-  @include respond(tab-port) {
+  @include respond(notebook-867) {
     flex-direction: column;
+    gap: 1rem;
   }
 }
 
 .footer__box {
-  display: flex;
+  display: grid;
   justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
   width: 100vw;
-}
 
+  @include respond(tablet-666) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: max-content max-content;
+    row-gap: 1rem;
+  }
+}
 
 .footer__content {
   &-text {
@@ -33,11 +45,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     & > p {
       width: 90rem;
       padding: 3rem 2rem 2rem;
       border-bottom: 1px solid $color-grey-dark;
+
+      @include respond(notebook-768) {
+        padding: 1.5rem 2rem;
+      }
     }
   }
 
@@ -48,13 +64,20 @@
 
     & .left {
       display: grid;
-      grid-template-columns: .3fr repeat(3, 1fr);
+      grid-template-columns: 0.3fr repeat(3, 1fr);
       align-items: center;
       gap: 1rem;
       // justify-items: center;
 
+      @include respond(tablet-553) {
+        gap: .5rem;
+      }
+      @include respond(phones-420) {
+        gap: 0rem;
+      }
+
       & span {
-        padding-top: .5rem;
+        padding-top: 0.5rem;
         font-size: 2rem;
         align-self: center;
         justify-self: center;
@@ -63,11 +86,12 @@
       & a {
         text-decoration: none;
         color: $color-white;
+        
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
-      &:hover {
-        text-decoration: underline;
-      }
     }
 
     & .right {

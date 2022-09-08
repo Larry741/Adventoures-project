@@ -1,15 +1,21 @@
 .section__stories {
-  width: 100%;
+  width: 100vw;
   margin: 5rem 0 0;
   padding: 3rem 0 0;
-  background-image: url(../../public/img/home-explore-bg.jpg);
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://res.cloudinary.com/orion147/image/upload/v1662628804/Adventures/home-explore-bg_t97trg.jpg");
   line-height: 1.7;
   z-index: 4;
+
+  @include respond(notebook-768) {
+    margin: 3rem 0 0;
+  }
 }
 
 .stories {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;

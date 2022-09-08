@@ -25,15 +25,15 @@ const Stories = () => {
     <section className={classes["section__stories"]}>
       <div className={classes["stories"]}>
         <div className={`${classes["tours__heading"]} ${"center"}`}>
-          <h2 className="heading__secondary margin-b-large">
+          <h2 className="heading__secondary margin-b-big">
             WHAT OUR USERS SAY ABOUT US
           </h2>
         </div>
         {comments.map((comment) => {
           return <StoriesDetails key={comment.name} data={comment} />;
         })}
-        <Link href='#'>
-          <a className="btn-1 margin-b-big text__primary">
+        <Link href="#">
+          <a className="btn-1 margin-b-medium mediumSmallText">
             READ ALL STORIES &rarr;
           </a>
         </Link>

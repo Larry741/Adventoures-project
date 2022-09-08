@@ -24,8 +24,8 @@ const StoriesDetails = (props) => {
         </span>
       </div>
       <div className={`${classes["stories__textBox"]}`}>
-        <h2 className="text__primary-big">{props.data.title}</h2>
-        <p className="text__primary">
+        <h2 className="heading__tertiary">{props.data.title}</h2>
+        <p className="mediumSmallText">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
           ipsum sapiente aspernatur libero repellat quis consequatur ducimus
           quam nisi exercitationem omnis earum qui. Aperiam, ipsum sapiente

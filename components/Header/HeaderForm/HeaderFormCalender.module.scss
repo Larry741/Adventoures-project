@@ -73,6 +73,9 @@
     width: 100%;
     // height: max-content;
   }
+  @include respond(tablet-553) {
+    height: 35px;
+  }
 }
 
 .calendar-days div span {

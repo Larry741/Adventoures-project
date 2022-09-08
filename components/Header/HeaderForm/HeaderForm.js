@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FcSearch } from "react-icons/fc";
+import WidthContext from "../../store/width-context";
 
 import HeaderFormCalender from "./HeaderFormCalender";
 import { modalSliceActions } from "../../store/modalSlice";
@@ -22,11 +23,21 @@ const HeaderForm = () => {
     el3: false,
     el4: false,
   });
-  const input1Ref = useRef();
+  const [combinedDate, setCombinedDate] = useState({
+    cal1StateDay: "Start Date",
+    cal1StateMonth: "",
+    cal1StateYear: "",
+    cal2StateDay: "End Date",
+    cal2StateMonth: "",
+    cal2StateYear: "",
+  });
+  const input1Ref = useRef(null);
+  const subDateRef = useRef(null);
   const dispatch = useDispatch();
   const showCalendar = useSelector((state) => state.modal.showCalendar);
   const showModal = useSelector((state) => state.modal.showModal);
   const formContainerRef = useRef(null);
+  const { docWidth } = useContext(WidthContext);
 
   useEffect(() => {
     formContainerRef.current = document.getElementById("formParent");
@@ -39,34 +50,55 @@ const HeaderForm = () => {
   const closeCalHandler = useCallback(
     (dateData1, dateData2) => {
       if (dateData1 && !dateData2) {
-        setCal1StateDay(dateData1.day);
-        setCal1StateMonth(dateData1.month);
-        setCal1StateYear(dateData1.year);
-        const nextDiv = document.getElementById(classes["box-3"]);
-        nextDiv.click();
-      } else if (dateData2 && !dateData1) {
-        if (!cal1StateYear) {
-          const curDate = new Date();
-          console.log(curDate);
-          setCal1StateDay(curDate.getDate());
-          setCal1StateMonth(
-            curDate.toLocaleString("default", { month: "short" })
-          );
-          setCal1StateYear(curDate.getFullYear());
+        if (docWidth > 553) {
+          setCal1StateDay(dateData1.day);
+          setCal1StateMonth(dateData1.month);
+          setCal1StateYear(dateData1.year);
+          const nextDiv = document.getElementById(classes["box-3"]);
+          nextDiv.click();
+        } else {
+          subDateRef.current = dateData1;
         }
+      } else if (dateData2 && !dateData1) {
+        if (docWidth > 553) {
+          if (!cal1StateYear) {
+            const curDate = new Date();
+            setCal1StateDay(curDate.getDate());
+            setCal1StateMonth(
+              curDate.toLocaleString("default", { month: "short" })
+            );
+            setCal1StateYear(curDate.getFullYear());
+          }
 
-        // console.log(dateData2.toLocaleString());
-        // console.log(dateData2);
+          setCal2StateDay(dateData2.day);
+          setCal2StateMonth(dateData2.month);
+          setCal2StateYear(dateData2.year);
+          dispatch(modalSliceActions.closeCalendar());
+        } else {
+          if (!subDateRef.current.month) {
+            const curDate = new Date();
 
-        setCal2StateDay(dateData2.day);
-        setCal2StateMonth(dateData2.month);
-        setCal2StateYear(dateData2.year);
-        dispatch(modalSliceActions.closeCalendar());
+            subDateRef.current = {
+              day: curDate.getDate(),
+              month: curDate.toLocaleString("default", { month: "short" }),
+              year: curDate.getFullYear(),
+            };
+          }
+
+          setCombinedDate({
+            cal1StateDay: subDateRef.current.day,
+            cal1StateMonth: subDateRef.current.month,
+            cal1StateYear: subDateRef.current.year,
+            cal2StateDay: dateData2.day,
+            cal2StateMonth: dateData2.month,
+            cal2StateYear: dateData2.year,
+          });
+        }
         const nextDiv = document.getElementById(classes["box-4"]);
         nextDiv.click();
       }
     },
-    [cal1StateYear, dispatch]
+    [cal1StateYear, dispatch, docWidth]
   );
 
   const formCloseModalHandler = useCallback(
@@ -205,9 +237,25 @@ const HeaderForm = () => {
             onClick={showCalHandler}
           >
             <span>Duration</span>
-            <span id="cal2Output">
-              {cal2StateDay + " " + cal2StateMonth + " " + cal2StateYear}
-            </span>
+            {docWidth < 553 ? (
+              <span>
+                {combinedDate.cal1StateDay +
+                  " " +
+                  combinedDate.cal1StateMonth +
+                  " " +
+                  combinedDate.cal1StateYear +
+                  " - " +
+                  combinedDate.cal2StateDay +
+                  " " +
+                  combinedDate.cal2StateMonth +
+                  " " +
+                  combinedDate.cal2StateYear}
+              </span>
+            ) : (
+              <span id="cal2Output">
+                {cal2StateDay + " " + cal2StateMonth + " " + cal2StateYear}
+              </span>
+            )}
           </div>
           <div
             id={classes["box-4"]}

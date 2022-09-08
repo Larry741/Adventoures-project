@@ -65,6 +65,10 @@
   right: 0rem;   Edited in the section design
   background-color: ;  Edited in the section design
   min-width: ;    Edited in the section design */
+
+  @include respond(notebook-867) {
+    min-width: 16rem;
+  }
 }
 
 .dropdown-content-1 a,
@@ -82,6 +86,10 @@
   text-align: left;
   background-color: transparent;
   /* text-align: left; */
+
+  @include respond(notebook-867) {
+    padding: .8rem 0 .8rem 1rem;
+  }
 }
 
 .dropdown:hover .dropdown-content-1 {

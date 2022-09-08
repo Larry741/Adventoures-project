@@ -5,7 +5,11 @@
   height: 100vh;
   width: 100%;
   z-index: -1;
-} 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://res.cloudinary.com/orion147/image/upload/v1662628819/Adventures/pexels-johannes-plenio-4124073_tvrxah.jpg");
+}
 
 .content {
   width: 100%;

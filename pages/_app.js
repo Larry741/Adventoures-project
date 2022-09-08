@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
 import { SessionProvider } from 'next-auth/react'
+import { WidthContextProvider } from "../components/store/width-context";
 
 import store from '../components/store';
 
@@ -68,7 +69,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <WidthContextProvider>
+          <Component {...pageProps} />
+        </WidthContextProvider>
       </Provider>
     </SessionProvider>
   );
