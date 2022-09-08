@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AdventureCards from "./AdventureCards/AdventureCards";
 import UseSlider from "../hooks/useSlider";
 import Direction from "../UI/directions";
+import WidthContext from "../store/width-context";
 
 import classes from "./Adventure.module.scss";
 import image1 from "../../public/img/adventures-Usaka-desert-peru.jpg";
@@ -96,6 +97,7 @@ const cardDetails = [
 
 const Adventure = () => {
   const [slideIn, setSlideIn] = useState(false);
+  const {docWidth} = useContext(WidthContext)
   const {
     leftCountEnd,
     rightCountEnd,
@@ -116,16 +118,22 @@ const Adventure = () => {
       });
     };
 
+
+
     let options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.7,
+      // threshold: docWidth < ,
     };
 
     let observer = new IntersectionObserver(showCards, options);
 
     observer.observe(cardsBox);
-  }, []);
+
+    return () => {
+      observer.unobserve(cardsBox);
+    };
+  }, [docWidth]);
 
   return (
     <section className={classes.adventures}>
@@ -145,7 +153,7 @@ const Adventure = () => {
         <div
           ref={sliderRef}
           id="adventures__box"
-          className={`${classes["adventures__box"]} ${"margin-b-medium"}`}
+          className={`${classes["adventures__box"]}`}
         >
           {cardDetails.map((card, idx) => {
             return (

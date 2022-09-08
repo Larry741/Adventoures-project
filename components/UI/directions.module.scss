@@ -6,9 +6,11 @@
   transform: translateX(-0.7rem);
   // cursor: pointer;
 
-  @include respond(tablet-589) {
-    gap: 0rem;
+  @include respond(desktop-1400) {
     display: flex;
+  }
+  @include respond(tablet-589) {
+    gap: 0;
   }
 
   & > *:not(:last-child) {

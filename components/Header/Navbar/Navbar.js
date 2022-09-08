@@ -46,7 +46,7 @@ const Navbar = (props) => {
         <div className={classes["box"]}>
           <Link href="/">
             <a>
-              <Image src={image} alt="Logo" width={70} height={70} />
+              <Image src={image} alt="Logo" layout="fill" priority />
             </a>
           </Link>
         </div>

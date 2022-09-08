@@ -7,15 +7,28 @@
   flex-shrink: 0;
   opacity: 0;
   transform: translateY(20rem);
-  // overflow: hidden;
 
-  @include respond(tablet-589) {
-    flex-basis: calc((100% - 1.5rem) / 2);
+  @include respond(desktop-1400) {
+    flex-basis: calc((100% - 4.5rem) / 4);
     height: 37rem;
   }
-  @include respond(tablet-480) {
+  @include respond(notebook-974) {
+    height: 33rem;
+  }
+  @include respond(notebook-867) {
+    flex-basis: calc((100% - 3rem) / 3);
+  }
+  @include respond(tablet-666) {
+    flex-basis: calc((100% - 2rem) / 2);
+  }
+  @include respond(tablet-530) {
     flex-basis: calc((100% - 1rem) / 2);
+  }
+  @include respond(tablet-480) {
     height: 30rem;
+  }
+  @include respond(phones-420) {
+    height: 28rem;
   }
 
   &-rotate {
@@ -119,6 +132,10 @@
           width: 100%;
           height: 40%;
           clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+          @include respond(tablet-480) {
+            height: 43%;
+          }
         }
 
         & > a {
@@ -174,7 +191,7 @@
     right: 1rem;
 
     @include respond(phones-420) {
-      right: .5;
+      right: 0.5;
       padding: 0.5rem;
     }
 

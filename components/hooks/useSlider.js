@@ -2,7 +2,7 @@ import { useRef, useEffect, useContext, useState } from "react";
 import WidthContext from "../store/width-context";
 
 const UseSlider = () => {
-  const gapRef = useRef(15) 
+  const gapRef = useRef(15);
   const sliderContainer = useRef(null);
   const slider = useRef(null);
   const switchDebounceTimeoutRef = useRef(null);
@@ -16,15 +16,26 @@ const UseSlider = () => {
   const [hasReachedLeftEnd, setHasReachedLeftEnd] = useState(true);
 
   useEffect(() => {
-    let visibleElNum = 2;
+    let visibleElNum;
 
-    if (docWidth < 480) {
-      gapRef.current = 10;
-    } else {
+    if (docWidth > 666) {
       gapRef.current = 15;
+    } else if (docWidth > 530 && docWidth < 666) {
+      gapRef.current = 20;
+    } else if (docWidth < 530) {
+      gapRef.current = 10;
     }
-   
-    sliderChildrenExcessCount.current = slider.current.children.length - visibleElNum;
+
+    if (docWidth > 867) {
+      visibleElNum = 4;
+    } else if (docWidth > 666) {
+      visibleElNum = 3;
+    } else if (docWidth < 666) {
+      visibleElNum = 2;
+    }
+
+    sliderChildrenExcessCount.current =
+      slider.current.children.length - visibleElNum;
 
     if (sliderChildrenExcessCount.current === 0) {
       setHasReachedRightEnd(true);
@@ -73,15 +84,15 @@ const UseSlider = () => {
     }
 
     count.current--;
-    const categoryItemWidth = slider.current.firstElementChild.clientWidth;
+    const itemWidth = slider.current.firstElementChild.clientWidth;
     sliderContainer.current.scrollTo({
       left:
-        categoryItemWidth * count.current +
+        itemWidth * count.current +
         gapRef.current * count.current -
-        (categoryItemWidth + gapRef.current),
+        (itemWidth + gapRef.current),
       behavior: "smooth",
     });
-    scrollLeft.current -= categoryItemWidth;
+    scrollLeft.current -= itemWidth;
 
     if (hasReachedRightEnd) {
       setHasReachedRightEnd(false);
@@ -108,13 +119,13 @@ const UseSlider = () => {
       }, 20000);
     }
 
-    const categoryItemWidth = slider.current.firstElementChild.clientWidth;
+    const itemWidth = slider.current.firstElementChild.clientWidth;
     sliderContainer.current.scrollTo({
-      left: categoryItemWidth * count.current + gapRef.current * count.current,
+      left: itemWidth * count.current + gapRef.current * count.current,
       behavior: "smooth",
     });
 
-    scrollLeft.current += categoryItemWidth;
+    scrollLeft.current += itemWidth;
     count.current++;
 
     if (hasReachedLeftEnd) {

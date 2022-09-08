@@ -1,6 +1,6 @@
 .navlinks {
   align-self: center;
-  margin: 3.2rem 0 0 0;
+  margin: 1.5rem 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +77,7 @@
         &::after {
           content: "";
           display: inline-block;
-          top: 63%;
+          top: 79%;
           left: 50%;
           transform: translate(-50%, 0);
           border-width: .9rem;

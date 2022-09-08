@@ -26,6 +26,10 @@
 
   & .heading-bg {
     padding: 4rem 0 2rem;
+
+    @include respond(tablet-666) {
+      padding: 3rem 0 2rem;
+    }
   }
 
   &__heading {
@@ -35,35 +39,28 @@
   }
 
   & .sliderContainer {
-    @include respond(tablet-589) {
-      margin: 0 auto;
-      overflow: hidden;
-      width: 89vw;
-    }
-    @include respond(tablet-530) {
-      width: 95vw;
-    }
+    overflow: hidden;
+    width: 100vw;
+    margin: 0 auto;
 
-    & > div > div:nth-of-type(n + 4) {
-      @include respond(laptop-1024) {
-        display: none;
-      }
-      @include respond(notebook-768) {
-        display: inline-block;
-      }
+    @include respond(desktop-1400) {
+      width: 90vw;
     }
-    & > div > div:nth-of-type(n + 5) {
-      @include respond(desktop-1300) {
-        display: none;
-      }
-      @include respond(tablet-589) {
-        display: inline-block;
-      }
+    @include respond(laptop-1200) {
+      width: 94vw;
+    }
+    @include respond(notebook-974) {
+      width: 98vw;
+    }
+    @include respond(notebook-867) {
+      width: 68.3rem;
+    }
+    @include respond(tablet-666) {
+      width: 49rem;
     }
   }
 
   &__box {
-    width: 100vw;
     // height: 47rem;
     display: grid;
     grid-template-columns: repeat(5, 25rem);
@@ -76,37 +73,14 @@
     z-index: 1000;
 
     @include respond(desktop-1400) {
-      gap: 0.9rem;
-    }
-    @include respond(desktop-1300) {
-      gap: 1.3rem;
-      grid-template-columns: repeat(4, 25rem);
-    }
-    @include respond(laptop-1200) {
-      grid-template-columns: repeat(4, 25rem);
-    }
-    @include respond(laptop-1093) {
-      gap: 0.7rem;
-    }
-    @include respond(laptop-1024) {
-      grid-template-columns: repeat(3, 25rem);
-      gap: 3rem;
-    }
-    @include respond(notebook-867) {
-      gap: 1rem;
-    }
-    @include respond(notebook-768) {
-      gap: 2rem;
-      grid-template-columns: repeat(2, 25rem);
-      grid-template-rows: repeat(2, 37rem);
-      padding: 3rem 0 1rem;
-    }
-    @include respond(tablet-589) {
       display: flex;
-      gap: 1.5rem;
       justify-content: flex-start;
+      gap: 1.5rem;
     }
-    @include respond(tablet-480) {
+    @include respond(tablet-666) {
+      gap: 2rem;
+    }
+    @include respond(tablet-530) {
       gap: 1rem;
     }
   }

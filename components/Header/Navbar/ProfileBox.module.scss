@@ -1,6 +1,6 @@
 .profileBox {
   justify-self: flex-end;
-  align-self: flex-end;
+  // align-self: flex-end;
   width: 6.5rem;
   height: 4.4rem;
   padding: 0 .9rem 0;
@@ -15,16 +15,15 @@
   align-items: center;
   justify-items: center;
   cursor: pointer;
-  position: relative;
 
   @include respond(notebook-768) {
-    // margin: 0 1rem 0rem 0;
+    height: 3.8rem;
+    width: 5.5rem;
   }
 }
 
 .material-icons-2 {
   font-size: 18px;
-  position: relative;
   display: grid;
   align-items: center;
   // justify-self: start;
@@ -45,7 +44,7 @@
 
 .material-icons-3 {
   font-size: 20px;
-  position: relative;
+  // position: relative;
   display: grid;
   align-items: center;
   justify-self: center;
@@ -60,6 +59,7 @@
   overflow: hidden;
   display: none;
   position: absolute;
+  top: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   /* top: ;         Edited in the section design
   right: 0rem;   Edited in the section design

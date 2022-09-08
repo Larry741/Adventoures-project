@@ -17,7 +17,7 @@ const ProfileBox = (props) => {
   const NavbarRef = useRef(null);
   const { data: session, status } = useSession();
 
-  console.log(session, status);
+  // console.log(session, status);
 
   const { cont5 } = props.isActive;
 
