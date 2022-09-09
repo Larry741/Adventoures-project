@@ -153,8 +153,8 @@ const Footer = () => {
               <a>
                 <Image
                   id="right1"
-                  width={docWidth < 588 ? 20 : 30}
-                  height={docWidth < 588 ? 20 : 30}
+                  width={docWidth < 589 ? 20 : 30}
+                  height={docWidth < 589 ? 20 : 30}
                   src={!imageWasHovered.image1 ? image1 : image1b}
                   alt="facebook-icon"
                 />
@@ -169,8 +169,8 @@ const Footer = () => {
               <a>
                 <Image
                   id="right2"
-                  width={docWidth < 588 ? 20 : 30}
-                  height={docWidth < 588 ? 20 : 30}
+                  width={docWidth < 589 ? 20 : 30}
+                  height={docWidth < 589 ? 20 : 30}
                   src={!imageWasHovered.image2 ? image2 : image2b}
                   alt="twitter-icon"
                 />
@@ -185,8 +185,8 @@ const Footer = () => {
               <a>
                 <Image
                   id="right3"
-                  width={30}
-                  height={30}
+                  width={docWidth < 589 ? 20 : 30}
+                  height={docWidth < 589 ? 20 : 30}
                   src={!imageWasHovered.image3 ? image3 : image3b}
                   alt="instagram-icon"
                 />

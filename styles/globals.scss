@@ -131,6 +131,9 @@ body {
   @include respond(notebook-768) {
     font-size: 2rem;
   }
+  @include respond(tablet-480) {
+    font-size: 1.8rem;
+  }
 }
 
 .tertiaryText {
