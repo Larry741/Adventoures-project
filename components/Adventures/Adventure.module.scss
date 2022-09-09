@@ -70,6 +70,7 @@
     padding: 1.5rem 0 2.5rem 0;
     gap: 2rem;
     z-index: 1000;
+    transition: .7s ease-in-out;
 
     @supports (-webkit-touch-callout: none) and (not (translate: none)) {
       & > *:not(:last-child) {
