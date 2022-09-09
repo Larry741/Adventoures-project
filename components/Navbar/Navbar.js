@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks";
 import ProfileBox from "./ProfileBox";
 
 import classes from "./Navbar.module.scss";
-import image from "../../../public/img/favicon.png";
+import image from "../../public/img/favicon.png";
 
 const data = ["Things to do", "Destinations", "Places to stay", "Experiences"];
 

@@ -1,0 +1,60 @@
+.navigation {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-secondary;
+  color: black;
+  text-transform: capitalize;
+  padding: 0 10rem;
+  z-index: 20;
+
+  @include respond(desktop-1500) {
+    padding: 0 5rem;
+  }
+  @include respond(laptop-1200) {
+    padding: 0 3rem;
+  }
+  @include respond(tablet-589) {
+    padding: 0 2rem;
+  }
+  @include respond(tablet-480) {
+    padding: 0 1rem;
+    height: 4rem;
+  }
+
+  & p {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  & div {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+
+    @include respond(tablet-589) {
+      gap: 0rem;
+    }
+
+    & > *:not(:last-child) {
+      @include respond(tablet-589) {
+        margin-right: 0.6rem;
+      }
+      @include respond(tablet-480) {
+        margin-right: 0.3rem;
+      }
+    }
+
+    & a:last-of-type {
+      color: $color-primary2;
+    }
+    & a:hover:not(a:last-of-type) {
+      color: $color-primary2;
+    }
+  }
+
+  span {
+    cursor: pointer;
+  }
+}

@@ -15,7 +15,7 @@ const AuthForm = () => {
 
   const router = useRouter();
   const isLogIn = router.query.signup === "" ? false : true;
-  
+
   const [isLogin, setIsLogin] = useState(isLogIn);
   const {
     enteredValue: enteredName,
@@ -52,41 +52,41 @@ const AuthForm = () => {
       return;
     }
 
-    const res = await fetch("/api/auth/signup", {
-      method: "post",
-      body: JSON.stringify({
-        name: enteredName,
-        email: enteredEmail,
-        password: enteredPassword,
-      }),
-      headers: {
-        "Content-Type": "application/Json",
-      },
-    });
-
-    if (!res.ok) {
-      res
-        .json()
-        .then((data) => {
-          throw new Error(data.message);
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    } else {
-      res.json().then((data) => {
-        console.log(res);
-        setIsLogin(true);
-        resetName();
-        resetEmail();
-        resetPassword();
+    try {
+      const response = await fetch("/api/auth/signup", {
+        method: "post",
+        body: JSON.stringify({
+          name: enteredName,
+          email: enteredEmail,
+          password: enteredPassword,
+        }),
+        headers: {
+          "Content-Type": "application/Json",
+        },
       });
+
+      if (!response.ok) {
+        if (response.status === 500) {
+          throw new Error("Server error! we could not complete your request");
+        } else if (response.status === 400) {
+          throw new Error("Invalid user details");
+        } else if (response.status === 409) {
+          throw new Error("Email already exists");
+        }
+        throw new Error("Bad Request");
+      }
+
+      const res = await response.json();
+
+      console.log(res);
+    } catch (err) {
+      console.log(err.message);
     }
   };
 
   const googleloginHandler = async (event) => {
-    await signIn('google', {
-      callbackUrl: '/',
+    await signIn("google", {
+      callbackUrl: "/",
     });
   };
 
@@ -97,30 +97,33 @@ const AuthForm = () => {
       return;
     }
 
-    const result = await signIn('credentials', {
-      callbackUrl: '/',
-      redirect: false,
-      email: enteredEmail,
-      password: enteredPassword,
-    });
+    try {
+      const result = await signIn("credentials", {
+        callbackUrl: "/",
+        redirect: false,
+        email: enteredEmail,
+        password: enteredPassword,
+      });
 
-    if (result.error) {
-      return console.log(result.error);
+      if (result.error) {
+        throw new Error(result.error);
+      }
+
+      router.replace("/");
+    } catch (err) {
+      console.log(err.message);
     }
-    
-    router.replace('/');
-  }
+  };
 
   const inputfocusHandler = (event) => {
     event.target.previousElementSibling.id = `${classes["label-focus"]}`;
-  }
-
+  };
 
   const switchAuthModeHandler = (event) => {
     event.preventDefault();
-    
+
     resetEmail();
-    emailLabelRef.current.removeAttribute('id');
+    emailLabelRef.current.removeAttribute("id");
     resetName();
     if (nameLabelRef.current) {
       nameLabelRef.current.removeAttribute("id");
@@ -133,17 +136,20 @@ const AuthForm = () => {
   return (
     <section className={classes.auth}>
       <div className={classes.row}>
-        <div className={classes.image}>
-        </div>
+        <div className={classes.image}></div>
         <form className={classes.form}>
-          <h1>{isLogin ? "Login" : "Sign Up"}</h1>
+          <h1 className="heading__secondary-2">
+            {isLogin ? "LOGIN" : "SIGN UP"}
+          </h1>
           {!isLogin && (
             <div
               className={`${classes.control} ${
                 nameIsInvalid && classes.invalid
               }`}
             >
-              <label htmlFor="name" ref={nameLabelRef}>Full name</label>
+              <label htmlFor="name" ref={nameLabelRef}>
+                Full name
+              </label>
               <input
                 onFocus={inputfocusHandler}
                 onChange={nameValueChangeHandler}
@@ -160,7 +166,9 @@ const AuthForm = () => {
               emailIsInvalid && classes.invalid
             }`}
           >
-            <label htmlFor="email" ref={emailLabelRef}>E-Mail Address</label>
+            <label htmlFor="email" ref={emailLabelRef}>
+              E-Mail Address
+            </label>
             <input
               onFocus={inputfocusHandler}
               onChange={emailValueChangeHandler}
@@ -177,7 +185,9 @@ const AuthForm = () => {
               passwordIsInvalid && classes.invalid
             }`}
           >
-            <label htmlFor="password" ref={passwordLabelRef}>Password</label>
+            <label htmlFor="password" ref={passwordLabelRef}>
+              Password
+            </label>
             <input
               onFocus={inputfocusHandler}
               onChange={passwordValueChangeHandler}
@@ -190,7 +200,7 @@ const AuthForm = () => {
               placeholder="Password"
             />
           </div>
-          <div className={classes.actions}>
+          <div className={`${classes.actions} small-text`}>
             <button
               className={classes.login}
               onClick={isLogin ? credentialsLoginHandler : signupHandler}

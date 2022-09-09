@@ -7,8 +7,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { HiMenu } from "react-icons/hi";
 
-import { modalSliceActions } from "../../store/modalSlice";
-import Modal from "../../UI/Modal";
+import { modalSliceActions } from "../store/modalSlice";
+import Modal from "../UI/Modal";
 
 import classes from './ProfileBox.module.scss';
 

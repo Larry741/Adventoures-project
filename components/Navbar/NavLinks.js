@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 
-import { modalSliceActions } from "../../store/modalSlice";
-import Modal from "../../UI/Modal";
+import { modalSliceActions } from "../store/modalSlice";
+import Modal from "../UI/Modal";
 
 import classes from "./NavLinks.module.scss";
 

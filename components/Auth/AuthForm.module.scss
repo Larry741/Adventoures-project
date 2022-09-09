@@ -6,6 +6,10 @@
   // justify-content: center;
   align-items: center;
   padding: 0 2rem;
+
+  @include respond(tablet-589) {
+    padding: 0 1rem;
+  }
 }
 
 .image {
@@ -44,6 +48,10 @@
       rgba($color-white, 0.7) 100%
     );
   }
+  @include respond(tablet-589) {
+    height: max-content;
+    padding: 0 0 1rem;
+  }
 }
 
 .form {
@@ -57,6 +65,7 @@
   }
   @include respond(tablet-589) {
     padding: 3rem 1rem 0;
+    width: 100%;
   }
 }
 
@@ -64,6 +73,10 @@
   text-align: center;
   color: $color-secondary-dark;
   margin-bottom: 4rem;
+
+  @include respond(tablet-589) {
+    margin-bottom: 2rem;
+  }
 }
 
 .control {
@@ -72,6 +85,10 @@
   // grid-template-columns: 1fr 1fr 1fr;
   margin: 1.5rem 0 2rem;
   position: relative;
+
+  @include respond(tablet-589) {
+    margin: 1rem 0 1.5rem;
+  }
 }
 
 .control label {
@@ -116,11 +133,6 @@
 }
 
 .actions {
-  position: absolute;
-  width: 100%;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
   display: grid;
   grid-template-rows: 5rem 5rem;
   grid-template-columns: 1fr;
@@ -149,6 +161,11 @@
   // background-color: $color-secondary-dark;
   color: $color-black;
   overflow: hidden;
+
+  @include respond(tablet-589) {
+    height: 4.5rem;
+    padding: 0 1.5rem;
+  }
 }
 /* @include respond(tab-port) {
   padding: 2rem;

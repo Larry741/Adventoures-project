@@ -2,6 +2,8 @@ import { Provider } from 'react-redux';
 import { SessionProvider } from 'next-auth/react'
 import { WidthContextProvider } from "../components/store/width-context";
 
+import Navbar from '../components/Navbar/Navbar';
+
 import store from '../components/store';
 
 import '../styles/globals.scss';
@@ -70,6 +72,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <SessionProvider session={session}>
       <Provider store={store}>
         <WidthContextProvider>
+          <Navbar />
           <Component {...pageProps} />
         </WidthContextProvider>
       </Provider>

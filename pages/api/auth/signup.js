@@ -1,31 +1,37 @@
-import { connectDatabase } from "../../../lib/db";
-import { hashPassword } from "../../../lib/passwordEncrypt";
+import isEmail from "validator/lib/isEmail";
 
 import handler from "../../../lib/handler";
+import { hashPassword } from "../../../lib/passwordEncrypt";
+import { saveUser } from "../../../lib/user/user.model";
 
 export default handler().post(async (req, res) => {
-  const { email, password, name } = req.body;
+  const formData = req.body;
 
-  //add validation for data
-
-  const client = await connectDatabase();
-  const db = client.db();
-
-  const userExists = await db.collection("users").findOne({ email: email });
-
-  if (userExists) {
-    client.close();
-    return res
-      .status(422)
-      .json({ message: "user already exists, login instead!" });
+  if (
+    (!isEmail(formData.email)) ||
+    !formData.password
+  ) {
+    return res.status(400).json({
+      error: "Bad request",
+    });
   }
 
-  await db.collection("users").insertOne({
-    email,
-    password: await hashPassword(password),
-    name
-  });
+  const user = {
+    _id: formData.email,
+    password: await hashPassword(formData.password),
+  };
 
-  client.close();
-  return res.status(200).json({ message: "user created" });
+  try {
+    await saveUser(user);
+  } catch (err) {
+    console.log(err.message);
+    if (err.code === 11000) {
+      return res.status(409).json({ error: "Email already exists" });
+    }
+    return res
+      .status(500)
+      .json({ error: "Server error, we could not complete your request" });
+  }
+
+  return res.status(200).json({ message: "Signup successfull" });
 });

@@ -2,7 +2,8 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
-import { connectDatabase } from "../../../lib/db";
+import dbConnect from "../../../lib/mongo";
+import { getUserByEmail } from "../../../lib/user/user.model";
 import { verifyPasword } from "../../../lib/passwordEncrypt";
 
 export default NextAuth({
@@ -16,16 +17,19 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        const client = await connectDatabase();
+        await dbConnect();
 
-        const usersCollection = client.db().collection("users");
-        const user = await usersCollection.findOne({
-          email: credentials.email,
-        });
+        let user
+        try {
+          user = await getUserByEmail(credentials.email);
+        } catch (err) {
+          console.log(err.message);
+        }
+
+        console.log(user);
 
         if (!user) {
-          client.close();
-          throw new Error("invalid username or password");
+          throw new Error("Invalid username or password");
         }
 
         const passwordIsValid = await verifyPasword(
@@ -34,12 +38,10 @@ export default NextAuth({
         );
 
         if (!passwordIsValid) {
-          client.close();
           throw new Error("invalid username or password");
         }
 
-        client.close();
-        return { email: user.email };
+        return { email: user._id, name: user.fname };
       },
     }),
     GoogleProvider({
