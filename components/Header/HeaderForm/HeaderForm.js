@@ -238,7 +238,7 @@ const HeaderForm = () => {
           >
             <span>Duration</span>
             {docWidth < 553 ? (
-              <span>
+              <span className={classes.appear}>
                 {combinedDate.cal1StateDay +
                   " " +
                   combinedDate.cal1StateMonth +
