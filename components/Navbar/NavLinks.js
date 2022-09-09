@@ -86,14 +86,14 @@ const NavLinks = (props) => {
     <div className={classes["navlinks"]}>
       {props.showModal && props.modalShouldBeActive ? <Modal zIndex={16} onModalReact={closeNavBarHandler} /> : ""}
       <div
-        className={`${classes["navBar__container-nav-box"]} ${"text__primary"}`}
+        className={`${classes["navBar__container-nav-box"]} "text__primary"`}
       >
         <span
           onClick={openNavBarHandler}
           id={"dropdown-1btn"}
           className={`${classes["dropbtn"]} ${
             cont1 && classes["active-dbtn"]
-          }`}
+          } smaller-text`}
         >
           Things to do
         </span>
@@ -247,7 +247,7 @@ const NavLinks = (props) => {
           id={"dropdown-2btn"}
           className={`${classes["dropbtn"]} ${
             cont2 && classes["active-dbtn"]
-          }`}
+          } smaller-text`}
         >
           Destinations
         </span>
@@ -404,7 +404,7 @@ const NavLinks = (props) => {
           id={"dropdown-3btn"}
           className={`${classes["dropbtn"]} ${
             cont3 && classes["active-dbtn"]
-          }`}
+          } smaller-text`}
         >
           Places to stay
         </span>
@@ -558,7 +558,7 @@ const NavLinks = (props) => {
           id={"dropdown-4btn"}
           className={`${classes["dropbtn"]} ${
             cont4 && classes["active-dbtn"]
-          }`}
+          } smaller-text`}
         >
           Experiences
         </span>

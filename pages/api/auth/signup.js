@@ -8,10 +8,13 @@ export default handler().post(async (req, res) => {
   const formData = req.body;
 
   if (
-    (!isEmail(formData.email)) ||
-    !formData.password
+    !isEmail(formData.email) ||
+    !formData.password ||
+    !formData.name ||
+    typeof formData.name !== "string" ||
+    typeof formData.password !== "string"
   ) {
-    return res.status(400).json({
+    return res.status(405).json({
       error: "Bad request",
     });
   }
@@ -19,6 +22,7 @@ export default handler().post(async (req, res) => {
   const user = {
     _id: formData.email,
     password: await hashPassword(formData.password),
+    name: formData.name,
   };
 
   try {

@@ -8,13 +8,13 @@
 
   @include respond(notebook-867) {
     align-items: flex-start;
-    padding: 10rem 2rem 0;
+    padding: 3rem 2rem 0;
   }
   @include respond(tablet-666) {
     height: calc(100vh - (7rem + 5rem));
   }
   @include respond(tablet-589) {
-    padding: 8rem 1rem 0;
+    padding: 2rem 1rem 0;
   }
   @include respond(tablet-480) {
     height: calc(100vh - (7rem + 4rem));
@@ -148,6 +148,11 @@
 
 .actions button {
   cursor: pointer;
+  font: inherit;
+}
+
+.actions button:disabled {
+  cursor: not-allowed;
   font: inherit;
 }
 

@@ -7,12 +7,19 @@ import useInput from "../hooks/use-input";
 
 import classes from "./AuthForm.module.scss";
 import Navigation from "../navigation/navigation";
+import Notification from "../notification/notification";
+
+let notificationTimeout;
 
 const AuthForm = () => {
   const nameLabelRef = useRef(null);
   const emailLabelRef = useRef(null);
   const passwordLabelRef = useRef(null);
-
+  const [showNotification, setShowNotification] = useState({
+    message: null,
+    successState: null,
+  });
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const isLogIn = router.query.signup === "" ? false : true;
 
@@ -52,6 +59,7 @@ const AuthForm = () => {
 
   const signupHandler = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     if (!signupFormIsValid) {
       return;
@@ -83,10 +91,27 @@ const AuthForm = () => {
 
       const res = await response.json();
 
-      console.log(res);
+      setShowNotification({
+        message: res.message,
+        successState: "success",
+      });
+      document.getElementById("navigation").scrollIntoView();
+      switchAuthModeHandler();
     } catch (err) {
-      console.log(err.message);
+      setShowNotification({
+        message: err.message,
+        successState: "error",
+      });
     }
+
+    clearTimeout(notificationTimeout);
+    notificationTimeout = setTimeout(() => {
+      setShowNotification({
+        message: null,
+        successState: null,
+      });
+    }, 5000);
+    setIsLoading(false);
   };
 
   const googleloginHandler = async (event) => {
@@ -97,12 +122,15 @@ const AuthForm = () => {
 
   const credentialsLoginHandler = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     if (!loginFormIsValid) {
       return;
     }
 
     try {
+      const callbackUrl = router.query.callback;
+
       const result = await signIn("credentials", {
         callbackUrl: "/",
         redirect: false,
@@ -114,9 +142,25 @@ const AuthForm = () => {
         throw new Error(result.error);
       }
 
-      router.replace("/");
+      if (callbackUrl) {
+        router.replace(callbackUrl);
+      } else {
+        router.replace("/");
+      }
     } catch (err) {
-      console.log(err.message);
+      setShowNotification({
+        message: err.message,
+        successState: "error",
+      });
+
+      clearTimeout(notificationTimeout);
+      notificationTimeout = setTimeout(() => {
+        setShowNotification({
+          message: null,
+          successState: null,
+        });
+      }, 8000);
+      setIsLoading(false);
     }
   };
 
@@ -125,7 +169,9 @@ const AuthForm = () => {
   };
 
   const switchAuthModeHandler = (event) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
 
     resetEmail();
     emailLabelRef.current.removeAttribute("id");
@@ -140,6 +186,14 @@ const AuthForm = () => {
     router.push(link);
   };
 
+  const closeNotification = () => {
+    clearTimeout(notificationTimeout);
+    setShowNotification({
+      message: null,
+      successState: null,
+    });
+  };
+
   const firstNavigationLink = {
     link: isLogin ? " /auth" : "/auth?signup",
     title: isLogin ? "Sign In" : "Create An Account",
@@ -147,6 +201,14 @@ const AuthForm = () => {
 
   return (
     <>
+      {showNotification.message && (
+        <Notification
+          closeNotification={closeNotification}
+          successState={showNotification.successState}
+        >
+          <span>{showNotification.message}</span>
+        </Notification>
+      )}
       <Navigation firstNavigationLink={firstNavigationLink} />
       <section className={classes.auth}>
         <div className={classes.row}>
@@ -217,6 +279,7 @@ const AuthForm = () => {
             <div className={`${classes.actions} small-text`}>
               <button
                 className={classes.login}
+                disabled={isLoading}
                 onClick={isLogin ? credentialsLoginHandler : signupHandler}
               >
                 {isLogin ? "Login" : "Create Account"}
