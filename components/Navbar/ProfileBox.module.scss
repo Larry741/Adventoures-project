@@ -94,9 +94,9 @@
   @include respond(notebook-867) {
     padding: .8rem 0 .8rem 1rem;
   }
-  @include respond(tablet-589) {
-    padding: .5rem 0 .5rem 1rem;
-  }
+  // @include respond(tablet-589) {
+  //   padding: .5rem 0 .5rem 1rem;
+  // }
 }
 
 .dropdown:hover .dropdown-content-1 {

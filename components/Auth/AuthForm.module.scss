@@ -6,11 +6,14 @@
   align-items: center;
   padding: 0 2rem;
 
+  @include respond(notebook-867) {
+    margin-top: -2rem;
+  }
+  @include respond(tablet-666) {
+    height: calc(100vh - (7rem + 5rem));
+  }
   @include respond(tablet-589) {
     padding: 0 1rem;
-  }
-   @include respond(tablet-666) {
-    height: calc(100vh - (7rem + 5rem));
   }
   @include respond(tablet-480) {
     height: calc(100vh - (7rem + 4rem));
