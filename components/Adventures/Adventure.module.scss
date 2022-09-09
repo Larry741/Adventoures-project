@@ -72,7 +72,7 @@
     z-index: 1000;
 
     @supports (-webkit-touch-callout: none) and (not (translate: none)) {
-      &:not(:last-child) {
+      & > *:not(:last-child) {
         margin-right: 2rem;
 
         @include respond(desktop-1400) {
