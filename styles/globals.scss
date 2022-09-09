@@ -307,8 +307,11 @@ div[class="clearfix"]::after {
   @include respond(laptop-1024) {
     margin-bottom: 2rem;
   }
-  @include respond(phones-420) {
+  @include respond(tablet-666) {
     margin-bottom: 1.5rem;
+  }
+  @include respond(phones-420) {
+    margin-bottom: .7rem;
   }
 }
 

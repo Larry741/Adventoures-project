@@ -3,9 +3,8 @@
   justify-content: center;
   gap: 1rem;
   margin-left: 1.6rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   transform: translateX(-0.7rem);
-  // cursor: pointer;
 
   @include respond(desktop-1400) {
     display: flex;
@@ -58,18 +57,17 @@
       width: 2.8rem;
       height: 2.8rem;
 
-      @include respond(laptop-1200) {
-        width: 2.6rem;
-        height: 2.6rem;
-      }
-      @include respond(notebook-867) {
-        width: 2.4rem;
-        height: 2.4rem;
-      }
+      // @include respond(laptop-1200) {
+      //   width: 2.6rem;
+      //   height: 2.6rem;
+      // }
+      // @include respond(notebook-867) {
+      //   width: 2.4rem;
+      //   height: 2.4rem;
+      // }
 
       & svg {
         transform: rotateZ(-45deg);
-        // font-size: 2rem;
       }
     }
   }
@@ -86,8 +84,6 @@
     background-color: #fcf9f9;
     border: 2px solid #dddddd;
     display: flex;
-    // grid-template-columns: 1fr;
-    // grid-template-rows: 1fr;
     justify-content: center;
     align-items: center;
     color: black;
@@ -99,14 +95,14 @@
       border-color: #f0efef;
     }
 
-    @include respond(laptop-1200) {
-      width: 2.6rem;
-      height: 2.6rem;
-    }
-    @include respond(notebook-867) {
-      width: 2.4rem;
-      height: 2.4rem;
-    }
+    // @include respond(laptop-1200) {
+    //   width: 2.6rem;
+    //   height: 2.6rem;
+    // }
+    // @include respond(notebook-867) {
+    //   width: 2.4rem;
+    //   height: 2.4rem;
+    // }
   }
 
   & .line1 {
@@ -127,7 +123,7 @@
       width: 8rem;
     }
     @include respond(notebook-867) {
-      width: 6rem;
+      width: 7rem;
     }
   }
 
@@ -149,61 +145,8 @@
       width: 8rem;
     }
     @include respond(notebook-867) {
-      width: 6rem;
+      width: 7rem;
     }
   }
 }
 
-.containerControl2 {
-  & .button {
-    width: 2.4rem;
-    height: 2.4rem;
-    background-color: #fcf9f9;
-    border: 2px solid #dddddd;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    transition: all 0.5s;
-    cursor: pointer;
-
-    &:disabled {
-      background-color: white;
-      border-color: #f0efef;
-    }
-  }
-
-  .line1 {
-    width: 6rem;
-    border-radius: 5px;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    height: 1px;
-    border: 1px solid #e5e5e5;
-    transition: all 0.5s;
-
-    &:disabled {
-      background-color: white;
-      border-color: #f0efef;
-    }
-  }
-
-  .line2 {
-    width: 6rem;
-    border-radius: 5px;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    height: 1px;
-    border: 1px solid #e5e5e5;
-    transition: all 0.5s;
-
-    &:disabled {
-      background-color: white;
-      border-color: #f0efef;
-    }
-  }
-}
