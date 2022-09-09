@@ -173,7 +173,7 @@ const Adventure = () => {
         rightBtnDisabled={rightCountEnd}
         leftBtnDisabled={leftCountEnd}
       />
-      <div className="center margin-b-medium-2">
+      <div className="center mediumTertiaryText margin-b-medium-2">
         <Link href="#">
           <a className="btn btn-orange">View all Adventures</a>
         </Link>

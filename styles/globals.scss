@@ -56,15 +56,15 @@ body {
   @include respond(notebook-768) {
     font-size: 2.7rem;
   }
-  @include respond(tablet-560) {
+  @include respond(tablet-589) {
     font-size: 2.5rem;
   }
-  // @include respond(tablet-480) {
-  //   font-size: 2rem;
-  // }
-  // @include respond(phones-420) {
-  //   font-size: 1.8rem;
-  // }
+  @include respond(tablet-530) {
+    font-size: 2.2rem;
+  }
+  @include respond(phones-420) {
+    font-size: 1.9rem;
+  }
 }
 
 [class~="heading__secondary-2"] {
@@ -152,7 +152,7 @@ body {
     font-size: 1.3rem !important;
   }
   @include respond(tablet-666) {
-    font-size: 1.2rem !important;
+    // font-size: 1.2rem !important;
   }
 }
 

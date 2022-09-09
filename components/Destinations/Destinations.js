@@ -28,7 +28,7 @@ const Destinations = () => {
           );
         })}
       </div>
-      <div className="center">
+      <div className="center mediumTertiaryText">
         <Link href="/destinations" passHref={true}>
           <a className="btn  btn-orange">View all Destinations</a>
         </Link>
