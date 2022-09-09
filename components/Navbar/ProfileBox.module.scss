@@ -51,11 +51,10 @@
 }
 
 .dropdown-content-1 {
-  top: 4.9rem;
   border-radius: 0 0 1rem 1rem;
   background-color: $color-white;
   min-width: 20rem;
-  right: 0rem;
+  right: 2.2rem;
   overflow: hidden;
   display: none;
   position: absolute;
@@ -68,6 +67,11 @@
 
   @include respond(notebook-867) {
     min-width: 16rem;
+    right: 2rem;
+  }
+  @include respond(tablet-589) {
+    min-width: 14rem;
+    right: 1rem;
   }
 }
 
@@ -89,6 +93,9 @@
 
   @include respond(notebook-867) {
     padding: .8rem 0 .8rem 1rem;
+  }
+  @include respond(tablet-589) {
+    padding: .5rem 0 .5rem 1rem;
   }
 }
 

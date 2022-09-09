@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState, useRef } from "react";
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 import classes from "./HeaderFormCalender.module.scss";
 
@@ -262,7 +263,7 @@ const HeaderFormCalender = (props) => {
             className={classes["year-change"]}
             id={id === "cal1" ? "prev-year-1" : "prev-year-2"}
           >
-            <pre>le</pre>
+            <pre><BsChevronLeft /></pre>
           </span>
           <span id={id === "cal1" ? "year-1" : "year-2"}>2021</span>
           <span
@@ -270,7 +271,7 @@ const HeaderFormCalender = (props) => {
             className={classes["year-change"]}
             id={id === "cal1" ? "next-year-1" : "next-year-2"}
           >
-            <pre>ri</pre>
+            <pre><BsChevronRight /></pre>
           </span>
         </div>
       </div>

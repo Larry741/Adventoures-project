@@ -145,7 +145,7 @@
 .calendar-days div.curr-date,
 .calendar-days div.curr-date:hover {
   background-color: $color-secondary-dark;
-  color:#fff;
+  color: #fff;
   border-radius: 50%;
 
   @include respond(notebook-768) {
@@ -179,8 +179,16 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: 0 10px;
+  // margin: 0 10px;
   cursor: pointer;
+
+  & svg {
+    transform: translateY(0.3rem);
+
+    @include respond(notebook-914) {
+      transform: translateY(0.1rem);
+    }
+  }
 }
 
 .year-change:hover {
@@ -255,12 +263,12 @@
   transition: all 0.2s ease-in-out;
 }
 
-.month-list>div {
+.month-list > div {
   display: grid;
   place-items: center;
 }
 
-.month-list>div>div {
+.month-list > div > div {
   width: 100%;
   padding: 5px 20px;
   border-radius: 10px;
@@ -269,7 +277,7 @@
   color: var(--color-txt);
 }
 
-.month-list>div>div:hover {
+.month-list > div > div:hover {
   background-color: var(--color-hover);
 }
 

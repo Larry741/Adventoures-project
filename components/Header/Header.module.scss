@@ -1,9 +1,26 @@
 .section__header {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 8.05rem);
   // position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 5;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://res.cloudinary.com/orion147/image/upload/v1662689912/Adventures/pexels-johannes-plenio-4124073-min_gaigxn.jpg");
+
+  @include respond(notebook-768) {
+    height: calc(90vh - 8.05rem);
+  }
+  @include respond(tablet-666) {
+    height: calc(90vh - 7rem);
+  }
+  @include respond(tablet-589) {
+    height: calc(84vh - 7rem);
+  }
+  @include respond(tablet-530) {
+    height: calc(83vh - 7rem);
+  }
 }

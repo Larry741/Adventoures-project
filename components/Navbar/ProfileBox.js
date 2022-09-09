@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 import { signOut, useSession } from "next-auth/react";
-import { FaTwitter } from "react-icons/fa";
+import { RiAccountCircleFill } from "react-icons/ri";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { HiMenu } from "react-icons/hi";
@@ -14,11 +15,10 @@ import classes from './ProfileBox.module.scss';
 
 const ProfileBox = (props) => {
   const dispatch = useDispatch();
+  const router = useRouter()
   const NavbarRef = useRef(null);
   const { data: session, status } = useSession();
-
-  // console.log(session, status);
-
+  
   const { cont5 } = props.isActive;
 
   useEffect(() => {
@@ -68,6 +68,17 @@ const ProfileBox = (props) => {
     closeProfile();
   }
 
+  const switchToAuthPage = (arg1, event) => {
+    props.setIsActive({
+      cont1: false,
+      cont2: false,
+      cont3: false,
+      cont4: false,
+      cont5: false,
+    });
+    router.push(arg1);
+  }
+
   return (
     <div
       className={classes.profileBox}
@@ -81,7 +92,7 @@ const ProfileBox = (props) => {
       )}
       {status == "authenticated" ? (
         <span className={classes["material-icons-2"]}>
-          <FaTwitter />
+          <RiAccountCircleFill />
         </span>
       ) : (
         <span className={classes["material-icons-3"]}>
@@ -96,8 +107,12 @@ const ProfileBox = (props) => {
       >
         {status !== "authenticated" && (
           <>
-            <Link href="/login?signup">Sign up</Link>
-            <Link href="/login">Log in</Link>
+            <button onClick={switchToAuthPage.bind(null, "/auth?signup")}>
+              Sign up
+            </button>
+            <button onClick={switchToAuthPage.bind(null, "/auth")}>
+              Log in
+            </button>
           </>
         )}
         {status == "authenticated" && (

@@ -66,6 +66,7 @@ const Navbar = (props) => {
           modalShouldBeActive={modalShouldBeActive}
         />
       </div>
+      <div className={classes.clearFix}></div>
     </>
   );
 };

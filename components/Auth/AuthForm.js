@@ -1,12 +1,12 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 
 import useInput from "../hooks/use-input";
 
-import image from "../../public/img/Destination__california.jpg";
 import classes from "./AuthForm.module.scss";
+import Navigation from "../navigation/navigation";
 
 const AuthForm = () => {
   const nameLabelRef = useRef(null);
@@ -41,6 +41,11 @@ const AuthForm = () => {
     valueChangeHandler: passwordValueChangeHandler,
     reset: resetPassword,
   } = useInput((value) => value.trim() !== "" && value.length > 6);
+
+  useEffect(() => {
+    if (isLogin === isLogIn) return;
+    setIsLogin(isLogIn);
+  }, [isLogIn]);
 
   const signupFormIsValid = emailIsValid && passwordIsValid && nameIsValid;
   const loginFormIsValid = emailIsValid && passwordIsValid;
@@ -130,94 +135,104 @@ const AuthForm = () => {
     }
     resetPassword();
     passwordLabelRef.current.removeAttribute("id");
-    setIsLogin((prevState) => !prevState);
+
+    const link = isLogin ? "/auth?signup" : " /auth";
+    router.push(link);
+  };
+
+  const firstNavigationLink = {
+    link: isLogin ? " /auth" : "/auth?signup",
+    title: isLogin ? "Sign In" : "Create An Account",
   };
 
   return (
-    <section className={classes.auth}>
-      <div className={classes.row}>
-        <div className={classes.image}></div>
-        <form className={classes.form}>
-          <h1 className="heading__secondary-2">
-            {isLogin ? "LOGIN" : "SIGN UP"}
-          </h1>
-          {!isLogin && (
+    <>
+      <Navigation firstNavigationLink={firstNavigationLink} />
+      <section className={classes.auth}>
+        <div className={classes.row}>
+          <div className={classes.image}></div>
+          <form className={classes.form}>
+            <h1 className="heading__secondary-2">
+              {isLogin ? "LOGIN" : "SIGN UP"}
+            </h1>
+            {!isLogin && (
+              <div
+                className={`${classes.control} ${
+                  nameIsInvalid && classes.invalid
+                }`}
+              >
+                <label htmlFor="name" ref={nameLabelRef}>
+                  Full name
+                </label>
+                <input
+                  onFocus={inputfocusHandler}
+                  onChange={nameValueChangeHandler}
+                  onBlur={nameInputBlurHandler}
+                  type="text"
+                  id="name"
+                  value={enteredName}
+                  placeholder="Full name"
+                />
+              </div>
+            )}
             <div
               className={`${classes.control} ${
-                nameIsInvalid && classes.invalid
+                emailIsInvalid && classes.invalid
               }`}
             >
-              <label htmlFor="name" ref={nameLabelRef}>
-                Full name
+              <label htmlFor="email" ref={emailLabelRef}>
+                E-Mail Address
               </label>
               <input
                 onFocus={inputfocusHandler}
-                onChange={nameValueChangeHandler}
-                onBlur={nameInputBlurHandler}
+                onChange={emailValueChangeHandler}
+                onBlur={emailInputBlurHandler}
                 type="text"
-                id="name"
-                value={enteredName}
-                placeholder="Full name"
+                id="email"
+                value={enteredEmail}
+                required
+                placeholder="E-Mail Address"
               />
             </div>
-          )}
-          <div
-            className={`${classes.control} ${
-              emailIsInvalid && classes.invalid
-            }`}
-          >
-            <label htmlFor="email" ref={emailLabelRef}>
-              E-Mail Address
-            </label>
-            <input
-              onFocus={inputfocusHandler}
-              onChange={emailValueChangeHandler}
-              onBlur={emailInputBlurHandler}
-              type="text"
-              id="email"
-              value={enteredEmail}
-              required
-              placeholder="E-Mail Address"
-            />
-          </div>
-          <div
-            className={`${classes.control} ${
-              passwordIsInvalid && classes.invalid
-            }`}
-          >
-            <label htmlFor="password" ref={passwordLabelRef}>
-              Password
-            </label>
-            <input
-              onFocus={inputfocusHandler}
-              onChange={passwordValueChangeHandler}
-              onBlur={passwordInputBlurHandler}
-              minLength={7}
-              type="password"
-              id="password"
-              value={enteredPassword}
-              required
-              placeholder="Password"
-            />
-          </div>
-          <div className={`${classes.actions} small-text`}>
-            <button
-              className={classes.login}
-              onClick={isLogin ? credentialsLoginHandler : signupHandler}
+            <div
+              className={`${classes.control} ${
+                passwordIsInvalid && classes.invalid
+              }`}
             >
-              {isLogin ? "Login" : "Create Account"}
-            </button>
-            <button
-              type="button"
-              className={classes.toggle}
-              onClick={switchAuthModeHandler}
-            >
-              {isLogin ? "Create new account" : "Login with existing account"}
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
+              <label htmlFor="password" ref={passwordLabelRef}>
+                Password
+              </label>
+              <input
+                onFocus={inputfocusHandler}
+                onChange={passwordValueChangeHandler}
+                onBlur={passwordInputBlurHandler}
+                minLength={7}
+                type="password"
+                id="password"
+                value={enteredPassword}
+                required
+                placeholder="Password"
+              />
+            </div>
+            <div className={`${classes.actions} small-text`}>
+              <button
+                className={classes.login}
+                onClick={isLogin ? credentialsLoginHandler : signupHandler}
+              >
+                {isLogin ? "Login" : "Create Account"}
+              </button>
+              <button
+                type="button"
+                className={classes.toggle}
+                onClick={switchAuthModeHandler}
+              >
+                {isLogin ? "Create new account" : "Login with existing account"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
   );
 };
 

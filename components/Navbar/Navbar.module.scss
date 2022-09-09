@@ -6,7 +6,7 @@
   grid-template-columns: 1fr max-content 1fr;
   align-items: center;
   height: 8.05rem;
-  width: 100%;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
@@ -17,6 +17,14 @@
   @include respond(tablet-666) {
     grid-template-columns: max-content max-content;
     justify-content: space-between;
+    height: 7rem;
+  }
+}
+
+.clearFix {
+  height: 8.05rem;
+
+  @include respond(tablet-666) {
     height: 7rem;
   }
 }
