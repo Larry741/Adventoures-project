@@ -105,12 +105,32 @@ body {
 }
 
 .secondaryText {
-  font-size: 2rem !important;
+  font-size: 2.5rem;
+
+  @include respond(desktop-1400) {
+    font-size: 2.3rem;
+  }
+  @include respond(laptop-1024) {
+    font-size: 2.1rem;
+  }
+  @include respond(notebook-768) {
+    font-size: 2rem;
+  }
 }
 
 .secondaryText-bold {
-  font-size: 2rem !important;
+  font-size: 2.5rem !important;
   font-weight: 600 !important;
+
+   @include respond(desktop-1400) {
+    font-size: 2.3rem;
+  }
+  @include respond(laptop-1024) {
+    font-size: 2.1rem;
+  }
+  @include respond(notebook-768) {
+    font-size: 2rem;
+  }
 }
 
 .tertiaryText {

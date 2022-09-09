@@ -152,7 +152,7 @@ const AuthForm = () => {
         <div className={classes.row}>
           <div className={classes.image}></div>
           <form className={classes.form}>
-            <h1 className="heading__secondary-2">
+            <h1 className="secondaryText-bold">
               {isLogin ? "LOGIN" : "SIGN UP"}
             </h1>
             {!isLogin && (
