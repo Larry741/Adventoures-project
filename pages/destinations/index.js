@@ -2,13 +2,11 @@ import DestinationsComponent from '../../components/Destinations/DestinationsCom
 
 import classes from "./index.module.scss";
 import { renderData } from "../../pages/_app";
-import Navbar from '../../components/Header/Navbar/Navbar';
 
 const DestinationsPage = () => {
 
   return (
     <>
-      <Navbar />
       <section className={classes.clear} />
       <section>
         <h2 className='center'>All Destinations</h2>
