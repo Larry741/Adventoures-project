@@ -10,6 +10,7 @@
   align-items: center;
   font-family: "Merienda";
   font-weight: normal;
+  overflow: hidden;
 
   @include respond(notebook-768) {
     top: 58%;
