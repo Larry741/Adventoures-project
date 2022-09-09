@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { RiCopyrightLine } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 import FooterContent from "./FooterDetails/FooterContent";
+import WidthContext from "../store/width-context"
 
 import classes from './Footer.module.scss';
 import image1 from "../../public/img/facebook-icon.png";
@@ -65,6 +66,7 @@ const Footer = () => {
     image2: false,
     image3: false
   });
+  const { docWidth } = useContext(WidthContext);
 
   const revertImageUrlHandler = (event) => {
     const eventTarget = event.target.id;
@@ -151,8 +153,8 @@ const Footer = () => {
               <a>
                 <Image
                   id="right1"
-                  width={30}
-                  height={30}
+                  width={docWidth < 588 ? 20 : 30}
+                  height={docWidth < 588 ? 20 : 30}
                   src={!imageWasHovered.image1 ? image1 : image1b}
                   alt="facebook-icon"
                 />
@@ -167,8 +169,8 @@ const Footer = () => {
               <a>
                 <Image
                   id="right2"
-                  width={30}
-                  height={30}
+                  width={docWidth < 588 ? 20 : 30}
+                  height={docWidth < 588 ? 20 : 30}
                   src={!imageWasHovered.image2 ? image2 : image2b}
                   alt="twitter-icon"
                 />

@@ -43,6 +43,9 @@
       grid-template-columns: 35rem 21rem 35rem 21rem 35rem 21rem;
       grid-template-rows: repeat(2, 14rem);
     }
+    @include respond(tablet-480) {
+      padding: 0 2rem 1rem 1rem;
+    }
 
     // &::-webkit-scrollbar {
     //   height: 2rem;
