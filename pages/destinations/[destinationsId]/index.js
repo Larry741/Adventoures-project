@@ -4,13 +4,11 @@ import { renderData } from "../../_app";
 
 import classes from './index.module.scss';
 import image from "../../../public/img/Destination__amazon.jpg";
-import Navbar from "../../../components/Header/Navbar/Navbar";
 
 const DestinationDetail = (props) => {
   
   return (
     <>
-      <Navbar />
       <section className={classes.clear} />
       <section>
         <h1 className="center margin-b-medium">{props.destination}</h1>
