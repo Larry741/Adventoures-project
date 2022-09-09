@@ -122,7 +122,7 @@
 
 #box-2,
 #box-3 {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: .5rem 1rem;
   flex-basis: 21%;
   flex-shrink: 0;
   display: flex;
@@ -131,14 +131,14 @@
   align-items: center;
 
   @include respond(notebook-974) {
-    padding: 1rem 0.5rem 1rem 0.5rem;
+    padding: 0.5rem;
     flex-basis: 20%;
   }
   @include respond(tablet-666) {
     flex-basis: 18%;
   }
   @include respond(tablet-553) {
-    padding: 1rem 0.2rem 1rem 0.2rem;
+    padding: .5rem 0.2rem .5rem 0.2rem;
     flex-basis: 34%;
   }
 }

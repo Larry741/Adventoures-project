@@ -196,7 +196,7 @@ const HeaderForm = () => {
         <form
           id="form"
           style={{ backgroundColor: formIsActive ? "#EAEAEA" : "" }}
-          className={`${classes["form"]} mediumSmallText`}
+          className={`${classes["form"]} smaller-text`}
           action=""
           method="post"
         >

@@ -30,10 +30,10 @@ body {
 }
 
 [class~="heading__primary"] {
-  font-size: 3.8rem;
+  font-size: 3.2rem;
 
   @include respond(notebook-974) {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
   @include respond(notebook-768) {
     font-size: 2.5rem;
@@ -373,7 +373,7 @@ div[class="clearfix"]::after {
 
 .btn {
   // font-family: Georgia, 'verdana', serif;
-  padding: 1.6rem 2.3rem;
+  padding: 1.3rem 1.6rem;
   border: none;
   border-radius: 4.5rem;
   transition: all 0.2s ease;
@@ -384,10 +384,10 @@ div[class="clearfix"]::after {
   text-decoration: none;
 
   @include respond(notebook-974) {
-    padding: 1.6rem 2rem;
+    // padding: 1.6rem 2rem;
   }
   @include respond(notebook-768) {
-    padding: 1.4rem 1.4rem;
+    padding: 1.3rem 1.4rem;
   }
   @include respond(tablet-530) {
     padding: 1rem 1.2rem;
