@@ -53,10 +53,10 @@
     }
 
     & a:last-of-type {
-      color: $color-primary2;
+      color: $color-secondary-dark;
     }
     & a:hover:not(a:last-of-type) {
-      color: $color-primary2;
+      color: $color-secondary-dark;
     }
   }
 
