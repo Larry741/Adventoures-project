@@ -253,17 +253,18 @@ const HeaderFormCalender = (props) => {
       <div className={classes["calendar-header"]}>
         <span
           onClick={pickMonthHandler}
-          className={classes["month-picker"]}
+          className={`${classes["month-picker"]} heading__tertiary`}
           id={id === "cal1" ? "month-picker-1" : "month-picker-2"}
-        >
-        </span>
+        ></span>
         <div className={`${classes["year-picker"]} heading__tertiary`}>
           <span
             onClick={preYearChangeHandler}
             className={classes["year-change"]}
             id={id === "cal1" ? "prev-year-1" : "prev-year-2"}
           >
-            <pre><BsChevronLeft /></pre>
+            <pre>
+              <BsChevronLeft />
+            </pre>
           </span>
           <span id={id === "cal1" ? "year-1" : "year-2"}>2021</span>
           <span
@@ -271,7 +272,9 @@ const HeaderFormCalender = (props) => {
             className={classes["year-change"]}
             id={id === "cal1" ? "next-year-1" : "next-year-2"}
           >
-            <pre><BsChevronRight /></pre>
+            <pre>
+              <BsChevronRight />
+            </pre>
           </span>
         </div>
       </div>

@@ -16,6 +16,7 @@ const HomePage = () => {
           name="description"
           content="Visit anywhere in the world, your only limitation is your imagination"
         />
+        <link rel="icon" href="/logo-black.png" />
       </Head>
       <Header />
       <Destinations />

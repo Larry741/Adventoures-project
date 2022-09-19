@@ -10,6 +10,9 @@
   @include respond(notebook-768) {
     top: 75%;
   }
+  @include respond(phones-420) {
+    top: 72%;
+  }
 
   & a {
     display: inline-block;

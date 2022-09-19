@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   user-select: none;
-  z-index: 17;
+  z-index: 100;
   background-color: rgba($color: $color-secondary-dark, $alpha: 0.95);
 
   @include respond(tablet-666) {
@@ -42,16 +42,16 @@
     display: flex;
     align-items: flex-end;
     position: relative;
-    width: 7rem;
-    height: 7rem;
+    width: 8.5rem;
+    height: 6rem;
 
     @include respond(notebook-768) {
-      height: 6rem;
-      width: 6rem;
+      width: 8rem;
+      height: 5.5rem;
     }
     @include respond(tablet-480) {
-      height: 5rem;
-      width: 5rem;
+      height: 4.5rem;
+      width: 6.5rem;
     }
   }
 }

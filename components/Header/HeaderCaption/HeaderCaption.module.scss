@@ -11,6 +11,9 @@
   font-family: "Merienda";
   font-weight: normal;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content;
 
   @include respond(notebook-768) {
     top: 58%;
@@ -18,9 +21,14 @@
   @include respond(tablet-560) {
     top: 60%;
   }
+  @include respond(phones-420) {
+    top: 55%;
+    gap: .3rem;
+  }
 }
 
 .header__heading {
+  text-align: center;
   display: inline-block;
   padding: 0 .3rem;
   color: transparent;
@@ -31,6 +39,7 @@
 }
 
 .header__heading-2 {
+  text-align: center;
   display: inline-block;
   padding: 0 .3rem;
   color: transparent;

@@ -2,7 +2,6 @@
   position: relative;
   height: max-content;
   width: 100%;
-  // background-color: $color-white2;
   padding: 10px;
   overflow: hidden;
   z-index: 20;
@@ -20,8 +19,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 25px;
-  // font-weight: 600;
+  // font-size: 25px;
+  font-weight: 900;
   color: $color-black-2;
   padding: 2px 10px 10px 10px;
 
@@ -52,6 +51,10 @@
   color: var(--color-txt);
   justify-items: center;
   align-items: center;
+
+  @include respond(tablet-589) {
+    grid-template-columns: repeat(7, max-content);
+  }
 }
 
 .calendar-days div {
@@ -70,12 +73,12 @@
     height: 40px;
   }
   @include respond(notebook-768) {
-    width: 100%;
-    // height: max-content;
-  }
-  @include respond(tablet-553) {
+    width: 35px;
     height: 35px;
   }
+  // @include respond(tablet-553) {
+  //   height: 35px;
+  // }
 }
 
 .calendar-days div span {
