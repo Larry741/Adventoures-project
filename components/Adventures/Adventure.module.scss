@@ -4,7 +4,7 @@
   position: relative;
   z-index: 3;
   line-height: 1.7;
-  padding: .5rem 1rem 0;
+  padding: 0.5rem 1rem 0;
 
   & .design {
     height: 35rem;
@@ -70,7 +70,7 @@
     padding: 1.5rem 0 2.5rem 0;
     gap: 2rem;
     z-index: 1000;
-    transition: .7s ease-in-out;
+    transition: 0.7s ease-in-out;
 
     @supports (-webkit-touch-callout: none) and (not (translate: none)) {
       & > *:not(:last-child) {
@@ -146,10 +146,19 @@
       grid-template-columns: repeat(4, 7rem);
       gap: 1rem;
     }
+    @include respond(phones-320) {
+      grid-template-columns: repeat(3, 7rem);
+    }
 
     &-rounded {
       border-radius: 50rem;
     }
+  }
+}
+
+.box4 {
+  @include respond(phones-320) {
+    display: none;
   }
 }
 
@@ -163,4 +172,8 @@
   @include respond(tablet-666) {
     display: none;
   }
+}
+
+.adventures__awards-box {
+  margin-top: 5rem;
 }
